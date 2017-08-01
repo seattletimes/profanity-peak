@@ -1,6 +1,6 @@
 precision lowp float;
 
-uniform vec3 u_light;
+uniform vec3 u_light_direction;
 uniform vec3 u_light_color;
 uniform float u_light_intensity;
 uniform float u_time;
@@ -24,7 +24,7 @@ void main() {
   float fogDistance = 16.0;
   float shade = v_position.y;
   vec3 normal = normalize(v_normal);
-  vec3 lightDirection = normalize(u_light);
+  vec3 lightDirection = normalize(u_light_direction);
   float facing = max(dot(normal, lightDirection), 0.0);
   vec3 diffuse = u_light_color * facing;
   vec3 mountain = mix(valley, peak, smoothstep(.55, .8, v_position.y));
