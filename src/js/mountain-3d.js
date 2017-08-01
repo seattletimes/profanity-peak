@@ -1,5 +1,7 @@
 // some control constants
 const HEIGHTMAP_SCALE = 1.0;
+const HEIGHTMAP_DENSITY = 255;
+const HEIGHTMAP_SIZE = 24;
 
 var { mat4, vec3, vec4 } = require("gl-matrix");
 
@@ -9,11 +11,8 @@ canvas.height = canvas.offsetHeight;
 var gl = canvas.getContext("webgl");
 window.gl = gl;
 
-// depth-testing means we don't have to worry about rendering order, GL will track it for us.
 gl.enable(gl.DEPTH_TEST);
-// this removes (does not render) back-facing triangles
 gl.enable(gl.CULL_FACE);
-// gl.clearColor(1.0, .5, 0, 1);
 gl.clear(gl.DEPTH_BUFFER_BIT | gl.COLOR_BUFFER_BIT);
 
 var configProgram = require("./gl-program");
@@ -62,9 +61,9 @@ bitmap.onload = function(e) {
   
   // create the plane
   // points along each axis
-  var interval = 256;
+  var interval = HEIGHTMAP_DENSITY;
   // size in scene units
-  var size = 24;
+  var size = HEIGHTMAP_SIZE;
   var verts = new Array(interval ** 2 * 3);
   var color = new Array(interval ** 2 * 3);
   var normals = new Array(interval ** 2 * 3);
@@ -138,6 +137,7 @@ bitmap.onload = function(e) {
   requestAnimationFrame(render);
 }
 
+var meshes = [landscape];
 
 var render = function(time) {
 
@@ -178,7 +178,7 @@ var render = function(time) {
   gl.uniformMatrix4fv(program.uniforms.u_camera, false, gaze);
   
   // now render the landscape
-  drawElements(landscape);
+  meshes.forEach(mesh => drawElements(mesh));
   
   requestAnimationFrame(render);
 };
