@@ -30,7 +30,22 @@ var camera = {
   position: [10, 10, 10],
   target: [0, 0, 0],
   up: [0, 1, 0],
-  perspective: mat4.create()
+  perspective: mat4.create(),
+  tracking: null,
+  reposition: function(duration, position, target) {
+    this.tracking = {
+      start: Date.now(),
+      duration,
+      from: {
+        position: this.position.slice(),
+        target: this.target.slice()
+      },
+      to: {
+        position: position || this.position.slice(),
+        target: target || this.target.slice()
+      }
+    };
+  }
 };
 
 mat4.identity(camera.perspective);
@@ -38,6 +53,8 @@ mat4.perspective(camera.perspective, 45 * Math.PI / 180, canvas.width / canvas.h
 
 var ElementMesh = require("./element");
 var landscape = new ElementMesh(gl);
+landscape.position.x = -122;
+landscape.position.z = 48;
 
 var bitmap = new Image();
 bitmap.src = "./assets/cropped.jpg";
@@ -138,12 +155,18 @@ bitmap.onload = function(e) {
 }
 
 var meshes = [landscape];
+camera.target = [landscape.position.x, landscape.position.y, landscape.position.z];
+camera.position = [landscape.position.x + 10, 3, landscape.position.z + 10];
+
+canvas.addEventListener("click", function() {
+  camera.reposition(
+    1000,
+    [landscape.position.x + Math.random() * 16, 3 + Math.random(), landscape.position.z + Math.random() * 16]
+  );
+});
 
 var render = function(time) {
-
-  // pass in a tick that can be used for time-based effects
-  time *= 0.001;
-  gl.uniform1f(program.uniforms.u_time, time);
+  gl.uniform1f(program.uniforms.u_time, time *= 0.001);
   
   // clear the canvas, but also the depth buffer
   canvas.width = canvas.clientWidth;
@@ -151,12 +174,18 @@ var render = function(time) {
   gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
   gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
   
-  // the camera pans in a circle around the scene origin
-  camera.position = [
-    Math.sin(time * .2) * 16,
-    3,
-    Math.cos(time * .2) * 16
-  ];
+  if (camera.tracking) {
+    var elapsed = Date.now() - camera.tracking.start;
+    var delta = elapsed / camera.tracking.duration;
+    if (delta >= 1) {
+      camera.tracking = null;
+    } else {
+      var from = camera.tracking.from;
+      var to = camera.tracking.to;
+      vec3.lerp(camera.position, from.position, to.position, delta);
+      vec3.lerp(camera.target, from.target, to.target, delta);
+    }
+  }
   
   // Global diffuse lighting (the "sun" for this scene)
   var light = [.5, .5, 0];
