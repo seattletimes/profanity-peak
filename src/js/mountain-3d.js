@@ -4,6 +4,7 @@ const HEIGHTMAP_DENSITY = 255;
 const HEIGHTMAP_SIZE = 24;
 
 var { mat4, vec3, vec4 } = require("gl-matrix");
+var $ = require("./lib/qsa");
 
 var canvas = document.querySelector("canvas");
 canvas.width = canvas.offsetWidth;
@@ -155,8 +156,8 @@ bitmap.onload = function(e) {
 }
 
 var meshes = [landscape];
-camera.target = [landscape.position.x, landscape.position.y, landscape.position.z];
-camera.position = [landscape.position.x + 10, 3, landscape.position.z + 10];
+camera.target = [landscape.position.x, landscape.position.y + 20, landscape.position.z];
+camera.position = [landscape.position.x + 10, 10, landscape.position.z + 10];
 
 canvas.addEventListener("click", function() {
   camera.reposition(
@@ -182,8 +183,9 @@ var render = function(time) {
     } else {
       var from = camera.tracking.from;
       var to = camera.tracking.to;
-      vec3.lerp(camera.position, from.position, to.position, delta);
-      vec3.lerp(camera.target, from.target, to.target, delta);
+      var eased = Math.sin(delta * Math.PI * .5);
+      vec3.lerp(camera.position, from.position, to.position, eased);
+      vec3.lerp(camera.target, from.target, to.target, eased);
     }
   }
   
@@ -235,3 +237,33 @@ var drawElements = function(mesh) {
   gl.drawElements(gl.TRIANGLES, mesh.index.length, gl.UNSIGNED_SHORT, 0);
 };
 
+var stage = 0;
+var repo = {
+  1: {
+    position: [landscape.position.x + 16, 7, landscape.position.z],
+    target: [landscape.position.x, landscape.position.y, landscape.position.z]
+  },
+  2: {
+    position: [landscape.position.x + 4, 3, landscape.position.z + 16],
+    target: [landscape.position.x + 6, landscape.position.y, landscape.position.z]
+  },
+  3: {
+    target: [landscape.position.x - 4, landscape.position.y, landscape.position.z - 3]
+  }
+};
+
+var stageElements = $(".stage");
+window.addEventListener("scroll", function() {
+  for (var i = 0; i < stageElements.length; i++) {
+    var bounds = stageElements[i].getBoundingClientRect();
+    if (bounds.top > 0 && bounds.bottom > 0) {
+      var choice = stageElements[i].getAttribute("data-stage");
+      if (stage == choice) return;
+      var placement = repo[choice];
+      if (!placement) return;
+      camera.reposition(3000, placement.position, placement.target);
+      stage = choice;
+      return;
+    }
+  }
+})
