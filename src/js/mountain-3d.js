@@ -3,6 +3,14 @@ const HEIGHTMAP_SCALE = 1.0;
 const HEIGHTMAP_DENSITY = 255;
 const HEIGHTMAP_SIZE = 24;
 
+const MAP_BOUNDS = [[48.8532,-118.6259], [48.52163, -118.1260]];
+const MAP_EXTENT = [MAP_BOUNDS[0][0] - MAP_BOUNDS[1][0], MAP_BOUNDS[0][1] - MAP_BOUNDS[1][1]];
+const MAP_CENTER = [
+  MAP_BOUNDS[0][0] + MAP_EXTENT[0] * .5,
+  MAP_BOUNDS[0][1] + MAP_EXTENT[1] * .5
+];
+const LATLNG_SCALE = 1000;
+
 var { mat4, vec3, vec4 } = require("gl-matrix");
 var $ = require("./lib/qsa");
 
@@ -61,8 +69,8 @@ window.addEventListener("resize", () => camera.configure());
 
 var ElementMesh = require("./element");
 var landscape = new ElementMesh(gl);
-landscape.position.x = -122;
-landscape.position.z = 48;
+landscape.position.x = MAP_CENTER[1];
+landscape.position.z = MAP_CENTER[0];
 
 var bitmap = new Image();
 bitmap.src = "./assets/cropped.jpg";
