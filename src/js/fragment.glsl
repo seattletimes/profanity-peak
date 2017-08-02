@@ -20,7 +20,7 @@ void main() {
   vec3 valley = vec3(29.0, 48.0, 22.0) / 255.0;
 
   float fogDistance = 16.0;
-  float fogDepth = 2.0;
+  float fogDepth = 16.0;
 
   float shade = v_position.y;
   vec3 normal = normalize(v_normal);
@@ -30,6 +30,6 @@ void main() {
   vec3 mountain = mix(valley, peak, smoothstep(.55, .8, v_position.y));
   vec3 color = mountain * shade;// * (noise(v_screenspace.xy) * 0.1 + 0.9);
   vec3 pixel = clamp(color + diffuse * u_light_intensity, 0.0, 1.0);
-  vec3 fogged = mix(pixel, vec3(1.0), smoothstep(fogDistance, fogDistance * fogDepth, v_screenspace.z));
+  vec3 fogged = mix(pixel, vec3(1.0), smoothstep(fogDistance, fogDistance + fogDepth, v_screenspace.z));
   gl_FragColor = vec4(fogged, 1.0);
 }
