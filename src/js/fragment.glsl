@@ -18,8 +18,6 @@ float noise(vec2 seed) {
 void main() {
   vec3 peak = vec3(81.0, 77.0, 72.0) / 255.0;
   vec3 valley = vec3(29.0, 48.0, 22.0) / 255.0;
-  // peak = vec3(1.0, 0.0, 0.0);
-  // valley = vec3(0.0, 0.0, 1.0);
 
   float fogDistance = 16.0;
   float shade = v_position.y;
@@ -28,8 +26,8 @@ void main() {
   float facing = max(dot(normal, lightDirection), 0.0);
   vec3 diffuse = u_light_color * facing;
   vec3 mountain = mix(valley, peak, smoothstep(.55, .8, v_position.y));
-  vec3 color = mountain * shade * (noise(v_screenspace.xy) * 0.1 + 0.9);
+  vec3 color = mountain * shade;// * (noise(v_screenspace.xy) * 0.1 + 0.9);
   vec3 pixel = clamp(color + diffuse * u_light_intensity, 0.0, 1.0);
-  vec3 fogged = mix(pixel, vec3(1.0), smoothstep(fogDistance, fogDistance * 2.0, v_screenspace.z));
+  vec3 fogged = mix(pixel, vec3(1.0), smoothstep(fogDistance, fogDistance * 1.5, v_screenspace.z));
   gl_FragColor = vec4(fogged, 1.0);
 }

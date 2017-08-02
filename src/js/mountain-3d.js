@@ -46,11 +46,18 @@ var camera = {
         target: target || this.target.slice()
       }
     };
+  },
+  configure: function() {
+    canvas.width = canvas.clientWidth;
+    canvas.height = canvas.clientHeight;
+    mat4.perspective(camera.perspective, 45 * Math.PI / 180, canvas.width / canvas.height, .1, 300);
   }
 };
 
 mat4.identity(camera.perspective);
 mat4.perspective(camera.perspective, 45 * Math.PI / 180, canvas.width / canvas.height, .1, 300);
+
+window.addEventListener("resize", () => camera.configure());
 
 var ElementMesh = require("./element");
 var landscape = new ElementMesh(gl);

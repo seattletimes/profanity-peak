@@ -2,7 +2,7 @@
   "s3": {
     "stage": {
       "bucket": "projects-staging.seattletimes.com",
-      "path": ""
+      "path": "dorsal-curse"
     },
     "live": {
       "bucket": "projects.seattletimes.com",

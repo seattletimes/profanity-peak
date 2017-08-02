@@ -6,11 +6,7 @@
   </head>
   <body>
 
-    <canvas></canvas>
-
-    <div class="stage" style="background: salmon" data-stage="1"></div>
-    <div class="stage" style="background: rebeccapurple" data-stage="2"></div>
-    <div class="stage" style="background: seagreen" data-stage="3"></div>
+    <%= t.include("_mountain.html") %>
 
     <script src="app.js" async></script>
     <% if (json.project.production) { %>
