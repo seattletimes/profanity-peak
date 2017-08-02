@@ -8,6 +8,9 @@
 
     <%= t.include("_mountain.html") %>
 
+    <script>
+window.depredationData = <%= JSON.stringify(csv.depredation) %>;
+    </script>
     <script src="app.js" async></script>
     <% if (json.project.production) { %>
     <%= !json.project.embedded ? t.include("partials/_analytics.html") : "" %>

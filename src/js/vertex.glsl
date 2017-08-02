@@ -20,4 +20,5 @@ void main() {
   v_normal = normalize(a_normal);
   v_screenspace = u_perspective * u_camera * u_position * vec4(a_position, 1.0);
   gl_Position = v_screenspace;
+  gl_PointSize = 10.0;
 }
