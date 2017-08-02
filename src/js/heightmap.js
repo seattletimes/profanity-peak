@@ -1,30 +1,24 @@
 var { vec3 } = require("gl-matrix");
 
-module.exports = function(image, interval, size) {
-  var heightmap = document.createElement("canvas");
-  var context = heightmap.getContext("2d");
-  heightmap.width = image.width;
-  heightmap.height = image.height;
+var HeightMap = function(image, interval, size) {
+  this.image = image;
+
+  //extract image data
+  var canvas = document.createElement("canvas");
+  var context = canvas.getContext("2d");
+  canvas.width = image.width;
+  canvas.height = image.height;
   context.drawImage(image, 0, 0, image.width, image.height);
-  var imageData = context.getImageData(0, 0, image.width, image.height);
-  
-  // image pixels are addressed in UV coordinates, ranging from 0,0 to 1,1
-  var getPixel = function(x, y) {
-    if (x > 1 || x < 0 || y > 1 || y < 0) return [255, 255, 255, 0];
-    x = Math.floor(x * (image.width - 1));
-    y = Math.floor(y * (image.height - 1));
-    var index = (y * image.height + x) * 4;
-    return imageData.data.slice(index, index + 4);
-  };
+  var imageData = this.imageData = context.getImageData(0, 0, image.width, image.height);
   
   // create the plane
-  var verts = new Array(interval ** 2 * 3);
-  var color = new Array(interval ** 2 * 3);
-  var normals = new Array(interval ** 2 * 3);
+  var verts = this.verts = new Array(interval ** 2 * 3);
+  var color = this.color = new Array(interval ** 2 * 3);
+  var normals = this.normals = new Array(interval ** 2 * 3);
   // polys along each axis
   var edges = interval - 1;
   // element index buffer
-  var index = new Array((edges ** 2) * 6);
+  var index = this.index = new Array((edges ** 2) * 6);
   
   //generate vertex data
   for (var x = 0; x < interval; x++) {
@@ -32,7 +26,7 @@ module.exports = function(image, interval, size) {
       var i = ((x * interval + z) * 3);
       var u = x / (interval - 1);
       var v = z / (interval - 1);
-      var pixel = getPixel(u, v);
+      var pixel = this.getPixel(u, v);
       
       //set the height at x/y
       var height = pixel[0] / 255;
@@ -42,10 +36,10 @@ module.exports = function(image, interval, size) {
       
       //  approximate normal from neighboring pixels
       var offset = 1 / (interval - 1);
-      var nL = getPixel(u - offset, v)[0] / 255;
-      var nR = getPixel(u + offset, v)[0] / 255;
-      var nU = getPixel(u, v - offset)[0] / 255;
-      var nD = getPixel(u, v + offset)[0] / 255;
+      var nL = this.getPixel(u - offset, v)[0] / 255;
+      var nR = this.getPixel(u + offset, v)[0] / 255;
+      var nU = this.getPixel(u, v - offset)[0] / 255;
+      var nD = this.getPixel(u, v + offset)[0] / 255;
       var n = vec3.fromValues(nL - nR, .5, nD - nU);
       normals[i] = n[0];
       normals[i+1] = n[1];
@@ -71,6 +65,17 @@ module.exports = function(image, interval, size) {
       index[k+5] = corner + interval;
     }
   }
+};
 
-  return { index, normals, color, verts };
+HeightMap.prototype = {
+  // image pixels are addressed in UV coordinates, ranging from 0,0 to 1,1  
+  getPixel: function(x, y) {
+    if (x > 1 || x < 0 || y > 1 || y < 0) return [255, 255, 255, 0];
+    x = Math.floor(x * (this.image.width - 1));
+    y = Math.floor(y * (this.image.height - 1));
+    var index = (y * this.image.height + x) * 4;
+    return this.imageData.data.slice(index, index + 4);
+  }
 }
+
+module.exports = HeightMap;
