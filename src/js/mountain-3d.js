@@ -12,7 +12,6 @@ const MAP_CENTER = [
   MAP_BOUNDS[0][0] + MAP_EXTENT[0] * .5,
   MAP_BOUNDS[0][1] + MAP_EXTENT[1] * .5
 ];
-const LATLNG_SCALE = 1000;
 
 var { mat4, vec3, vec4 } = require("gl-matrix");
 var $ = require("./lib/qsa");
@@ -34,8 +33,21 @@ var configProgram = require("./gl-program");
 var polyProgram = configProgram(gl, {
   vertex: require("./vertex.glsl"),
   fragment: require("./fragment.glsl"),
-  attributes: "a_color a_normal a_position".split(" "),
-  uniforms: "u_perspective u_camera u_position u_light_direction u_light_color u_light_intensity u_time".split(" ")
+  attributes: [
+    "a_color",
+    "a_normal",
+    "a_position"
+  ],
+  uniforms: [
+    "u_perspective",
+    "u_camera",
+    "u_position",
+    "u_light_direction",
+    "u_light_color",
+    "u_light_intensity",
+    "u_time",
+    "u_false_color"
+  ]
 });
 
 var pointProgram = configProgram(gl, {
@@ -174,6 +186,9 @@ var render = function(time) {
   // `gaze` moves the world in front of the camera
   gl.uniformMatrix4fv(polyProgram.uniforms.u_perspective, false, camera.perspective);
   gl.uniformMatrix4fv(polyProgram.uniforms.u_camera, false, gaze);
+
+  // set false coloring uniform
+  gl.uniform1f(polyProgram.uniforms.u_false_color, 0.0);
   
   // now render the landscape
   meshes.forEach(mesh => drawElements(mesh));

@@ -1,5 +1,8 @@
 var { vec3 } = require("gl-matrix");
 
+const HEIGHT = 0;
+const HEAT = 2;
+
 var HeightMap = function(image, interval, size) {
   this.image = image;
 
@@ -13,7 +16,7 @@ var HeightMap = function(image, interval, size) {
   
   // create the plane
   var verts = this.verts = new Array(interval ** 2 * 3);
-  var color = this.color = new Array(interval ** 2 * 3);
+  var color = this.color = new Array(interval ** 2);
   var normals = this.normals = new Array(interval ** 2 * 3);
   // polys along each axis
   var edges = interval - 1;
@@ -29,28 +32,30 @@ var HeightMap = function(image, interval, size) {
       var pixel = this.getPixel(u, v);
       
       //set the height at x/y
-      var height = pixel[0] / 255;
+      //red pixels are used to set height
+      var height = pixel[HEIGHT] / 255;
       verts[i] = x / (interval - 1) * size - (size / 2);
       verts[i+1] = height;
       verts[i+2] = z / (interval - 1) * size - (size / 2);
       
       //  approximate normal from neighboring pixels
       var offset = 1 / (interval - 1);
-      var nL = this.getPixel(u - offset, v)[0] / 255;
-      var nR = this.getPixel(u + offset, v)[0] / 255;
-      var nU = this.getPixel(u, v - offset)[0] / 255;
-      var nD = this.getPixel(u, v + offset)[0] / 255;
+      var nL = this.getPixel(u - offset, v)[HEIGHT] / 255;
+      var nR = this.getPixel(u + offset, v)[HEIGHT] / 255;
+      var nU = this.getPixel(u, v - offset)[HEIGHT] / 255;
+      var nD = this.getPixel(u, v + offset)[HEIGHT] / 255;
       var n = vec3.fromValues(nL - nR, .5, nD - nU);
       normals[i] = n[0];
       normals[i+1] = n[1];
       normals[i+2] = n[2];
       
-      // generate colors
-      color[i] = .2;
-      color[i+1] = 1;//z % 2;
-      color[i+2] = .5;
+      // generate false coloring (heatmap)
+      // blue pixels are used for this
+      color[i / 3] = 1 - pixel[HEAT] / 255;
     }
   }
+
+  console.log(color.slice(0, 1000));
   
   //generate index list
   for (var i = 0; i < edges; i++) {

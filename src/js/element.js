@@ -8,7 +8,7 @@ var ElementMesh = function(gl) {
   this.attributes = {
     a_position: { buffer: gl.createBuffer(), size: 3, length: 0 },
     a_normal: { buffer: gl.createBuffer(), size: 3, length: 0 },
-    a_color: { buffer: gl.createBuffer(), size: 3, length: 0 }
+    a_color: { buffer: gl.createBuffer(), size: 1, length: 0 }
   };
   this.index = { buffer: gl.createBuffer(), length: 0 }
 };
