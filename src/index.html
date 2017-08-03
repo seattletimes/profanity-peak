@@ -6,6 +6,8 @@
   </head>
   <body>
 
+    <%= t.include("partials/_nav.html") %>
+
     <header class="splash">
 
     </header>
@@ -17,6 +19,8 @@
         </div>
       </section>
     </main>
+
+    <%= t.include("partials/_navBottom.html") %>
 
     <script>
 window.depredationData = <%= JSON.stringify(csv.depredation) %>;
