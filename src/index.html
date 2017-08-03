@@ -6,7 +6,17 @@
   </head>
   <body>
 
-    <%= t.include("_mountain.html") %>
+    <header class="splash">
+
+    </header>
+
+    <main class="content">
+      <section class="whiteout">
+        <div class="constrained">
+        <%= markdown.story %>
+        </div>
+      </section>
+    </main>
 
     <script>
 window.depredationData = <%= JSON.stringify(csv.depredation) %>;

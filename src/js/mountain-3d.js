@@ -144,15 +144,8 @@ bitmap.onload = function(e) {
 }
 
 var meshes = [landscape];
-camera.target = [landscape.position.x, landscape.position.y + 20, landscape.position.z];
-camera.position = [landscape.position.x + 10, 10, landscape.position.z + 10];
-
-canvas.addEventListener("click", function() {
-  camera.reposition(
-    1000,
-    [landscape.position.x + Math.random() * 16, 3 + Math.random(), landscape.position.z + Math.random() * 16]
-  );
-});
+camera.target = [landscape.position.x, landscape.position.y + 16, landscape.position.z];
+camera.position = [landscape.position.x - 10, 10, landscape.position.z - 10];
 
 // Global diffuse lighting (the "sun" for this scene)
 var light = [.3, .3, .7];
@@ -279,7 +272,7 @@ var repo = {
 var onScroll = function() {
   for (var i = 0; i < stageElements.length; i++) {
     var bounds = stageElements[i].getBoundingClientRect();
-    if (bounds.top > 0 && bounds.bottom > 0) {
+    if (bounds.top > 0 && bounds.top < window.innerHeight && bounds.bottom > 0) {
       var choice = stageElements[i].getAttribute("data-stage");
       if (stage == choice) return;
       var placement = repo[choice];

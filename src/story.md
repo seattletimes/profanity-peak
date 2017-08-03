@@ -64,6 +64,12 @@ In a letter of concern also written to his file, Wielgus was instructed to have 
 
 But Wielgus, who received tenure from WSU in October, 28, 2016, would not remain quiet about what happened for long. And state records reveal WDFW shares part of the blame for the fate of the Profanity Peak Pack.
 
+<?
+</div></section>
+    <%= t.include("_mountain.html") %>
+<section class="whiteout"><div class="constrained">
+?>
+
 State biologists collared wolves in the Profanity Peak pack on June 9 and 12, just as McIrvin turned out his cattle on June 9. The department knew the cattle were overlapping the wolves’ territory -- not unusual, or problematic in Washington, where wolves typically share the landscape with livestock without incident. By the end of June, the department knew where the den site was, too -- about four miles from where McIrvin had turned out his cattle -- but didn’t tell him.
 
 McIrvin has held permits to graze the Colville National Forest for 73 years. He turned out 198 cows with calves on one of five allotments he uses, just as in the past. McIrvin said in an interview he did not know that his cattle were drifting toward the den of the Profanity Peak pack. The wolves, burned out of their territory in the 2015 Stickpin Fire, had moved their den that year into the heart of Colville National Forest, overlapping multiple grazing allotments used by McIrvin and other ranchers.
