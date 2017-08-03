@@ -5,6 +5,7 @@ uniform vec3 u_light_color;
 uniform float u_light_intensity;
 uniform float u_time;
 uniform float u_false_color;
+uniform float u_wireframe;
 
 varying vec4 v_screenspace;
 varying vec3 v_position;
@@ -17,6 +18,11 @@ float noise(vec2 seed) {
 }
 
 void main() {
+  if (u_wireframe == 1.0) {
+    gl_FragColor = vec4(0.5, 0.5, 0.5, 1.0);
+    return;
+  }
+
   vec3 peak = vec3(81.0, 77.0, 72.0) / 255.0;
   vec3 valley = vec3(29.0, 48.0, 22.0) / 255.0;
   vec3 heat = vec3(1.0, 0.0, 0.0);

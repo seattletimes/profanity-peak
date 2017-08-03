@@ -13,6 +13,9 @@ const MAP_CENTER = [
   MAP_BOUNDS[0][1] + MAP_EXTENT[1] * .5
 ];
 
+const WIREFRAME = 0;
+const DOWNSCALE = 1;
+
 var { mat4, vec3, vec4 } = require("gl-matrix");
 var $ = require("./lib/qsa");
 
@@ -46,15 +49,22 @@ var polyProgram = configProgram(gl, {
     "u_light_color",
     "u_light_intensity",
     "u_time",
-    "u_false_color"
+    "u_false_color",
+    "u_wireframe"
   ]
 });
 
 var pointProgram = configProgram(gl, {
   vertex: require("./vertex.glsl"),
   fragment: require("./pointFrag.glsl"),
-  attributes: "a_position".split(" "),
-  uniforms: "u_perspective u_camera u_position u_time".split(" ")
+  attributes: ["a_position"],
+  uniforms: [
+    "u_perspective",
+    "u_camera",
+    "u_position",
+    "u_time",
+    "u_resolution"
+  ]
 });
 
 var camera = {
@@ -78,14 +88,14 @@ var camera = {
     };
   },
   configure: function() {
-    canvas.width = canvas.clientWidth;
-    canvas.height = canvas.clientHeight;
+    canvas.width = canvas.clientWidth * DOWNSCALE;
+    canvas.height = canvas.clientHeight * DOWNSCALE;
     mat4.perspective(camera.perspective, 45 * Math.PI / 180, canvas.width / canvas.height, .1, 300);
   }
 };
 
 mat4.identity(camera.perspective);
-mat4.perspective(camera.perspective, 45 * Math.PI / 180, canvas.width / canvas.height, .1, 300);
+camera.configure();
 
 window.addEventListener("resize", () => camera.configure());
 
@@ -129,6 +139,7 @@ bitmap.onload = function(e) {
     points.push(px, py, pz);
   });
   
+  onScroll();
   requestAnimationFrame(render);
 }
 
@@ -143,14 +154,25 @@ canvas.addEventListener("click", function() {
   );
 });
 
+// Global diffuse lighting (the "sun" for this scene)
+var light = [.3, .3, .7];
+var lightColor = [0.5, 0.5, 0.5];
+var intensity = .7;
+
+gl.useProgram(polyProgram);
+gl.uniform3fv(polyProgram.uniforms.u_light_direction, light);
+gl.uniform3fv(polyProgram.uniforms.u_light_color, lightColor);
+gl.uniform1f(polyProgram.uniforms.u_light_intensity, intensity);
+
 var render = function(time) {
   gl.useProgram(polyProgram);
 
   gl.uniform1f(polyProgram.uniforms.u_time, time * 0.001);
+  gl.uniform3fv(polyProgram.uniforms.u_resolution, [200, canvas.height, 300]);
   
   // clear the canvas, but also the depth buffer
-  canvas.width = canvas.clientWidth;
-  canvas.height = canvas.clientHeight;
+  canvas.width = canvas.clientWidth * DOWNSCALE;
+  canvas.height = canvas.clientHeight * DOWNSCALE;
   gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
   gl.clear(gl.DEPTH_BUFFER_BIT | gl.COLOR_BUFFER_BIT);
   
@@ -167,15 +189,6 @@ var render = function(time) {
       vec3.lerp(camera.target, from.target, to.target, eased);
     }
   }
-  
-  // Global diffuse lighting (the "sun" for this scene)
-  var light = [.5, .5, 0];
-  var lightColor = [0.5, 0.5, 0.5];
-  var intensity = .7;
-  
-  gl.uniform3fv(polyProgram.uniforms.u_light_direction, light);
-  gl.uniform3fv(polyProgram.uniforms.u_light_color, lightColor);
-  gl.uniform1f(polyProgram.uniforms.u_light_intensity, intensity);
   
   // aim the camera at its target and generate a matrix to "move" the scene in front of the camera
   var gaze = mat4.create();
@@ -196,6 +209,7 @@ var render = function(time) {
   // and render point layers
   gl.useProgram(pointProgram);
   
+  gl.uniform3f(pointProgram.uniforms.u_resolution, canvas.width, canvas.height, 300);
   gl.uniform1f(pointProgram.uniforms.u_time, time * 0.001);
   gl.uniformMatrix4fv(pointProgram.uniforms.u_perspective, false, camera.perspective);
   gl.uniformMatrix4fv(pointProgram.uniforms.u_camera, false, gaze);
@@ -226,7 +240,16 @@ var drawElements = function(mesh) {
   
   // send the index buffer to the GPU to render it
   gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, mesh.index.buffer);
+
+  gl.uniform1f(polyProgram.uniforms.u_wireframe, 0);
   gl.drawElements(gl.TRIANGLES, mesh.index.length, gl.UNSIGNED_SHORT, 0);
+
+  // overdraw
+  if (WIREFRAME) {
+    gl.uniform1f(polyProgram.uniforms.u_wireframe, WIREFRAME ? 1.0 : 0.0);
+    gl.drawElements(gl.LINES, mesh.index.length, gl.UNSIGNED_SHORT, 0);
+  }
+
 };
 
 var drawPoints = function(points) {
@@ -253,8 +276,7 @@ var repo = {
   }
 };
 
-var stageElements = $(".stage");
-window.addEventListener("scroll", function() {
+var onScroll = function() {
   for (var i = 0; i < stageElements.length; i++) {
     var bounds = stageElements[i].getBoundingClientRect();
     if (bounds.top > 0 && bounds.bottom > 0) {
@@ -267,4 +289,7 @@ window.addEventListener("scroll", function() {
       return;
     }
   }
-})
+};
+
+var stageElements = $(".stage");
+window.addEventListener("scroll", onScroll);

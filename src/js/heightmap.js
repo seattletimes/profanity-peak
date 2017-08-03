@@ -54,8 +54,6 @@ var HeightMap = function(image, interval, size) {
       color[i / 3] = 1 - pixel[HEAT] / 255;
     }
   }
-
-  console.log(color.slice(0, 1000));
   
   //generate index list
   for (var i = 0; i < edges; i++) {

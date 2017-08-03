@@ -7,6 +7,7 @@ attribute vec3 a_normal;
 uniform mat4 u_perspective;
 uniform mat4 u_camera;
 uniform mat4 u_position;
+uniform vec3 u_resolution;
 
 // pass-through varyings used to send values to the fragment shader
 varying vec4 v_screenspace;
@@ -20,5 +21,5 @@ void main() {
   v_normal = normalize(a_normal);
   v_screenspace = u_perspective * u_camera * u_position * vec4(a_position, 1.0);
   gl_Position = v_screenspace;
-  gl_PointSize = 500.0 / v_screenspace.z;
+  gl_PointSize = (u_resolution.x / 100.0) / (v_screenspace.z / 100.0);
 }
