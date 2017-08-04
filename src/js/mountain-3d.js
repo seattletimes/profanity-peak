@@ -1,8 +1,23 @@
+var $ = require("./lib/qsa");
+var { mat4, vec3, vec4 } = require("gl-matrix");
+
+// GL helper modules
+var configProgram = require("./gl-program");
+var ElementMesh = require("./element");
+var Camera = require("./camera");
+var HeightMap = require("./heightmap");
+
+// rendering state
+const WIREFRAME = 0;
+var downscaling = .3;
+const DOWNSCALE_WINDOW = 100;
+
 // some control constants
 const HEIGHTMAP_SCALE = 1.0;
 const HEIGHTMAP_DENSITY = 255;
 const HEIGHTMAP_SIZE = 24;
 
+// map coordinates
 const MAP_BOUNDS = [[48.52163, -118.6259], [48.8532, -118.1260]];
 const MAP_EXTENT = [
   Math.abs(MAP_BOUNDS[0][0] - MAP_BOUNDS[1][0]), 
@@ -13,12 +28,6 @@ const MAP_CENTER = [
   MAP_BOUNDS[0][1] + MAP_EXTENT[1] * .5
 ];
 
-var locations = {
-  unloading: [48.6826, -118.2377],
-  den: [48.7191, -118.3341],
-  salt: [48.7176, -118.3403]
-};
-
 var latlngToWorld = function(lat, lng) {
   var y = (lat - MAP_BOUNDS[0][0]) / MAP_EXTENT[0];
   y = (y - .5) * -2;
@@ -27,27 +36,27 @@ var latlngToWorld = function(lat, lng) {
   return [x, y];
 };
 
-const WIREFRAME = 0;
-var downscaling = .3;
-const DOWNSCALE_WINDOW = 100;
+var locations = {
+  unloading: [48.6826, -118.2377],
+  den: [48.7191, -118.3341],
+  salt: [48.7176, -118.3403]
+};
 
-var { mat4, vec3, vec4 } = require("gl-matrix");
-var $ = require("./lib/qsa");
-
+// canvas setup
 var canvas = document.querySelector("canvas");
 canvas.width = canvas.offsetWidth;
 canvas.height = canvas.offsetHeight;
 var gl = canvas.getContext("webgl");
 window.gl = gl;
 
+// GL setup
 gl.enable(gl.DEPTH_TEST);
 gl.enable(gl.CULL_FACE);
 gl.enable(gl.BLEND);
 gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
 gl.clear(gl.DEPTH_BUFFER_BIT | gl.COLOR_BUFFER_BIT);
 
-var configProgram = require("./gl-program");
-
+// load shader programs
 var polyProgram = configProgram(gl, {
   vertex: require("./vertex.glsl"),
   fragment: require("./fragment.glsl"),
@@ -69,6 +78,13 @@ var polyProgram = configProgram(gl, {
   ]
 });
 
+gl.useProgram(polyProgram);
+polyProgram.setUniforms({
+  u_light_direction: [.3, .3, .7],
+  u_light_color: [0.5, 0.5, 0.5],
+  u_light_intensity: .7
+});
+
 var pointProgram = configProgram(gl, {
   vertex: require("./vertex.glsl"),
   fragment: require("./pointFrag.glsl"),
@@ -82,61 +98,19 @@ var pointProgram = configProgram(gl, {
   ]
 });
 
-var camera = {
-  position: [10, 10, 10],
-  target: [0, 0, 0],
-  up: [0, 1, 0],
-  perspective: mat4.create(),
-  identity: mat4.create(),
-  tracking: null,
-  reposition: function(duration, position, target) {
-    this.tracking = {
-      start: Date.now(),
-      duration,
-      from: {
-        position: this.position.slice(),
-        target: this.target.slice()
-      },
-      to: {
-        position: position || this.position.slice(),
-        target: target || this.target.slice()
-      }
-    };
-  },
-  update: function() {
-    if (this.tracking) {
-      var tracking = this.tracking;
-      var elapsed = Date.now() - tracking.start;
-      var delta = elapsed / tracking.duration;
-      if (delta >= 1) {
-        delta = 1;
-        this.tracking = null;
-      }
-      var from = tracking.from;
-      var to = tracking.to;
-      var eased = Math.sin(delta * Math.PI * .5);
-      vec3.lerp(this.position, from.position, to.position, eased);
-      vec3.lerp(this.target, from.target, to.target, eased);
-    }
-  },
-  configure: function() {
-    canvas.width = canvas.clientWidth * downscaling;
-    canvas.height = canvas.clientHeight * downscaling;
-    mat4.perspective(camera.perspective, 45 * Math.PI / 180, canvas.width / canvas.height, .1, 300);
-  }
-};
+var camera = new Camera(canvas);
 
-mat4.identity(camera.perspective);
-camera.configure();
+window.addEventListener("resize", function() {
+  canvas.width = canvas.clientWidth * downscaling;
+  canvas.height = canvas.clientHeight * downscaling;
+  camera.configureFOV();
+});
 
-window.addEventListener("resize", () => camera.configure());
-
-var ElementMesh = require("./element");
+// load the landscape model and data
 var landscape = new ElementMesh(gl);
 
 var bitmap = new Image();
 bitmap.src = "./assets/cropped.jpg";
-var HeightMap = require("./heightmap");
 var map = null;
 var points = [];
 
@@ -174,25 +148,11 @@ var meshes = [landscape];
 camera.target = [landscape.position.x, landscape.position.y + 16, landscape.position.z];
 camera.position = [landscape.position.x - 10, 10, landscape.position.z - 10];
 
-// Global diffuse lighting (the "sun" for this scene)
-var light = [.3, .3, .7];
-var lightColor = [0.5, 0.5, 0.5];
-var intensity = .7;
-
-gl.useProgram(polyProgram);
-gl.uniform3fv(polyProgram.uniforms.u_light_direction, light);
-gl.uniform3fv(polyProgram.uniforms.u_light_color, lightColor);
-gl.uniform1f(polyProgram.uniforms.u_light_intensity, intensity);
-
 var frameTimes = [];
-var cameraUpdate = false;
 
 var render = function(time) {
 
   gl.useProgram(polyProgram);
-
-  gl.uniform1f(polyProgram.uniforms.u_time, time * 0.001);
-  gl.uniform3f(polyProgram.uniforms.u_resolution, canvas.width, canvas.height, 300);
   
   // clear the canvas, but also the depth buffer
   canvas.width = canvas.clientWidth * downscaling;
@@ -203,34 +163,35 @@ var render = function(time) {
   camera.update();
   
   // aim the camera at its target and generate a matrix to "move" the scene in front of the camera
-  var gaze = mat4.create();
-  mat4.lookAt(gaze, camera.position, camera.target, camera.up);
-  
-  // pass all camera matrices in for the vertex shader
-  // `perspective` scales content in 3D
-  // `gaze` moves the world in front of the camera
-  gl.uniformMatrix4fv(polyProgram.uniforms.u_perspective, false, camera.perspective);
-  gl.uniformMatrix4fv(polyProgram.uniforms.u_camera, false, gaze);
+  mat4.lookAt(camera.gaze, camera.position, camera.target, camera.up);
 
-  // set false coloring uniform
-  gl.uniform1f(polyProgram.uniforms.u_false_color, 0.0);
+  polyProgram.setUniforms({
+    u_time: time * 0.001,
+    u_resolution: [canvas.width, canvas.height, 300],
+    u_perspective: camera.perspective,
+    u_camera: camera.gaze,
+    u_false_color: 0
+  });
   
   // now render the landscape
-  meshes.forEach(mesh => drawElements(mesh));
+  meshes.forEach(mesh => drawModel(mesh));
 
   // and render point layers
   gl.useProgram(pointProgram);
-  
-  gl.uniform3f(pointProgram.uniforms.u_resolution, canvas.width, canvas.height, 300);
-  gl.uniform1f(pointProgram.uniforms.u_time, time * 0.001);
-  gl.uniformMatrix4fv(pointProgram.uniforms.u_perspective, false, camera.perspective);
-  gl.uniformMatrix4fv(pointProgram.uniforms.u_camera, false, gaze);
-  gl.uniformMatrix4fv(pointProgram.uniforms.u_position, false, camera.identity);
+  pointProgram.setUniforms({
+    u_resolution: [canvas.width, canvas.height, 300],
+    u_time: time * 0.001,
+    u_perspective: camera.perspective,
+    u_camera: camera.gaze,
+    u_position: camera.identity
+  });
   
   drawPoints(points);
   
+  //schedule next update
   requestAnimationFrame(render);
 
+  //based on recent frames, should we downscale the buffer?
   var elapsed = performance.now() - time;
   frameTimes.push(elapsed);
   frameTimes = frameTimes.slice(-DOWNSCALE_WINDOW).sort();
@@ -250,7 +211,7 @@ var render = function(time) {
 
 };
 
-var drawElements = function(mesh) {
+var drawModel = function(mesh) {
 
   for (var k in mesh.attributes) {
     var b = mesh.attributes[k];
@@ -266,17 +227,20 @@ var drawElements = function(mesh) {
   var toWorld = mat4.create();
   mat4.fromTranslation(toWorld, translation);
   mat4.rotateY(toWorld, toWorld, mesh.position.r, [0, 0, 0]);
-  gl.uniformMatrix4fv(polyProgram.uniforms.u_position, false, toWorld);
   
   // send the index buffer to the GPU to render it
   gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, mesh.index.buffer);
 
-  gl.uniform1f(polyProgram.uniforms.u_wireframe, 0);
+  polyProgram.setUniforms({
+    u_position: toWorld,
+    u_wireframe: 0
+  });
+
   gl.drawElements(gl.TRIANGLES, mesh.index.length, gl.UNSIGNED_SHORT, 0);
 
   // overdraw
   if (WIREFRAME) {
-    gl.uniform1f(polyProgram.uniforms.u_wireframe, WIREFRAME ? 1.0 : 0.0);
+    gl.uniform1f(polyProgram.uniforms.u_wireframe, 1);
     gl.drawElements(gl.LINES, mesh.index.length, gl.UNSIGNED_SHORT, 0);
   }
 
@@ -289,7 +253,7 @@ var drawPoints = function(points) {
   gl.vertexAttribPointer(pointProgram.attributes.a_position, 3, gl.FLOAT, false, 0, 0);
   gl.enableVertexAttribArray(pointProgram.attributes.a_position);
   gl.drawArrays(gl.POINTS, 0, points.length / 3);
-}
+};
 
 var stage = 0;
 var repo = {

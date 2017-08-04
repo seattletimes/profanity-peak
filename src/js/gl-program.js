@@ -32,5 +32,21 @@ module.exports = function(gl, config) {
     config.uniforms.forEach(u => program.uniforms[u] = gl.getUniformLocation(program, u));
   }
 
+  program.setUniforms = function(uniforms) {
+    for (var k in uniforms) {
+      var location = program.uniforms[k];
+      var value = uniforms[k];
+      if (value.length) {
+        if (value.length > 4) {
+          gl.uniformMatrix4fv(location, false, value);
+        } else {
+          gl[`uniform${value.length}fv`](location, value);
+        }
+      } else {
+        gl.uniform1f(location, value);
+      }
+    }
+  };
+
   return program;
 }
