@@ -13,8 +13,23 @@ const MAP_CENTER = [
   MAP_BOUNDS[0][1] + MAP_EXTENT[1] * .5
 ];
 
+var locations = {
+  unloading: [48.6826, -118.2377],
+  den: [48.7191, -118.3341],
+  salt: [48.7176, -118.3403]
+};
+
+var latlngToWorld = function(lat, lng) {
+  var y = (lat - MAP_BOUNDS[0][0]) / MAP_EXTENT[0];
+  y = (y - .5) * -2;
+  var x = (lng - MAP_BOUNDS[0][1]) / MAP_EXTENT[1];
+  x = (x - .5) * 2;
+  return [x, y];
+};
+
 const WIREFRAME = 0;
-const DOWNSCALE = 1;
+var downscaling = .3;
+const DOWNSCALE_WINDOW = 100;
 
 var { mat4, vec3, vec4 } = require("gl-matrix");
 var $ = require("./lib/qsa");
@@ -72,6 +87,7 @@ var camera = {
   target: [0, 0, 0],
   up: [0, 1, 0],
   perspective: mat4.create(),
+  identity: mat4.create(),
   tracking: null,
   reposition: function(duration, position, target) {
     this.tracking = {
@@ -87,9 +103,25 @@ var camera = {
       }
     };
   },
+  update: function() {
+    if (this.tracking) {
+      var tracking = this.tracking;
+      var elapsed = Date.now() - tracking.start;
+      var delta = elapsed / tracking.duration;
+      if (delta >= 1) {
+        delta = 1;
+        this.tracking = null;
+      }
+      var from = tracking.from;
+      var to = tracking.to;
+      var eased = Math.sin(delta * Math.PI * .5);
+      vec3.lerp(this.position, from.position, to.position, eased);
+      vec3.lerp(this.target, from.target, to.target, eased);
+    }
+  },
   configure: function() {
-    canvas.width = canvas.clientWidth * DOWNSCALE;
-    canvas.height = canvas.clientHeight * DOWNSCALE;
+    canvas.width = canvas.clientWidth * downscaling;
+    canvas.height = canvas.clientHeight * downscaling;
     mat4.perspective(camera.perspective, 45 * Math.PI / 180, canvas.width / canvas.height, .1, 300);
   }
 };
@@ -101,8 +133,6 @@ window.addEventListener("resize", () => camera.configure());
 
 var ElementMesh = require("./element");
 var landscape = new ElementMesh(gl);
-landscape.position.x = MAP_CENTER[1];
-landscape.position.z = MAP_CENTER[0];
 
 var bitmap = new Image();
 bitmap.src = "./assets/cropped.jpg";
@@ -130,13 +160,10 @@ bitmap.onload = function(e) {
   landscape.index.length = map.index.length;
 
   window.depredationData.forEach(function(p) {
-    var dx = (MAP_CENTER[1] - p.lng) / MAP_EXTENT[1];
-    var dz = (MAP_CENTER[0] - p.lat) / MAP_EXTENT[0];
-    var px = MAP_CENTER[1] + dx * HEIGHTMAP_SIZE;
-    var py = map.getPixel((dx + 1) / 2, (dz + 1) / 2)[0] / 255;
-    py += .3;
-    var pz = MAP_CENTER[0] + dz * HEIGHTMAP_SIZE;
-    points.push(px, py, pz);
+    var [dx, dz] = latlngToWorld(p.lat, p.lng);
+    var dy = map.getPixel((dx + 1) / 2, (dz + 1) / 2)[0] / 255;
+    dy += .3;
+    points.push(dx * HEIGHTMAP_SIZE / 2, dy, dz * HEIGHTMAP_SIZE / 2);
   });
   
   onScroll();
@@ -157,31 +184,23 @@ gl.uniform3fv(polyProgram.uniforms.u_light_direction, light);
 gl.uniform3fv(polyProgram.uniforms.u_light_color, lightColor);
 gl.uniform1f(polyProgram.uniforms.u_light_intensity, intensity);
 
+var frameTimes = [];
+var cameraUpdate = false;
+
 var render = function(time) {
+
   gl.useProgram(polyProgram);
 
   gl.uniform1f(polyProgram.uniforms.u_time, time * 0.001);
-  gl.uniform3fv(polyProgram.uniforms.u_resolution, [200, canvas.height, 300]);
+  gl.uniform3f(polyProgram.uniforms.u_resolution, canvas.width, canvas.height, 300);
   
   // clear the canvas, but also the depth buffer
-  canvas.width = canvas.clientWidth * DOWNSCALE;
-  canvas.height = canvas.clientHeight * DOWNSCALE;
+  canvas.width = canvas.clientWidth * downscaling;
+  canvas.height = canvas.clientHeight * downscaling;
   gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
   gl.clear(gl.DEPTH_BUFFER_BIT | gl.COLOR_BUFFER_BIT);
   
-  if (camera.tracking) {
-    var elapsed = Date.now() - camera.tracking.start;
-    var delta = elapsed / camera.tracking.duration;
-    if (delta >= 1) {
-      camera.tracking = null;
-    } else {
-      var from = camera.tracking.from;
-      var to = camera.tracking.to;
-      var eased = Math.sin(delta * Math.PI * .5);
-      vec3.lerp(camera.position, from.position, to.position, eased);
-      vec3.lerp(camera.target, from.target, to.target, eased);
-    }
-  }
+  camera.update();
   
   // aim the camera at its target and generate a matrix to "move" the scene in front of the camera
   var gaze = mat4.create();
@@ -206,11 +225,29 @@ var render = function(time) {
   gl.uniform1f(pointProgram.uniforms.u_time, time * 0.001);
   gl.uniformMatrix4fv(pointProgram.uniforms.u_perspective, false, camera.perspective);
   gl.uniformMatrix4fv(pointProgram.uniforms.u_camera, false, gaze);
-  gl.uniformMatrix4fv(pointProgram.uniforms.u_position, false, mat4.create());
+  gl.uniformMatrix4fv(pointProgram.uniforms.u_position, false, camera.identity);
   
   drawPoints(points);
   
   requestAnimationFrame(render);
+
+  var elapsed = performance.now() - time;
+  frameTimes.push(elapsed);
+  frameTimes = frameTimes.slice(-DOWNSCALE_WINDOW).sort();
+  if (frameTimes.length >= DOWNSCALE_WINDOW) {
+    var average = frameTimes.reduce((t, n) => t + n, 0) / frameTimes.length;
+    var max = Math.max.apply(null, frameTimes);
+    var median = frameTimes[DOWNSCALE_WINDOW >> 1];
+    // console.log(average, median, max);
+    if (average > 10 || max > 100 || median > 40) {
+      downscaling = downscaling == 1 ? .6 : .3;
+    } else {
+      downscaling = downscaling == .3 ? .6 : 1;
+    }
+    // console.log(`Reset downscaling to ${downscaling}`);
+    frameTimes = [];
+  }
+
 };
 
 var drawElements = function(mesh) {
@@ -277,6 +314,7 @@ var onScroll = function() {
       if (stage == choice) return;
       var placement = repo[choice];
       if (!placement) return;
+      performance.mark("reposition");
       camera.reposition(3000, placement.position, placement.target);
       stage = choice;
       return;

@@ -1,4 +1,4 @@
-precision lowp float;
+precision highp float;
 
 uniform vec3 u_light_direction;
 uniform vec3 u_light_color;

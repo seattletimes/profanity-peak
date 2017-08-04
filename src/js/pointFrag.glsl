@@ -1,4 +1,4 @@
-precision lowp float;
+precision mediump float;
 
 uniform float u_time;
 
