@@ -15,13 +15,13 @@ var HeightMap = function(image, interval, size) {
   var imageData = this.imageData = context.getImageData(0, 0, image.width, image.height);
   
   // create the plane
-  var verts = this.verts = new Array(interval ** 2 * 3);
-  var color = this.color = new Array(interval ** 2);
-  var normals = this.normals = new Array(interval ** 2 * 3);
+  var verts = this.verts = new Array(interval * interval * 3);
+  var color = this.color = new Array(interval * interval);
+  var normals = this.normals = new Array(interval * interval * 3);
   // polys along each axis
   var edges = interval - 1;
   // element index buffer
-  var index = this.index = new Array((edges ** 2) * 6);
+  var index = this.index = new Array((edges * edges) * 6);
   
   //generate vertex data
   for (var x = 0; x < interval; x++) {
@@ -77,7 +77,7 @@ HeightMap.prototype = {
     x = Math.floor(x * (this.image.width - 1));
     y = Math.floor(y * (this.image.height - 1));
     var index = (y * this.image.height + x) * 4;
-    return this.imageData.data.slice(index, index + 4);
+    return this.imageData.data.subarray(index, index + 4);
   }
 }
 

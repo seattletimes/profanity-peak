@@ -47,7 +47,7 @@ var locations = {
 var canvas = document.querySelector("canvas");
 canvas.width = canvas.offsetWidth;
 canvas.height = canvas.offsetHeight;
-var gl = canvas.getContext("webgl");
+var gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
 window.gl = gl;
 
 // GL setup
