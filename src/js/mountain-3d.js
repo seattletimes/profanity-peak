@@ -3,6 +3,7 @@ var { mat4, vec3, vec4 } = require("gl-matrix");
 
 // GL helper modules
 var configProgram = require("./gl-program");
+var loadTexture = require("./gl-texture");
 var ElementMesh = require("./element");
 var Camera = require("./camera");
 var HeightMap = require("./heightmap");
@@ -112,7 +113,7 @@ var landscape = new ElementMesh(gl);
 var bitmap = new Image();
 bitmap.src = "./assets/cropped.jpg";
 var map = null;
-var points = [];
+var kills = [];
 
 bitmap.onload = function(e) {
   map = new HeightMap(e.target, HEIGHTMAP_DENSITY, HEIGHTMAP_SIZE, HEIGHTMAP_SCALE);
@@ -137,12 +138,16 @@ bitmap.onload = function(e) {
     var [dx, dz] = latlngToWorld(p.lat, p.lng);
     var dy = map.getPixel((dx + 1) / 2, (dz + 1) / 2)[0] / 255;
     dy += .3;
-    points.push(dx * HEIGHTMAP_SIZE / 2, dy, dz * HEIGHTMAP_SIZE / 2);
+    kills.push(dx * HEIGHTMAP_SIZE / 2, dy, dz * HEIGHTMAP_SIZE / 2);
   });
   
   onScroll();
   requestAnimationFrame(render);
-}
+};
+
+var textures = {
+  grumpy: loadTexture(gl, "./assets/grump.jpg")
+};
 
 var meshes = [landscape];
 camera.target = [landscape.position.x, landscape.position.y + 16, landscape.position.z];
@@ -150,6 +155,7 @@ camera.position = [landscape.position.x - 10, 10, landscape.position.z - 10];
 
 var frameTimes = [];
 
+// actual rendering code
 var render = function(time) {
 
   gl.useProgram(polyProgram);
@@ -186,7 +192,8 @@ var render = function(time) {
     u_position: camera.identity
   });
   
-  drawPoints(points);
+  textures.grumpy.activate(pointProgram);
+  drawPoints(kills);
   
   //schedule next update
   requestAnimationFrame(render);

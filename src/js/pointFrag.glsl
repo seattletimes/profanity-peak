@@ -1,6 +1,7 @@
 precision mediump float;
 
 uniform float u_time;
+uniform sampler2D u_sampler;
 
 varying vec4 v_screenspace;
 varying vec3 v_position;
@@ -18,7 +19,7 @@ void main() {
   float r = distance(coord, vec2(0.0));
   float circle = smoothstep(0.9, 0.8, r);
   if (circle == 0.0) discard;
-  vec3 color = vec3(0.0, 0.5, 0.5);
+  vec3 color = texture2D(u_sampler, gl_PointCoord.xy).rgb;
   float fog = 1.0 - smoothstep(fogDistance, fogDistance + fogDepth, v_screenspace.z);
   vec3 fogged = mix(vec3(1.0), color, fog);
   gl_FragColor = vec4(fogged, 1.0);
