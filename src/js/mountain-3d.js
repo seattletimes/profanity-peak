@@ -1,4 +1,5 @@
 var $ = require("./lib/qsa");
+var director = require("./director");
 var { mat4, vec3, vec4 } = require("gl-matrix");
 
 // GL helper modules
@@ -29,11 +30,18 @@ const MAP_CENTER = [
   MAP_BOUNDS[0][1] + MAP_EXTENT[1] * .5
 ];
 
-var latlngToWorld = function(lat, lng) {
+var latlngToMap = function(lat, lng) {
   var y = (lat - MAP_BOUNDS[0][0]) / MAP_EXTENT[0];
   y = (y - .5) * -2;
   var x = (lng - MAP_BOUNDS[0][1]) / MAP_EXTENT[1];
   x = (x - .5) * 2;
+  return [x, y];
+};
+
+var latlngToWorld = function(lat, lng) {
+  var [x, y] = latlngToMap(lat, lng);
+  x *= HEIGHTMAP_SIZE / 2;
+  y *= HEIGHTMAP_SIZE / 2;
   return [x, y];
 };
 
@@ -110,49 +118,17 @@ window.addEventListener("resize", function() {
 // load the landscape model and data
 var landscape = new ElementMesh(gl);
 
-var bitmap = new Image();
-bitmap.src = "./assets/cropped.jpg";
-var map = null;
 var kills = [];
-
-bitmap.onload = function(e) {
-  map = new HeightMap(e.target, HEIGHTMAP_DENSITY, HEIGHTMAP_SIZE, HEIGHTMAP_SCALE);
-  
-  gl.bindBuffer(gl.ARRAY_BUFFER, landscape.attributes.a_position.buffer);
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(map.verts), gl.STATIC_DRAW);
-  landscape.attributes.a_position.length = map.verts.length;
-  
-  gl.bindBuffer(gl.ARRAY_BUFFER, landscape.attributes.a_color.buffer);
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(map.color), gl.STATIC_DRAW);
-  landscape.attributes.a_color.length = map.color.length;
-  
-  gl.bindBuffer(gl.ARRAY_BUFFER, landscape.attributes.a_normal.buffer);
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(map.normals), gl.STATIC_DRAW);
-  landscape.attributes.a_normal.length = map.normals.length;
-  
-  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, landscape.index.buffer);
-  gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(map.index), gl.STATIC_DRAW);
-  landscape.index.length = map.index.length;
-
-  window.depredationData.forEach(function(p) {
-    var [dx, dz] = latlngToWorld(p.lat, p.lng);
-    var dy = map.getPixel((dx + 1) / 2, (dz + 1) / 2)[0] / 255;
-    dy += .3;
-    kills.push(dx * HEIGHTMAP_SIZE / 2, dy, dz * HEIGHTMAP_SIZE / 2);
-  });
-  
-  onScroll();
-  requestAnimationFrame(render);
-};
-
+var meshes = [landscape];
 var textures = {
   grumpy: loadTexture(gl, "./assets/grump.jpg")
 };
 
-var meshes = [landscape];
 camera.target = [landscape.position.x, landscape.position.y + 16, landscape.position.z];
-camera.position = [landscape.position.x - 10, 10, landscape.position.z - 10];
+camera.position = [landscape.position.x - 3, 10, landscape.position.z - 3];
 
+// store info for various locations
+var sceneState = { locations, camera, latlngToWorld, latlngToMap, scale: HEIGHTMAP_SIZE / 2 };
 var frameTimes = [];
 
 // actual rendering code
@@ -262,36 +238,35 @@ var drawPoints = function(points) {
   gl.drawArrays(gl.POINTS, 0, points.length / 3);
 };
 
-var stage = 0;
-var repo = {
-  1: {
-    position: [landscape.position.x - 16, 7, landscape.position.z],
-    target: [landscape.position.x, landscape.position.y, landscape.position.z]
-  },
-  2: {
-    position: [landscape.position.x - 4, 3, landscape.position.z - 16],
-    target: [landscape.position.x + 6, landscape.position.y, landscape.position.z]
-  },
-  3: {
-    target: [landscape.position.x - 4, landscape.position.y, landscape.position.z - 3]
-  }
-};
+// kick it off
+var bitmap = new Image();
+bitmap.src = "./assets/cropped.jpg";
+bitmap.onload = function(e) {
+  var map = sceneState.map = new HeightMap(e.target, HEIGHTMAP_DENSITY, HEIGHTMAP_SIZE, HEIGHTMAP_SCALE);
+  
+  gl.bindBuffer(gl.ARRAY_BUFFER, landscape.attributes.a_position.buffer);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(map.verts), gl.STATIC_DRAW);
+  landscape.attributes.a_position.length = map.verts.length;
+  
+  gl.bindBuffer(gl.ARRAY_BUFFER, landscape.attributes.a_color.buffer);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(map.color), gl.STATIC_DRAW);
+  landscape.attributes.a_color.length = map.color.length;
+  
+  gl.bindBuffer(gl.ARRAY_BUFFER, landscape.attributes.a_normal.buffer);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(map.normals), gl.STATIC_DRAW);
+  landscape.attributes.a_normal.length = map.normals.length;
+  
+  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, landscape.index.buffer);
+  gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(map.index), gl.STATIC_DRAW);
+  landscape.index.length = map.index.length;
 
-var onScroll = function() {
-  for (var i = 0; i < stageElements.length; i++) {
-    var bounds = stageElements[i].getBoundingClientRect();
-    if (bounds.top > 0 && bounds.top < window.innerHeight && bounds.bottom > 0) {
-      var choice = stageElements[i].getAttribute("data-stage");
-      if (stage == choice) return;
-      var placement = repo[choice];
-      if (!placement) return;
-      performance.mark("reposition");
-      camera.reposition(3000, placement.position, placement.target);
-      stage = choice;
-      return;
-    }
-  }
+  window.depredationData.forEach(function(p) {
+    var [dx, dz] = latlngToMap(p.lat, p.lng);
+    var dy = map.getPixel((dx + 1) / 2, (dz + 1) / 2)[0] / 255;
+    dy += .3;
+    kills.push(dx * HEIGHTMAP_SIZE / 2, dy, dz * HEIGHTMAP_SIZE / 2);
+  });
+  
+  requestAnimationFrame(render);
+  director.action(sceneState);
 };
-
-var stageElements = $(".stage");
-window.addEventListener("scroll", onScroll);
