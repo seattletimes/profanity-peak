@@ -3,48 +3,46 @@
 // each stage gets access to the scene in turn
 
 var $ = require("./lib/qsa");
+var debounce = require("./lib/debounce");
 
 const ALT = 5;
+var noop = function() {};
+var mixVector = function(a, b) {
+  var out = [];
+  for (var i = 0; i < a.length; i++) {
+    out[i] = (a[i] + b[i]) / 2;
+  }
+  return out;
+}
 
 var stages = {
   intro: function(scene) {
-    scene.camera.reposition(3000, [-scene.scale, ALT, scene.scale], [0, 0, 0]);
+    scene.camera.reposition(3000, [0, ALT * 2, scene.scale * 1.5], [0, 0, 0]);
   },
-  release: function(scene) {
-    var [lat, lng] = scene.locations.unloading;
-    var [x, y] = scene.latlngToWorld(lat, lng);
-    var dist = scene.scale * .4;
-    scene.camera.reposition(2000, [x - dist, ALT, y + dist], [x, 0, y]);
-  },
-  den: function(scene) {
-    var [lat, lng] = scene.locations.den;
-    var [x, y] = scene.latlngToWorld(lat, lng);
-    var distance = scene.scale * .4;
-    scene.camera.reposition(2000, null, [x, 0, y]);
-  },
-  salt: function(scene) {
-    var [lat, lng] = scene.locations.salt;
-    var [x, y] = scene.latlngToWorld(lat, lng);
-    var distance = scene.scale * .4;
-    scene.camera.reposition(2000, null, [x, 0, y]);
-  },
-  depredation: function(scene) {
-
+  heatmap: noop,
+  turnout: function(scene) {
+    scene.showDen = true;
+    scene.showTurnout = true;
+    var den = scene.locations.den;
+    var unloading = scene.locations.unloading;
+    var midpoint = mixVector(den, unloading);
+    scene.camera.reposition(2000, [midpoint[0] + scene.scale * .5, ALT, midpoint[2] + scene.scale * .5], midpoint);
   },
   kills: function(scene) {
-
+    scene.showKills = true;
+    scene.camera.reposition(3000, [0, ALT * 2, scene.scale * 1.5], [0, 0, 0]);
   },
-  saltRemoval: function(scene) {
-
+  salt: function(scene) {
+    scene.showSalt = true
+    scene.camera.reposition(3000, [0, ALT * 2, scene.scale * 1.5], [0, 0, 0]);
   },
-  killsConcluded: function(scene) {
-
-  }
+  outro: function(scene) {
+    scene.camera.reposition(3000, [0, ALT * 2, scene.scale * 1.5], [0, 0, 0]);
+  },
 };
 
 var stageElements = $(".stage");
 var current = null;
-var noop = function() {};
 
 var action = function(scene) {
 
@@ -58,7 +56,6 @@ var action = function(scene) {
         var stage = stages[stageID] || noop;
         stage(scene);
         current = stageID;
-        console.log(current);
         return;
       }
     }

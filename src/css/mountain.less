@@ -1,0 +1,34 @@
+section.mountain {
+  padding: 16px 0;
+  overflow: hidden;
+
+  canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  .constrained {
+    max-width: 800px;
+    margin: auto;
+  }
+
+  .chunk {
+    margin-top: 50vh;
+    float: right;
+    clear: both;
+    background: @df-off-black;
+    color: @df-light-gray;
+    padding: 0 32px;
+    max-width: 500px;
+    box-shadow: 0 16px 16px -8px fade(black, 30%);
+
+    &.spacer {
+      padding: 0;
+    }
+  }
+
+}

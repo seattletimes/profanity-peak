@@ -83,7 +83,9 @@ var polyProgram = configProgram(gl, {
     "u_light_intensity",
     "u_time",
     "u_false_color",
-    "u_wireframe"
+    "u_wireframe",
+    "u_fog_distance",
+    "u_fog_depth"
   ]
 });
 
@@ -103,7 +105,9 @@ var pointProgram = configProgram(gl, {
     "u_camera",
     "u_position",
     "u_time",
-    "u_resolution"
+    "u_resolution",
+    "u_fog_distance",
+    "u_fog_depth"
   ]
 });
 
@@ -121,7 +125,11 @@ var landscape = new ElementMesh(gl);
 var kills = [];
 var meshes = [landscape];
 var textures = {
-  grumpy: loadTexture(gl, "./assets/grump.jpg")
+  grumpy: loadTexture(gl, "./assets/grump.jpg"),
+  red: loadTexture(gl, "./assets/placeholders/red.png"),
+  yellow: loadTexture(gl, "./assets/placeholders/yellow.png"),
+  purple: loadTexture(gl, "./assets/placeholders/purple.png"),
+  pink: loadTexture(gl, "./assets/placeholders/pink.png")
 };
 
 camera.target = [landscape.position.x, landscape.position.y + 16, landscape.position.z];
@@ -152,7 +160,9 @@ var render = function(time) {
     u_resolution: [canvas.width, canvas.height, 300],
     u_perspective: camera.perspective,
     u_camera: camera.gaze,
-    u_false_color: 0
+    u_false_color: 0,
+    u_fog_distance: 20,
+    u_fog_depth: 20
   });
   
   // now render the landscape
@@ -165,11 +175,31 @@ var render = function(time) {
     u_time: time * 0.001,
     u_perspective: camera.perspective,
     u_camera: camera.gaze,
-    u_position: camera.identity
+    u_position: camera.identity,
+    u_fog_distance: 20,
+    u_fog_depth: 20
   });
+
+  //various map POI
+  if (sceneState.showTurnout) {
+    textures.purple.activate(pointProgram);
+    drawPoints(locations.unloading);
+  }
+
+  if (sceneState.showDen) {
+    textures.yellow.activate(pointProgram);
+    drawPoints(locations.den);
+  }
+
+  if (sceneState.showSalt) {
+    textures.pink.activate(pointProgram);
+    drawPoints(locations.salt);
+  }
   
-  textures.grumpy.activate(pointProgram);
-  drawPoints(kills);
+  if (sceneState.showKills) {
+    textures.red.activate(pointProgram);
+    drawPoints(kills);
+  }
   
   //schedule next update
   requestAnimationFrame(render);
@@ -261,11 +291,21 @@ bitmap.onload = function(e) {
   landscape.index.length = map.index.length;
 
   window.depredationData.forEach(function(p) {
+    if (p.kill != "Y" || p.wolf != "Y") return;
     var [dx, dz] = latlngToMap(p.lat, p.lng);
     var dy = map.getPixel((dx + 1) / 2, (dz + 1) / 2)[0] / 255;
     dy += .3;
     kills.push(dx * HEIGHTMAP_SIZE / 2, dy, dz * HEIGHTMAP_SIZE / 2);
   });
+
+  for (var k in locations) {
+    var [lat, lng] = locations[k];
+    var [x, z] = latlngToMap(lat, lng);
+    var y = map.getPixel((x + 1) / 2, (z + 1) / 2)[0] / 255 + .3;
+    x *= HEIGHTMAP_SIZE / 2;
+    z *= HEIGHTMAP_SIZE / 2;
+    locations[k] = [x, y, z];
+  }
   
   requestAnimationFrame(render);
   director.action(sceneState);

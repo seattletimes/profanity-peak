@@ -6,6 +6,8 @@ uniform float u_light_intensity;
 uniform float u_time;
 uniform float u_false_color;
 uniform float u_wireframe;
+uniform float u_fog_distance;
+uniform float u_fog_depth;
 
 varying vec4 v_screenspace;
 varying vec3 v_position;
@@ -27,9 +29,6 @@ void main() {
   vec3 valley = vec3(29.0, 48.0, 22.0) / 255.0;
   vec3 heat = vec3(1.0, 0.0, 0.0);
 
-  float fogDistance = 16.0;
-  float fogDepth = 16.0;
-
   float shade = v_position.y;
   vec3 normal = normalize(v_normal);
   vec3 lightDirection = normalize(u_light_direction);
@@ -39,6 +38,6 @@ void main() {
   vec3 color = mountain * shade;// * (noise(v_screenspace.xy) * 0.1 + 0.9);
   color = mix(color, heat, v_color * u_false_color);
   vec3 pixel = clamp(color + diffuse * u_light_intensity, 0.0, 1.0);
-  vec3 fogged = mix(pixel, vec3(1.0), smoothstep(fogDistance, fogDistance + fogDepth, v_screenspace.z));
+  vec3 fogged = mix(pixel, vec3(1.0), smoothstep(u_fog_distance, u_fog_distance + u_fog_depth, v_screenspace.z));
   gl_FragColor = vec4(fogged, 1.0);
 }
