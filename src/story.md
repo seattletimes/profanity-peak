@@ -80,14 +80,26 @@ But Wielgus, who received tenure from WSU in October, 28, 2016, would not remain
 
 State biologists collared wolves in the Profanity Peak pack on June 9 and 12, just as McIrvin turned out his cattle on June 9. The department knew the cattle were overlapping the wolves’ territory -- not unusual, or problematic in Washington, where wolves typically share the landscape with livestock without incident. By the end of June, the department knew where the den site was, too -- about four miles from where McIrvin had turned out his cattle -- but didn’t tell him.
 
+<div class="stage" data-stage="turnout">
+
+*<span class="placeholder" style="background: purple"></span> Cattle turnout point*
+
+*<span class="placeholder" style="background: yellow"></span> Profanity Peak pack den site*
+
+</div>
+
 <?
     </div>
-    <div class="chunk stage" data-stage="turnout">
+    <div class="chunk">
 ?>
 
 McIrvin has held permits to graze the Colville National Forest for 73 years. He turned out 198 cows with calves on one of five allotments he uses, just as in the past. McIrvin said in an interview he did not know that his cattle were drifting toward the den of the Profanity Peak pack. The wolves, burned out of their territory in the 2015 Stickpin Fire, had moved their den that year into the heart of Colville National Forest, overlapping multiple grazing allotments used by McIrvin and other ranchers.
 
-<div class="stage" data-stage="kills"></div>
+<div class="stage" data-stage="kills">
+
+*<span class="placeholder" style="background: red"></span> Confirmed wolf kill locations*
+
+</div>
 
 Before long, the wolves were killing calves anywhere from one to more than ten miles from the initial turn out location and den site.
 
@@ -100,7 +112,13 @@ Yet the department didn’t urge McIrvin to get range riders out on his allotmen
 
 It also wasn’t until August that the department alerted McIrvin’s range rider, Arron Scotten, that the salt block put out as usual to entice the cattle to higher ground in the mountain pastures of the Colville National Forest, was in the heart of the pack’s activity area.
 
-<div class="stage" data-stage="salt"></div>
+<div class="stage" data-stage="salt">
+
+*<span class="placeholder" style="background: yellow"></span> Profanity Peak pack den site*
+
+*<span class="placeholder" style="background: pink"></span> Salt lick location*
+
+</div>
 
 <?
     </div>

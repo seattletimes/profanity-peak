@@ -33,7 +33,9 @@ var stages = {
     scene.camera.reposition(3000, [0, ALT * 2, scene.scale * 1.5], [0, 0, 0]);
   },
   salt: function(scene) {
-    scene.showSalt = true
+    scene.showSalt = true;
+    scene.showTurnout = true;
+    scene.showDen = true;
     scene.camera.reposition(3000, [0, ALT * 2, scene.scale * 1.5], [0, 0, 0]);
   },
   outro: function(scene) {
