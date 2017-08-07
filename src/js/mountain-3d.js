@@ -1,5 +1,6 @@
 var $ = require("./lib/qsa");
 var director = require("./director");
+var tween = require("./tween");
 var { mat4, vec3, vec4 } = require("gl-matrix");
 
 // GL helper modules
@@ -107,7 +108,8 @@ var pointProgram = configProgram(gl, {
     "u_time",
     "u_resolution",
     "u_fog_distance",
-    "u_fog_depth"
+    "u_fog_depth",
+    "u_alpha"
   ]
 });
 
@@ -151,6 +153,7 @@ var render = function(time) {
   gl.clear(gl.DEPTH_BUFFER_BIT | gl.COLOR_BUFFER_BIT);
   
   camera.update();
+  tween.update();
   
   // aim the camera at its target and generate a matrix to "move" the scene in front of the camera
   mat4.lookAt(camera.gaze, camera.position, camera.target, camera.up);
@@ -177,7 +180,8 @@ var render = function(time) {
     u_camera: camera.gaze,
     u_position: camera.identity,
     u_fog_distance: 20,
-    u_fog_depth: 20
+    u_fog_depth: 20,
+    u_alpha: 1
   });
 
   //various map POI

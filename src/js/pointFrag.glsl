@@ -4,6 +4,7 @@ uniform float u_time;
 uniform sampler2D u_sampler;
 uniform float u_fog_distance;
 uniform float u_fog_depth;
+uniform float u_alpha;
 
 varying vec4 v_screenspace;
 varying vec3 v_position;
@@ -24,6 +25,6 @@ void main() {
   vec3 color = texture2D(u_sampler, gl_PointCoord.xy).rgb;
   float fog = 1.0 - smoothstep(u_fog_distance, u_fog_distance + u_fog_depth, v_screenspace.z);
   vec3 fogged = mix(vec3(1.0), color, fog);
-  gl_FragColor = vec4(fogged, 1.0);
+  gl_FragColor = vec4(fogged, u_alpha);
 
 }

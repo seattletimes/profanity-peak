@@ -129,10 +129,10 @@ Ranch hands had put out the salt in the same location for decades to utilize the
 
 For wolves that typically range over a territory of more than 350 square miles, four miles was nothing and 200 yards was nothing. The cows were in the heart of their activity area.
 
-<div class="outro"></div>
-
 <?
-    </div> <!-- chunk -->
+    </div>
+    <div class="chunk spacer stage" data-stage="outro"></div>
+
   </div> <!-- constrained -->
 </section>
 <section class="whiteout">

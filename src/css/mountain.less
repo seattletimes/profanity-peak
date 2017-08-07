@@ -9,6 +9,12 @@ section.mountain {
     width: 100%;
     height: 100%;
     z-index: -1;
+
+    @media @mobile {
+      top: 50%;
+      transform: translateY(-50%);
+      height: 100vw;
+    }
   }
 
   .constrained {
@@ -28,6 +34,10 @@ section.mountain {
 
     &.spacer {
       padding: 0;
+    }
+
+    &[data-stage=outro] {
+      margin-bottom: 100vh;
     }
 
     .placeholder {

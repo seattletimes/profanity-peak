@@ -1,5 +1,7 @@
 var { vec3, mat4 } = require("gl-matrix");
 
+var ease = p => 0.5 - Math.cos(p * Math.PI) / 2;
+
 var Camera = function(canvas) {
   this.position = [0, 0, 0];
   this.target = [0, 0, 0];
@@ -41,7 +43,7 @@ Camera.prototype = {
       }
       var from = tracking.from;
       var to = tracking.to;
-      var eased = Math.sin(delta * Math.PI * .5);
+      var eased = ease(delta);
       vec3.lerp(this.position, from.position, to.position, eased);
       vec3.lerp(this.target, from.target, to.target, eased);
     }

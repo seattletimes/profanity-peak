@@ -18,11 +18,15 @@ var mixVector = function(a, b) {
 var stages = {
   intro: function(scene) {
     scene.camera.reposition(3000, [0, ALT * 2, scene.scale * 1.5], [0, 0, 0]);
+    scene.showHeatmap = false;
   },
-  heatmap: noop,
+  heatmap: function(scene) {
+    scene.showHeatmap = true;
+  },
   turnout: function(scene) {
     scene.showDen = true;
     scene.showTurnout = true;
+    scene.showHeatmap = false;
     var den = scene.locations.den;
     var unloading = scene.locations.unloading;
     var midpoint = mixVector(den, unloading);
@@ -30,15 +34,18 @@ var stages = {
   },
   kills: function(scene) {
     scene.showKills = true;
-    scene.camera.reposition(3000, [0, ALT * 2, scene.scale * 1.5], [0, 0, 0]);
+    scene.camera.reposition(3000, [scene.scale * 1.5, ALT * 2, 0], [0, 0, 0]);
   },
   salt: function(scene) {
     scene.showSalt = true;
     scene.showTurnout = true;
     scene.showDen = true;
-    scene.camera.reposition(3000, [0, ALT * 2, scene.scale * 1.5], [0, 0, 0]);
+    scene.showHeatmap = false;
+    var midpoint = mixVector(scene.locations.den, scene.locations.salt);
+    scene.camera.reposition(3000, [midpoint[0] + scene.scale * .25, ALT * .5, midpoint[2] + scene.scale * .25], midpoint);
   },
   outro: function(scene) {
+    scene.showHeatmap = true;
     scene.camera.reposition(3000, [0, ALT * 2, scene.scale * 1.5], [0, 0, 0]);
   },
 };
