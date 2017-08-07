@@ -135,8 +135,8 @@ var textures = {
   pink: loadTexture(gl, "./assets/placeholders/pink.png")
 };
 
-camera.target = [landscape.position.x, landscape.position.y + 16, landscape.position.z];
-camera.position = [landscape.position.x - 3, 10, landscape.position.z - 3];
+camera.target = [landscape.position.x, landscape.position.y + 10, landscape.position.z];
+camera.position = [landscape.position.x + 3, 10, landscape.position.z + 3];
 
 // store info for various locations
 var sceneState = {
