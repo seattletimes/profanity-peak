@@ -38,6 +38,8 @@ By the end of June, the department knew where the den site was, too -- about fou
 
 *<span class="placeholder" style="background: yellow"></span> Profanity Peak pack den site*
 
+*<span class="placeholder" style="background: pink"></span> Salt lick location*
+
 <?
     </div>
     <div class="chunk">
@@ -45,9 +47,9 @@ By the end of June, the department knew where the den site was, too -- about fou
 
 <div class="stage" data-stage="kills"></div>
 
-McIrvin has held permits to graze the Colville National Forest for 73 years. He turned out 198 cows with calves on one of five allotments he uses, just as in the past. McIrvin said in an interview he did not know that his cattle were drifting toward the den of the Profanity Peak pack. The wolves, burned out of their territory in the 2015 Stickpin Fire, had moved their den that year into the heart of Colville National Forest, overlapping multiple grazing allotments used by McIrvin and other ranchers.
-
 *<span class="placeholder" style="background: red"></span> Confirmed wolf kill locations*
+
+McIrvin has held permits to graze the Colville National Forest for 73 years. He turned out 198 cows with calves on one of five allotments he uses, just as in the past. McIrvin said in an interview he did not know that his cattle were drifting toward the den of the Profanity Peak pack. The wolves, burned out of their territory in the 2015 Stickpin Fire, had moved their den that year into the heart of Colville National Forest, overlapping multiple grazing allotments used by McIrvin and other ranchers.
 
 Before long, the wolves were killing calves anywhere from one to more than ten miles from the initial turn out location and den site.
 

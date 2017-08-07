@@ -16,38 +16,48 @@ var mixVector = function(a, b) {
   return out;
 };
 
+var salt = "showSalt";
+var heat = "showHeatmap";
+var turnout = "showTurnout";
+var kills = "showKills";
+var den = "showDen";
+
+var show = function(scene, ...props) {
+  props.forEach(p => tween.create(scene, p, 1));
+};
+
+var hide = function(scene, ...props) {
+  props.forEach(p => tween.create(scene, p, 0));
+};
+
 var stages = {
   intro: function(scene) {
     scene.camera.reposition(3000, [0, ALT * 2, scene.scale * 1.5], [0, 0, 0]);
-    "showHeatmap showSalt showTurnout showDen showKills".split(" ").forEach(function(p) {
-      tween.create(scene, p, 0);
-    });
+    hide(scene, salt, heat, turnout, den, kills);
   },
   heatmap: function(scene) {
     scene.camera.reposition(3000, [scene.scale * .2, ALT, scene.scale * .75], [0, 0, 0]);
-    tween.create(scene, "showHeatmap", 1);
+    show(scene, heat);
   },
   turnout: function(scene) {
-    tween.create(scene, "showDen", 1);
-    tween.create(scene, "showTurnout", 1);
-    tween.create(scene, "showHeatmap", 0);
-    var den = scene.locations.den;
-    var unloading = scene.locations.unloading;
-    var midpoint = mixVector(den, unloading);
+    hide(scene, kills, heat);
+    show(scene, salt, den, turnout);
+    var midpoint = mixVector(scene.locations.den, scene.locations.unloading);
     scene.camera.reposition(2000, [midpoint[0] + scene.scale * .5, ALT, midpoint[2] + scene.scale * .5], midpoint);
   },
   kills: function(scene) {
-    tween.create(scene, "showKills", 1);
+    show(scene, kills, heat, den);
+    hide(scene, salt, turnout);
     scene.camera.reposition(3000, [scene.scale * 1.5, ALT * 2, 0], [0, 0, 0]);
   },
   salt: function(scene) {
-    "showSalt showTurnout showDen".split(" ").forEach(p => tween.create(scene, p, 1));
-    tween.create(scene, "showHeatmap", 0);
+    show(scene, salt, den);
+    hide(scene, heat, kills, turnout);
     var midpoint = mixVector(scene.locations.den, scene.locations.salt);
     scene.camera.reposition(3000, [midpoint[0] + scene.scale * .25, ALT * .5, midpoint[2] + scene.scale * .25], midpoint);
   },
   outro: function(scene) {
-    tween.create(scene, "showHeatmap", 1);
+    show(scene, salt, den, turnout, kills, heat);
     scene.camera.reposition(3000, [0, ALT * 2, scene.scale * 1.5], [0, 0, 0]);
   },
 };
