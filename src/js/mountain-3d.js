@@ -138,7 +138,18 @@ camera.target = [landscape.position.x, landscape.position.y + 16, landscape.posi
 camera.position = [landscape.position.x - 3, 10, landscape.position.z - 3];
 
 // store info for various locations
-var sceneState = { locations, camera, latlngToWorld, latlngToMap, scale: HEIGHTMAP_SIZE / 2 };
+var sceneState = {
+  locations,
+  camera,
+  latlngToWorld,
+  latlngToMap,
+  scale: HEIGHTMAP_SIZE / 2,
+  showDen: 0,
+  showTurnout: 0,
+  showKills: 0,
+  showSalt: 0,
+  showHeatmap: 0
+};
 var frameTimes = [];
 var container = $.one("section.mountain");
 
@@ -152,7 +163,7 @@ var render = function(time) {
   }
 
   // EXPERIMENTAL: only run if we're in a camera movement
-  if (!camera.tracking) {
+  if (false && !camera.tracking) {
     return requestAnimationFrame(render);
   }
 
@@ -175,7 +186,7 @@ var render = function(time) {
     u_resolution: [canvas.width, canvas.height, 300],
     u_perspective: camera.perspective,
     u_camera: camera.gaze,
-    u_false_color: 0,
+    u_false_color: sceneState.showHeatmap,
     u_fog_distance: 20,
     u_fog_depth: 20
   });
@@ -198,21 +209,25 @@ var render = function(time) {
 
   //various map POI
   if (sceneState.showTurnout) {
+    gl.uniform1f(pointProgram.uniforms.u_alpha, sceneState.showTurnout);
     textures.purple.activate(pointProgram);
     drawPoints(locations.unloading);
   }
 
   if (sceneState.showDen) {
+    gl.uniform1f(pointProgram.uniforms.u_alpha, sceneState.showDen);
     textures.yellow.activate(pointProgram);
     drawPoints(locations.den);
   }
 
   if (sceneState.showSalt) {
+    gl.uniform1f(pointProgram.uniforms.u_alpha, sceneState.showSalt);
     textures.pink.activate(pointProgram);
     drawPoints(locations.salt);
   }
   
   if (sceneState.showKills) {
+    gl.uniform1f(pointProgram.uniforms.u_alpha, sceneState.showKills);
     textures.red.activate(pointProgram);
     drawPoints(kills);
   }

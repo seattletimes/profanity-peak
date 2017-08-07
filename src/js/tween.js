@@ -16,7 +16,7 @@ var update = function() {
   });
 };
 
-var create = function(target, property, to, duration = 700) {
+var create = function(target, property, to, duration = 800) {
   var tween = {
     start: Date.now(),
     duration,
@@ -26,6 +26,7 @@ var create = function(target, property, to, duration = 700) {
     property,
     easing: swing
   };
+  tracking = tracking.filter(t => t.target != target || t.property != property);
   tracking.push(tween);
 };
 

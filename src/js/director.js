@@ -4,6 +4,7 @@
 
 var $ = require("./lib/qsa");
 var debounce = require("./lib/debounce");
+var tween = require("./tween");
 
 const ALT = 5;
 var noop = function() {};
@@ -18,38 +19,34 @@ var mixVector = function(a, b) {
 var stages = {
   intro: function(scene) {
     scene.camera.reposition(3000, [0, ALT * 2, scene.scale * 1.5], [0, 0, 0]);
-    scene.showHeatmap = false;
-    scene.showSalt = false;
-    scene.showTurnout = false;
-    scene.showDen = false;
-    scene.showKills = false;
+    "showHeatmap showSalt showTurnout showDen showKills".split(" ").forEach(function(p) {
+      tween.create(scene, p, 0);
+    });
   },
   heatmap: function(scene) {
-    scene.showHeatmap = true;
+    tween.create(scene, "showHeatmap", 1);
   },
   turnout: function(scene) {
-    scene.showDen = true;
-    scene.showTurnout = true;
-    scene.showHeatmap = false;
+    tween.create(scene, "showDen", 1);
+    tween.create(scene, "showTurnout", 1);
+    tween.create(scene, "showHeatmap", 0);
     var den = scene.locations.den;
     var unloading = scene.locations.unloading;
     var midpoint = mixVector(den, unloading);
     scene.camera.reposition(2000, [midpoint[0] + scene.scale * .5, ALT, midpoint[2] + scene.scale * .5], midpoint);
   },
   kills: function(scene) {
-    scene.showKills = true;
+    tween.create(scene, "showKills", 1);
     scene.camera.reposition(3000, [scene.scale * 1.5, ALT * 2, 0], [0, 0, 0]);
   },
   salt: function(scene) {
-    scene.showSalt = true;
-    scene.showTurnout = true;
-    scene.showDen = true;
-    scene.showHeatmap = false;
+    "showSalt showTurnout showDen".split(" ").forEach(p => tween.create(scene, p, 1));
+    tween.create(scene, "showHeatmap", 0);
     var midpoint = mixVector(scene.locations.den, scene.locations.salt);
     scene.camera.reposition(3000, [midpoint[0] + scene.scale * .25, ALT * .5, midpoint[2] + scene.scale * .25], midpoint);
   },
   outro: function(scene) {
-    scene.showHeatmap = true;
+    tween.create(scene, "showHeatmap", 1);
     scene.camera.reposition(3000, [0, ALT * 2, scene.scale * 1.5], [0, 0, 0]);
   },
 };
