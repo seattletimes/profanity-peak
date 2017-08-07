@@ -53,7 +53,7 @@ var locations = {
 };
 
 // canvas setup
-var canvas = document.querySelector("canvas");
+var canvas = $.one("canvas");
 canvas.width = canvas.offsetWidth;
 canvas.height = canvas.offsetHeight;
 var gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
@@ -140,9 +140,21 @@ camera.position = [landscape.position.x - 3, 10, landscape.position.z - 3];
 // store info for various locations
 var sceneState = { locations, camera, latlngToWorld, latlngToMap, scale: HEIGHTMAP_SIZE / 2 };
 var frameTimes = [];
+var container = $.one("section.mountain");
 
 // actual rendering code
 var render = function(time) {
+
+  // only run if we're visible
+  var bounds = container.getBoundingClientRect();
+  if (bounds.bottom < 0 || bounds.top > window.innerHeight) {
+    return requestAnimationFrame(render);
+  }
+
+  // EXPERIMENTAL: only run if we're in a camera movement
+  if (!camera.tracking) {
+    return requestAnimationFrame(render);
+  }
 
   gl.useProgram(polyProgram);
   

@@ -35,7 +35,7 @@ void main() {
   float facing = max(dot(normal, lightDirection), 0.0);
   vec3 diffuse = u_light_color * facing;
   vec3 mountain = mix(valley, peak, smoothstep(.55, .8, v_position.y));
-  vec3 color = mountain * shade;// * (noise(v_screenspace.xy) * 0.1 + 0.9);
+  vec3 color = mountain * shade * (noise(v_screenspace.xy) * 0.1 + 0.9);
   color = mix(color, heat, v_color * u_false_color);
   vec3 pixel = clamp(color + diffuse * u_light_intensity, 0.0, 1.0);
   vec3 fogged = mix(pixel, vec3(1.0), smoothstep(u_fog_distance, u_fog_distance + u_fog_depth, v_screenspace.z));
