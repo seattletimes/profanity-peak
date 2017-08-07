@@ -13,12 +13,16 @@ var mixVector = function(a, b) {
     out[i] = (a[i] + b[i]) / 2;
   }
   return out;
-}
+};
 
 var stages = {
   intro: function(scene) {
     scene.camera.reposition(3000, [0, ALT * 2, scene.scale * 1.5], [0, 0, 0]);
     scene.showHeatmap = false;
+    scene.showSalt = false;
+    scene.showTurnout = false;
+    scene.showDen = false;
+    scene.showKills = false;
   },
   heatmap: function(scene) {
     scene.showHeatmap = true;
@@ -56,10 +60,10 @@ var current = null;
 var action = function(scene) {
 
   var onScroll = function() {
-    for (var i = 0; i < stageElements.length; i++) {
+    for (var i = stageElements.length - 1; i >= 0; i--) {
       var element = stageElements[i];
       var bounds = element.getBoundingClientRect();
-      if (bounds.top > 0 && bounds.top < window.innerHeight) {
+      if (bounds.bottom < window.innerHeight) {
         var stageID  = element.getAttribute("data-stage");
         if (stageID == current) return;
         var stage = stages[stageID] || noop;

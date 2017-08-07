@@ -68,8 +68,6 @@ But Wielgus, who received tenure from WSU in October, 28, 2016, would not remain
 <%= markdown.mountain %>
 ?>
 
-Scotten said once alerted by the state, he moved the salt -- but that was long after the wolves had started killing calves -- and after the state started killing off the pack. Ironically, moving the salt made the problem worse, Scotten said. Cattle that usually would have just licked the salt and moved on hung around, pawing the ground, looking for the salt that was supposed to be there.
-
 The kill operation went slowly, with state helicopter gunners eventually killing six adult wolves and a pup. A trapper hired for more than $9,000 from Oct. 4-14 never caught a single wolf. All told, the kill operation cost $134,999 -- many times the $39,315 the feds would earn in grazing fees that year for the entire 39 allotments grazed in the Colville National Forest.
 
 In all, state and federal managers say wolves and cattle are coexisting well in Washington, with wolf populations going up 30 percent a year, and a small number of livestock killed or injured (only 15 by the department’s confirmed count) with 4,434 cow and calf pairs grazing in the Colville National Forest alone in 2016.

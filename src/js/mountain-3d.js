@@ -12,8 +12,8 @@ var HeightMap = require("./heightmap");
 
 // rendering state
 const WIREFRAME = 0;
-var downscaling = .3;
-const DOWNSCALE_WINDOW = 100;
+var downscaling = 1;
+const DOWNSCALE_WINDOW = 60;
 
 // some control constants
 const HEIGHTMAP_SCALE = 1.0;
