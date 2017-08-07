@@ -3,9 +3,17 @@
 <section class="mountain">
   <canvas class="mountain-gl"></canvas>
   <div class="constrained">
-    <div class="chunk spacer stage" data-stage="intro"></div>
+    <div class="chunk stage" data-stage="intro">
+?>
+
+<h2>What really happened to the Profanity Peak pack?</h2>
+
+<?
+    </div>
     <div class="chunk stage" data-stage="heatmap">
 ?>
+
+State biologists collared wolves in the Profanity Peak pack on June 9 and 12, just as McIrvin turned out his cattle on June 9. The department knew the cattle were overlapping the wolves’ territory -- not unusual, or problematic in Washington, where wolves typically share the landscape with livestock without incident. 
 
 *Shown: Wolf activity for the Profanity Peak pack taken from GPS collars in June of 2016*
 
@@ -16,7 +24,7 @@
 
 <div class="stage" data-stage="turnout"></div>
 
-State biologists collared wolves in the Profanity Peak pack on June 9 and 12, just as McIrvin turned out his cattle on June 9. The department knew the cattle were overlapping the wolves’ territory -- not unusual, or problematic in Washington, where wolves typically share the landscape with livestock without incident. By the end of June, the department knew where the den site was, too -- about four miles from where McIrvin had turned out his cattle -- but didn’t tell him.
+By the end of June, the department knew where the den site was, too -- about four miles from where McIrvin had turned out his cattle -- but didn’t tell him.
 
 
 *<span class="placeholder" style="background: purple"></span> Cattle turnout point*
