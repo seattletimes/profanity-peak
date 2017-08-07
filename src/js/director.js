@@ -24,7 +24,7 @@ var stages = {
     });
   },
   heatmap: function(scene) {
-    scene.camera.reposition(3000, [0, ALT * 2, scene.scale * 1.5], [0, 0, 0]);
+    scene.camera.reposition(3000, [scene.scale * .2, ALT, scene.scale * .75], [0, 0, 0]);
     tween.create(scene, "showHeatmap", 1);
   },
   turnout: function(scene) {

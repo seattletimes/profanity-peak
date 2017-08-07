@@ -28,7 +28,7 @@ void main() {
   // colors
   vec3 peak = vec3(81.0, 77.0, 72.0) / 255.0;
   vec3 valley = vec3(29.0, 48.0, 22.0) / 255.0;
-  vec3 heat = vec3(0.8, 0.4, 0.0);
+  vec3 heat = vec3(0.99, 0.4, 0.1);
 
   // lighting calc
   float shade = v_position.y;
@@ -40,11 +40,11 @@ void main() {
 
   // coloring
   vec3 pixel = mix(valley, peak, smoothstep(.55, .8, v_position.y));
+  pixel = pixel * shade;
+  pixel = pixel * grain;
   // heatmap mix
   pixel = mix(pixel, heat, v_color * u_false_color);
   // apply lighting
-  pixel = pixel * shade;
-  pixel = pixel * grain;
   pixel = clamp(pixel + diffuse * u_light_intensity, 0.0, 1.0);
   // add fog
   pixel = mix(pixel, vec3(1.0), smoothstep(u_fog_distance, u_fog_distance + u_fog_depth, v_screenspace.z));
