@@ -24,6 +24,7 @@ var stages = {
     });
   },
   heatmap: function(scene) {
+    scene.camera.reposition(3000, [0, ALT * 2, scene.scale * 1.5], [0, 0, 0]);
     tween.create(scene, "showHeatmap", 1);
   },
   turnout: function(scene) {
@@ -60,7 +61,7 @@ var action = function(scene) {
     for (var i = stageElements.length - 1; i >= 0; i--) {
       var element = stageElements[i];
       var bounds = element.getBoundingClientRect();
-      if (bounds.bottom < window.innerHeight) {
+      if (bounds.top < window.innerHeight) {
         var stageID  = element.getAttribute("data-stage");
         if (stageID == current) return;
         var stage = stages[stageID] || noop;

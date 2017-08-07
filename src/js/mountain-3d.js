@@ -13,7 +13,6 @@ var HeightMap = require("./heightmap");
 // rendering state
 const WIREFRAME = 0;
 var downscaling = 1;
-const DOWNSCALE_WINDOW = 60;
 
 // some control constants
 const HEIGHTMAP_SCALE = 1.0;
@@ -56,7 +55,7 @@ var locations = {
 var canvas = $.one("canvas");
 canvas.width = canvas.offsetWidth;
 canvas.height = canvas.offsetHeight;
-var gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
+var gl = canvas.getContext("webgl", { alpha: false }) || canvas.getContext("experimental-webgl");
 window.gl = gl;
 
 // GL setup
@@ -64,6 +63,7 @@ gl.enable(gl.DEPTH_TEST);
 gl.enable(gl.CULL_FACE);
 gl.enable(gl.BLEND);
 gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+gl.clearColor(1, 1, 1, 1);
 gl.clear(gl.DEPTH_BUFFER_BIT | gl.COLOR_BUFFER_BIT);
 
 // load shader programs
@@ -119,6 +119,7 @@ window.addEventListener("resize", function() {
   canvas.width = canvas.clientWidth * downscaling;
   canvas.height = canvas.clientHeight * downscaling;
   camera.configureFOV();
+  render();
 });
 
 // load the landscape model and data
@@ -150,21 +151,36 @@ var sceneState = {
   showSalt: 0,
   showHeatmap: 0
 };
-var frameTimes = [];
+
 var container = $.one("section.mountain");
+
+$.one("input#low-detail").addEventListener("change", function() {
+  downscaling = this.checked ? .5 : 1;
+});
+
+var pending = false;
 
 // actual rendering code
 var render = function(time) {
+  var forceUpdate = false;
+
+  if (pending) cancelAnimationFrame(pending);
+
+  // was this run manually?
+  if (!time) {
+    time = performance.now();
+    forceUpdate = true;
+  }
 
   // only run if we're visible
   var bounds = container.getBoundingClientRect();
   if (bounds.bottom < 0 || bounds.top > window.innerHeight) {
-    return requestAnimationFrame(render);
+    return pending = requestAnimationFrame(render);
   }
 
   // EXPERIMENTAL: only run if we're in a camera movement
-  if (false && !camera.tracking) {
-    return requestAnimationFrame(render);
+  if (!forceUpdate && !camera.tracking && !tween.tracking.length) {
+    return pending = requestAnimationFrame(render);
   }
 
   gl.useProgram(polyProgram);
@@ -187,8 +203,8 @@ var render = function(time) {
     u_perspective: camera.perspective,
     u_camera: camera.gaze,
     u_false_color: sceneState.showHeatmap,
-    u_fog_distance: 20,
-    u_fog_depth: 20
+    u_fog_distance: 18,
+    u_fog_depth: 30
   });
   
   // now render the landscape
@@ -233,27 +249,15 @@ var render = function(time) {
   }
   
   //schedule next update
-  requestAnimationFrame(render);
-
-  //based on recent frames, should we downscale the buffer?
-  var elapsed = performance.now() - time;
-  frameTimes.push(elapsed);
-  frameTimes = frameTimes.slice(-DOWNSCALE_WINDOW).sort();
-  if (frameTimes.length >= DOWNSCALE_WINDOW) {
-    var average = frameTimes.reduce((t, n) => t + n, 0) / frameTimes.length;
-    var max = Math.max.apply(null, frameTimes);
-    var median = frameTimes[DOWNSCALE_WINDOW >> 1];
-    // console.log(average, median, max);
-    if (average > 10 || max > 100 || median > 40) {
-      downscaling = downscaling == 1 ? .6 : .3;
-    } else {
-      downscaling = downscaling == .3 ? .6 : 1;
-    }
-    // console.log(`Reset downscaling to ${downscaling}`);
-    frameTimes = [];
-  }
+  pending = requestAnimationFrame(render);
 
 };
+
+var fpsCounter = document.createElement("div");
+document.body.appendChild(fpsCounter);
+fpsCounter.style.position = "fixed";
+fpsCounter.style.top = 0;
+fpsCounter.style.right = 0;
 
 var drawModel = function(mesh) {
 

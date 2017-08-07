@@ -2,6 +2,26 @@ section.mountain {
   padding: 16px 0;
   overflow: hidden;
 
+  .controls {
+    font-size: 14px;
+    padding: 0 0 16px;
+
+    .control-row {
+
+    }
+
+    input {
+      vertical-align: middle;
+    }
+
+    label {
+      font-family: @df-sans;
+      font-size: 15px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+  }
+
   canvas {
     position: fixed;
     top: 0;
@@ -10,11 +30,11 @@ section.mountain {
     height: 100%;
     z-index: -1;
 
-    @media @mobile {
-      top: 50%;
-      transform: translateY(-50%);
-      height: 100vw;
-    }
+    // @media @mobile {
+    //   top: 50%;
+    //   transform: translateY(-50%);
+    //   height: 100vw;
+    // }
   }
 
   .constrained {
@@ -30,7 +50,7 @@ section.mountain {
     margin-top: 75vh;
     float: right;
     clear: both;
-    background: @df-off-black;
+    background: fade(@df-off-black, 90%);
     color: @df-light-gray;
     padding: 0 32px;
     max-width: 500px;

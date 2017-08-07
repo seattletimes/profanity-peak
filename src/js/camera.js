@@ -50,7 +50,8 @@ Camera.prototype = {
   },
   configureFOV: function() {
     var canvas = this.canvas;
-    mat4.perspective(this.perspective, 45 * Math.PI / 180, canvas.width / canvas.height, .1, 300);
+    var fov = 60 + (1 - canvas.width / canvas.height) * 40;
+    mat4.perspective(this.perspective, fov * Math.PI / 180, canvas.width / canvas.height, .1, 300);
   }
 };
 

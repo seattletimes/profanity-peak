@@ -30,4 +30,4 @@ var create = function(target, property, to, duration = 800) {
   tracking.push(tween);
 };
 
-module.exports = { update, create };
+module.exports = { update, create, tracking };

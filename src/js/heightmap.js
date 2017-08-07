@@ -51,7 +51,7 @@ var HeightMap = function(image, interval, size) {
       
       // generate false coloring (heatmap)
       // blue pixels are used for this
-      color[i / 3] = 1 - pixel[HEAT] / 255;
+      color[i / 3] = pixel[HEAT] / 255 > .5 ? 1 : 0;
     }
   }
   

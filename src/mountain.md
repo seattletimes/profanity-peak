@@ -7,6 +7,13 @@
 ?>
 
 <h2>What really happened to the Profanity Peak pack?</h2>
+<div class="controls">
+  Running slow? Enable low detail mode:
+  <div class="control-row">
+    <input type="checkbox" id="low-detail">
+    <label for="low-detail">Low detail</label>
+  </div>
+</div>
 
 <?
     </div>
