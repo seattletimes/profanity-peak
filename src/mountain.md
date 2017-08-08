@@ -61,11 +61,14 @@ Wolves typically range over an average territory of 349 square miles, and the Di
 
 <?
     </div>
-    <div class="chunk">
+    <div class="chunk stage" data-stage="salt">
 ?>
 
 The department didn’t urge Diamond M operators to increase human presence with their cattle with range riders until after the first calf was killed July 8. While the department initially assured the public that the Diamond M was following its recommended protocol of turning out calves at least 200 pounds or larger, it later revealed that some animals were smaller.
 
+*<span class="placeholder" style="background: pink"></span> Diamond M salt lick*
+
+*<span class="placeholder" style="background: yellow"></span> Profanity Peak pack den site*
 
 A range rider for the Diamond M moved the salt block Aug.  8, after being asked to by the department. But it just made the problem of cows hanging around the wolves’ territory worse, as cows milled around, looking for the salt that was supposed to be there.
 

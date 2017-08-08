@@ -26,7 +26,7 @@ var hide = function(scene, ...props) {
 
 var stages = {
   intro: function(scene) {
-    scene.camera.reposition(3000, [0, ALT * 2, scene.scale * 1.5], [0, 0, 0]);
+    scene.camera.reposition(3000, [0, ALT * 3, scene.scale * 1.5], [0, 0, 0]);
     hide(scene, "salt", "heatmap", "turnout", "den", "kills");
   },
   heatmap: function(scene) {
@@ -49,7 +49,7 @@ var stages = {
     show(scene, "salt", "den");
     hide(scene, "heatmap", "kills", "turnout");
     var midpoint = mixVector(scene.locations.den, scene.locations.salt);
-    scene.camera.reposition(3000, [midpoint[0] + scene.scale * .25, ALT * .5, midpoint[2] + scene.scale * .25], midpoint);
+    scene.camera.reposition(3000, [midpoint[0], ALT * .5, midpoint[2] + scene.scale * .25], midpoint);
   },
   outro: function(scene) {
     show(scene, "salt", "den", "turnout", "kills", "heatmap");
