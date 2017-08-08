@@ -145,11 +145,11 @@ var sceneState = {
   latlngToWorld,
   latlngToMap,
   scale: HEIGHTMAP_SIZE / 2,
-  showDen: 0,
-  showTurnout: 0,
-  showKills: 0,
-  showSalt: 0,
-  showHeatmap: 0
+  den: 0,
+  turnout: 0,
+  kills: 0,
+  salt: 0,
+  heatmap: 0
 };
 
 var container = $.one("section.mountain");
@@ -202,7 +202,7 @@ var render = function(time) {
     u_resolution: [canvas.width, canvas.height, 300],
     u_perspective: camera.perspective,
     u_camera: camera.gaze,
-    u_false_color: sceneState.showHeatmap,
+    u_false_color: sceneState.heatmap,
     u_fog_distance: 18,
     u_fog_depth: 30
   });
@@ -224,26 +224,26 @@ var render = function(time) {
   });
 
   //various map POI
-  if (sceneState.showTurnout) {
-    gl.uniform1f(pointProgram.uniforms.u_alpha, sceneState.showTurnout);
+  if (sceneState.turnout) {
+    gl.uniform1f(pointProgram.uniforms.u_alpha, sceneState.turnout);
     textures.purple.activate(pointProgram);
     drawPoints(locations.unloading);
   }
 
-  if (sceneState.showDen) {
-    gl.uniform1f(pointProgram.uniforms.u_alpha, sceneState.showDen);
+  if (sceneState.den) {
+    gl.uniform1f(pointProgram.uniforms.u_alpha, sceneState.den);
     textures.yellow.activate(pointProgram);
     drawPoints(locations.den);
   }
 
-  if (sceneState.showSalt) {
-    gl.uniform1f(pointProgram.uniforms.u_alpha, sceneState.showSalt);
+  if (sceneState.salt) {
+    gl.uniform1f(pointProgram.uniforms.u_alpha, sceneState.salt);
     textures.pink.activate(pointProgram);
     drawPoints(locations.salt);
   }
   
-  if (sceneState.showKills) {
-    gl.uniform1f(pointProgram.uniforms.u_alpha, sceneState.showKills);
+  if (sceneState.kills) {
+    gl.uniform1f(pointProgram.uniforms.u_alpha, sceneState.kills);
     textures.red.activate(pointProgram);
     drawPoints(kills);
   }

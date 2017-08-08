@@ -22,7 +22,7 @@
 
 State biologists collared wolves in the Profanity Peak pack on June 9 and 12, 2016, just as Len McIrvin turned out his cattle on June 9. The department knew the cattle were overlapping the wolves’ territory -- not unusual or problematic in Washington, where wolves typically share the landscape with livestock without incident. 
 
-*Shown: Activity of the Profanity Peak wolf pack taken from GPS collars in June 2016*
+*Shown in orange: Activity of the Profanity Peak wolf pack taken from GPS collars in June 2016*
 
 <?
     </div>
@@ -79,7 +79,7 @@ It also wasn’t until August that the department alerted McIrvin’s range ride
 
 For decades, ranch hands had put the salt in the same spot to utilize the knowledge of older cows that lead the young ones to the pastures. But in 2016, the salt was about 200 yards from the pack’s new den. Moving the salt to avoid the den only made the cows hang around more in the wolves’ core territory – looking for the salt that was supposed to be there, and pawing and licking salt still in the ground. 
 
-Wolves typically range over an average territory of 349 square miles, and the cows and wolves were soon right together in the wolves’ core activity area.
+Wolves typically range over an average territory of 349 square miles, and the cows and wolves were soon close together in the wolves’ core activity area.
 
 <?
     </div>

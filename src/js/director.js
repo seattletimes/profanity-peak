@@ -16,12 +16,6 @@ var mixVector = function(a, b) {
   return out;
 };
 
-var salt = "showSalt";
-var heat = "showHeatmap";
-var turnout = "showTurnout";
-var kills = "showKills";
-var den = "showDen";
-
 var show = function(scene, ...props) {
   props.forEach(p => tween.create(scene, p, 1));
 };
@@ -33,31 +27,32 @@ var hide = function(scene, ...props) {
 var stages = {
   intro: function(scene) {
     scene.camera.reposition(3000, [0, ALT * 2, scene.scale * 1.5], [0, 0, 0]);
-    hide(scene, salt, heat, turnout, den, kills);
+    hide(scene, "salt", "heatmap", "turnout", "den", "kills");
   },
   heatmap: function(scene) {
     scene.camera.reposition(3000, [scene.scale * .2, ALT, scene.scale * .75], [0, 0, 0]);
-    show(scene, heat);
+    show(scene, "heatmap");
+    hide(scene, "salt", "den", "turnout");
   },
   turnout: function(scene) {
-    hide(scene, kills, heat);
-    show(scene, salt, den, turnout);
+    hide(scene, "kills", "heatmap");
+    show(scene, "salt", "den", "turnout");
     var midpoint = mixVector(scene.locations.den, scene.locations.unloading);
     scene.camera.reposition(2000, [midpoint[0] + scene.scale * .5, ALT, midpoint[2] + scene.scale * .5], midpoint);
   },
   kills: function(scene) {
-    show(scene, kills, heat, den);
-    hide(scene, salt, turnout);
+    show(scene, "kills", "heatmap", "den");
+    hide(scene, "salt", "turnout");
     scene.camera.reposition(3000, [scene.scale * 1.5, ALT * 2, 0], [0, 0, 0]);
   },
   salt: function(scene) {
-    show(scene, salt, den);
-    hide(scene, heat, kills, turnout);
+    show(scene, "salt", "den");
+    hide(scene, "heatmap", "kills", "turnout");
     var midpoint = mixVector(scene.locations.den, scene.locations.salt);
     scene.camera.reposition(3000, [midpoint[0] + scene.scale * .25, ALT * .5, midpoint[2] + scene.scale * .25], midpoint);
   },
   outro: function(scene) {
-    show(scene, salt, den, turnout, kills, heat);
+    show(scene, "salt", "den", "turnout", "kills", "heatmap");
     scene.camera.reposition(3000, [0, ALT * 2, scene.scale * 1.5], [0, 0, 0]);
   },
 };
