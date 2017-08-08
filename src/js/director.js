@@ -38,12 +38,12 @@ var stages = {
     hide(scene, "kills", "heatmap");
     show(scene, "salt", "den", "turnout");
     var midpoint = mixVector(scene.locations.den, scene.locations.unloading);
-    scene.camera.reposition(2000, [midpoint[0] + scene.scale * .5, ALT, midpoint[2] + scene.scale * .5], midpoint);
+    scene.camera.reposition(2000, [midpoint[0] - scene.scale * .5, ALT, midpoint[2] + scene.scale * .5], midpoint);
   },
   kills: function(scene) {
     show(scene, "kills", "heatmap", "den");
     hide(scene, "salt", "turnout");
-    scene.camera.reposition(3000, [scene.scale * 1.5, ALT * 2, 0], [0, 0, 0]);
+    scene.camera.reposition(3000, [-scene.scale * 1.5, ALT * 2, scene.scale * .5], [0, 0, 0]);
   },
   salt: function(scene) {
     show(scene, "salt", "den");
