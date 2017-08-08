@@ -244,8 +244,19 @@ var render = function(time) {
   
   if (sceneState.kills) {
     gl.uniform1f(pointProgram.uniforms.u_alpha, sceneState.kills);
+    // killed, definitely wolf
     textures.red.activate(pointProgram);
-    drawPoints(kills);
+    drawPoints(locations.wolfKills);
+    // killed, unconfirmed animal
+    textures.red.activate(pointProgram);
+    drawPoints(locations.unconfirmedKills);
+    // attacked, definitely wolf
+    textures.red.activate(pointProgram);
+    drawPoints(locations.wolfAttacks);
+    // attacked, unconfirmed animal
+    // NOTE: doesn't exist?
+    // textures.red.activate(pointProgram);
+    // drawPoints(locations.unconfirmedAttacks);
   }
   
   //schedule next update
@@ -325,14 +336,6 @@ bitmap.onload = function(e) {
   gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(map.index), gl.STATIC_DRAW);
   landscape.index.length = map.index.length;
 
-  window.depredationData.forEach(function(p) {
-    if (p.kill != "Y" || p.wolf != "Y") return;
-    var [dx, dz] = latlngToMap(p.lat, p.lng);
-    var dy = map.getPixel((dx + 1) / 2, (dz + 1) / 2)[0] / 255;
-    dy += .3;
-    kills.push(dx * HEIGHTMAP_SIZE / 2, dy, dz * HEIGHTMAP_SIZE / 2);
-  });
-
   for (var k in locations) {
     var [lat, lng] = locations[k];
     var [x, z] = latlngToMap(lat, lng);
@@ -341,6 +344,17 @@ bitmap.onload = function(e) {
     z *= HEIGHTMAP_SIZE / 2;
     locations[k] = [x, y, z];
   }
+
+  window.depredationData.forEach(function(p) {
+    var cat = (p.wolf == "Y" ? "wolf" : "unconfirmed") + (p.kill == "Y" ? "Kills" : "Attacks");
+    var [dx, dz] = latlngToMap(p.lat, p.lng);
+    var dy = map.getPixel((dx + 1) / 2, (dz + 1) / 2)[0] / 255;
+    dy += .3;
+    if (!locations[cat]) locations[cat] = [];
+    locations[cat].push(dx * HEIGHTMAP_SIZE / 2, dy, dz * HEIGHTMAP_SIZE / 2);
+  });
+
+  console.log(locations);
   
   requestAnimationFrame(render);
   director.action(sceneState);
