@@ -22,7 +22,7 @@
 
 State biologists collared wolves in the Profanity Peak pack on June 9 and 12, 2016, just as Len McIrvin turned out his cattle on June 9. The department knew the cattle were overlapping the wolves’ territory -- not unusual or problematic in Washington, where wolves typically share the landscape with livestock without incident. 
 
-*Shown: Wolf activity for the Profanity Peak pack taken from GPS collars in June of 2016*
+*Shown: Activity of the Profanity Peak wolf pack taken from GPS collars in June 2016*
 
 <?
     </div>
