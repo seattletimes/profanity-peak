@@ -1,6 +1,11 @@
 @import "seattletimes";
 @import "mountain";
 
+.splash {
+  img {
+    display:  block;
+  }
+}
 .whiteout {
   background: white;
 
@@ -62,23 +67,29 @@
 
     .graphic {
       font-family: @df-sans;
-      border-bottom: .5px solid;
-      border-top: .5px solid;
-      border-color: @df-middle-gray;
-      max-width: 550px;
+      // border-bottom: .5px solid;
+      // border-top: .5px solid;
+      // border-color: @df-middle-gray;
+      max-width: 475px;
       float: right;
-      padding-left: 20px;
+      padding-left: 40px;
 
       h1 {
         font-size: 22px;
+        margin-bottom: 5px;
       }
 
       .chatter {
-        font-size: 18px;
+        font-size: 15px;
         margin-bottom: 30px;
       }
 
-      .note, .source {
+      .note {
+        text-align: left;
+        font-size: 15px;
+      }
+
+      .source {
         text-align: left;
         font-size: 15px;
       }
@@ -86,6 +97,7 @@
       .credit {
         text-align: right;
         font-size: 15px;
+        
       }
     }
 

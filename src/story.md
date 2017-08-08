@@ -79,15 +79,7 @@ But he wasn’t.
 Knocked off the grant, Wielgus lost his summer salary for two years — during the peak season for wolf research — and his travel budget.
 
 <?
-<div class="graphic">
-  <h1> The 2016 cost of wolves </h1>
-  <div class="chatter"> Wolf management is expensive in Washington, costing $973,275 in 2016 alone. That includes $134,999 spent to kill seven wolves, including a pup in the Profanity Peak Pack after the wolves killed or injured 15 cattle grazing on the Colville National Forest </div>
-  <img src="./assets/web-graphic-wolves.jpg">
-  <div class="note"> &#42;Reimbursements include direct and indirect livestock losse </div>
-  <div class="source"> Source: Department of Fish and Wildlife </div>
-  <div class="credit"> Emily M. Eng / The Seattle Times </div>
-
-</div>
+<%= t.include("graphic.html") %>
 ?>
 
 In the end, [money got tucked in for the medical school](https://spokane.wsu.edu/extra/2015/06/30/we-did-it-wsu-medical-school-funding-approved/), in the same budget that sidestepped the funding for Wielgus. The school will begin its first classes this fall.
