@@ -1,11 +1,4 @@
 
-
-# WSU cowed by political pressure over wolf research
-
-By Lynda V. Mapes
-
-Seattle Times environment reporter
-
 By a slow slide of river deep in Washington’s wolf country, Robert Wielgus laughs at the tattoo on his arm of 4 Claws, the grizzly that almost killed him.
 
 “I would rather face charging grizzly bears trying to kill me than politicians and university administrators, because it is over quickly,” said Wielgus, a Washington State University wolf researcher.
@@ -13,6 +6,22 @@ By a slow slide of river deep in Washington’s wolf country, Robert Wielgus lau
 A Harley-riding, self-described adrenaline junkie at home in black motorcycle leathers with a Stetson and a .357 in the pickup, Wielgus is no tweed-jacket academic. For decades he has traveled North America wrangling bears, cougars and wolves to collar and study their behavior, including collaborations with the Washington Department of Fish and Wildlife (WDFW).
 
 Wielgus now finds himself crosswise with ranchers, lawmakers and WSU administrators — and their lobbyists. He’s lost grant funding and been shut out of his summer research, forbidden from talking to media in his professional role and investigated — and cleared — for scientific misconduct.
+
+<?
+<aside class="sidebar">
+  <h3>Previous coverage </h3>
+  <ul>
+    <li><a href="http://www.seattletimes.com/seattle-news/environment/with-their-cattle-grazing-in-washingtons-wolf-country-ranchers-work-and-worry/">With cattle in Washington's wolf country, ranchers work and worry</a></li>
+
+    <li><a href="http://www.seattletimes.com/seattle-news/environment/washington-state-to-kill-more-wolves-to-protect-livestock/">Washington state to kill more wolves to protect livestock</a></li>
+
+    <li><a href="http://www.seattletimes.com/seattle-news/northwest/washington-state-wolf-population-growing/">Making a comeback: Washington's endangered wolf population in 'wave of recovery'</a></li>
+
+    <li><a href="http://www.seattletimes.com/seattle-news/northwest/colville-tribes-to-open-hunt-on-wolves-near-canadian-border/">Colville tribes to open hunt on wolves near Canadian border</a></li>
+
+  </ul>
+</aside>
+?>
 
 To understand why involves a look at state policy concerning a menagerie of animals: cougars, sheep, cattle and wolves. And one more animal: homo sapiens.
 
@@ -26,6 +35,11 @@ That was not long after Wielgus published a peer-reviewed paper that just as pro
 
 His wolf study [made national news](https://www.nytimes.com/2014/12/04/us/washington-state-study-faults-efforts-at-wolf-management.html) with its finding that culling the predators can lead to more livestock kills, not fewer, because it destablizes pack dynamics.
 
+<div class="photoContainer">
+  <img src="./assets/wolfman_2_Profanity_Peak_Pack.jpg">
+  <div class="caption"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non lacus faucibus, facilisis quam et, posuere velit. </div>
+</div>
+
 Normally for a university, national press for one of its researchers would be a point of pride. But the buzz over the paper alarmed lobbyists for WSU, hearing threats from state lawmakers that it was putting money for a new medical school and other pet projects in jeopardy.
 
 Those legislators in turn were responding to ranchers and local officials seeking more lethal action from the department against wolves that harm livestock.
@@ -35,6 +49,14 @@ Those legislators in turn were responding to ranchers and local officials seekin
 Jesernig, a well-connected former director of the state Department of Agriculture, and former member of the state House and Senate, agreed with Coyne, his partner at Coyne, Jesernig lobbying firm. “That’s my assessment as well,” Jesernig wrote in an email copied to WSU Director of State Relations Chris Mulick. “... We are making the med school not doable.”
 
 Replied Mulick, “...we’re looking a wee bit like Sonny on the causeway here,” referring to a mob hit on a victim in the movie “The Godfather.” “We’re getting in our own way on the med school enough as it is.”
+
+<?
+<aside class="sidebar">
+  <img src="http://placekitten.com/240/200">
+  <h3>What really happened to the Profanity Peak pack?</h3>
+  <p> TKTKTKTK </p>
+</aside>
+?>
 
 A magazine story prepared by a WSU communications department writer in advance of the wolf paper was spiked, Wielgus said. Just like a news release subsequently written, but never issued, on new cougar research out of Wielgus’ lab.
 
@@ -55,6 +77,18 @@ Hans Dunshee, a former Snohomish Democrat and top budget writer confirmed he cut
 But he wasn’t.
 
 Knocked off the grant, Wielgus lost his summer salary for two years — during the peak season for wolf research — and his travel budget.
+
+<?
+<div class="graphic">
+  <h1> The 2016 cost of wolves </h1>
+  <div class="chatter"> Wolf management is expensive in Washington, costing $973,275 in 2016 alone. That includes $134,999 spent to kill seven wolves, including a pup in the Profanity Peak Pack after the wolves killed or injured 15 cattle grazing on the Colville National Forest </div>
+  <img src="./assets/web-graphic-wolves.jpg">
+  <div class="note"> &#42;Reimbursements include direct and indirect livestock losse </div>
+  <div class="source"> Source: Department of Fish and Wildlife </div>
+  <div class="credit"> Emily M. Eng / The Seattle Times </div>
+
+</div>
+?>
 
 In the end, [money got tucked in for the medical school](https://spokane.wsu.edu/extra/2015/06/30/we-did-it-wsu-medical-school-funding-approved/), in the same budget that sidestepped the funding for Wielgus. The school will begin its first classes this fall.
 
@@ -119,6 +153,13 @@ By then, WSU had cleared Wielgus of any scientific wrongdoing. On May 29, Christ
 However, the result of the subsequent independent review completed by a WSU statistician was clear: “There is no evidence of misconduct in this matter,” Keane wrote.
 
 But for faculty at WSU, the message nonetheless was clear, said Donna Potts, president of the local chapter of the American Association of University Professors (AAUP), the nation’s oldest and largest advocacy group for academic freedom. “It was very disturbing, I had never seen anything like it,” Potts, a member of the English department, said of WSU’s treatment of a senior faculty member.
+
+<?
+<div class="photoContainer">
+  <img src="./assets/wolfman_ender.jpg">
+  <div class="caption"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non lacus faucibus, facilisis quam et, posuere velit. </div>
+</div>
+?>
 
 Cary Nelson, former national president of the AAUP, who spoke on the issue at WSU last spring, said pressure from industry and from lawmakers friendly to it is nothing unusual. “But it up to a university to protect its faculty.”
 

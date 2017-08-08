@@ -5,9 +5,89 @@
   background: white;
 
   .constrained {
-    max-width: 800px;
+    max-width: 900px;
     margin: auto;
     padding: 32px 16px;
+
+    aside.sidebar {
+      float: right;
+      max-width: 200px;
+      margin: 0px 16px 32px 0px;
+      font-family: @df-sans;
+
+      ul {
+        list-style-type: none;
+        font-size: 15px;
+        padding: 0px;
+
+        hr {
+          color: @df-middle-gray;
+          height: 2px;
+        }
+      }
+
+      ul li {
+        border-bottom: .5px solid;
+        border-color: @df-middle-gray;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+
+        a {
+          color: black;
+
+          &:visited {
+            color: @df-middle-gray;
+          }
+
+          &:hover, &:focus {
+            color: @df-blue;
+          }
+
+        }
+      }
+
+    }
+
+    .photoContainer {
+      margin-top: 30px;
+      margin-bottom: 30px;
+
+      .caption {
+        font-style: italic;
+        font-size: 15px;
+        font-family: @df-serif;
+        color: @df-middle-gray;
+      }
+    }
+
+    .graphic {
+      font-family: @df-sans;
+      border-bottom: .5px solid;
+      border-top: .5px solid;
+      border-color: @df-middle-gray;
+      max-width: 550px;
+      float: right;
+      padding-left: 20px;
+
+      h1 {
+        font-size: 22px;
+      }
+
+      .chatter {
+        font-size: 18px;
+        margin-bottom: 30px;
+      }
+
+      .note, .source {
+        text-align: left;
+        font-size: 15px;
+      }
+
+      .credit {
+        text-align: right;
+        font-size: 15px;
+      }
+    }
 
     & > p {
       max-width: 600px;
