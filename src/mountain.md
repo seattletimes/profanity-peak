@@ -45,9 +45,9 @@ By the end of June, the department knew where the den site was, too -- about 4 m
 
 <div class="stage" data-stage="kills"></div>
 
-McIrvin has held permits for grazing the Colville National Forest for 73 years. He turned out 198 cows with calves on one of five allotments he uses, just as in the past. McIrvin said in an interview he did not know that his cattle were drifting toward the den of the Profanity Peak pack. The wolves, burned out of their territory in the 2015 Stickpin Fire, had moved their den that year into the heart of Colville National Forest, overlapping multiple grazing allotments used by McIrvin and other ranchers.
+The McIrvin Family and Diamond M Ranch have held their grazing permits in the Colville National Forest for 73 years. He turned out 198 cows with 198 calves on one of five allotments he uses, just as in the past. McIrvin said in an interview he did not know that his cattle were drifting toward the den of the Profanity Peak pack. The wolves, burned out of their territory in the 2015 Stickpin Fire, had moved their den that year into the heart of Colville National Forest, overlapping multiple grazing allotments used by McIrvin and other ranchers.
 
-*<span class="placeholder" style="background: red"></span> Confirmed wolf kill locations*
+*<span class="placeholder" style="background: red"></span> Confirmed cattle kill locations*
 
 Before long, the wolves were killing calves anywhere from 1 to more than 10 miles from the initial turnout location and den site.
 
@@ -77,9 +77,9 @@ It also wasn’t until August that the department alerted McIrvin’s range ride
     <div class="chunk">
 ?>
 
-For decades, ranch hands had put out the salt in the same location to utilize the knowledge of older cows that lead the young ones to the pastures. But in 2016, the salt was about 200 yards from the pack’s new den.
+For decades, ranch hands had put the salt in the same spot to utilize the knowledge of older cows that lead the young ones to the pastures. But in 2016, the salt was about 200 yards from the pack’s new den. Moving the salt to avoid the den only made the cows hang around more in the wolves’ core territory – looking for the salt that was supposed to be there, and pawing and licking salt still in the ground. 
 
-For wolves that typically cover a territory of more than 350 square miles, 4 miles was nothing and 200 yards was nothing. The cows were in the heart of their activity area.
+Wolves typically range over an average territory of 349 square miles, and the cows and wolves were soon right together in the wolves’ core activity area.
 
 <?
     </div>
