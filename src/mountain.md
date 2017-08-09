@@ -57,7 +57,7 @@ The ranchers figured out the den site on their own at the same time as the depar
 
 *<span class="placeholder" style="background: red"></span> Confirmed cattle kill locations*
 
-Wolves typically range over an average territory of 349 square miles, and the Diamond M cows were soon in the heart of the Profanity Peak Pack’s core activity area.
+Wolves range over an average territory of 349 square miles, and the Diamond M cows were soon in the heart of the Profanity Peak pack’s core activity area.
 
 Before long, the wolves were killing calves anywhere from 1 mile to more than 10 miles from the initial turnout location and den site.
 
