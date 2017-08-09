@@ -12,7 +12,7 @@
 
     <header class="splash">
       <img src="./assets/wolfman_01_lede.jpg">
-      <div class="caption"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non lacus faucibus, facilisis quam et, posuere velit. </div>
+      <div class="caption">Robert Wielgus, director of the Large Carnivore Conservation Lab at Washington State University, lets out a howl last spring, hoping for an answer from deep in the territory of the Profanity Peak pack. A national scientists’ whistleblower group has filed a complaint against WSU stating Wielgus has been punished and silenced by the school because of political pressure by state lawmakers and ranchers. (Steve Ringman / The Seattle Times)</div>
     </header>
 
     <main class="content">
@@ -24,13 +24,7 @@
             <div class="staff">Seattle Times environment reporter</div>
           </div>
         <%= markdown.story %>
-
-        <div class="contact">Lynda V. Mapes: 206-464-2515 or lmapes@seattletimes.com</div>
-        
-        <div class="credits">
-            <b>Credit:</b> Names go here
-        </div>
-
+        <%= t.include("./credits.html") %>
         </div>
       </section>
     </main>
