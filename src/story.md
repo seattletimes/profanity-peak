@@ -1,3 +1,11 @@
+<?
+<aside class="sidebar teaser">
+  <h3>Interactive</h3>
+  <img src="http://placekitten.com/240/150">
+  <p>What really happened to the Profanity Peak pack? Explore an interactive map.</p>
+</aside>
+?>
+
 By a slow slide of river deep in Washington’s wolf country, Robert Wielgus laughs at the tattoo on his arm of Four Claws, the grizzly that almost killed him.
 
 “I would rather face charging grizzly bears trying to kill me than politicians and university administrators, because it is over quickly,” said Wielgus, director of the Large Carnivore Conservation Lab at Washington State University.
@@ -6,14 +14,14 @@ A Harley-riding, self-described adrenaline junkie at home in black motorcycle le
 
 Wielgus now finds himself crosswise with ranchers, lawmakers and WSU administrators — and their lobbyists. He’s lost grant funding for his summer research, has been forbidden from talking to media in his professional role and has been reviewed — and cleared — for scientific misconduct.
 
+To understand why involves a look at state policy concerning a menagerie of animals: cougars, sheep, cattle and wolves. And one more animal: homo sapiens.
+
 <?
 <div class="photoContainer side">
   <img src="./assets/wolfman_2_Profanity_Peak_Pack.jpg">
   <div class="caption"> A motion-triggered wildlife camera near the den and rendezvous site of the Profanity Peak wolf pack captures members on camera July 30, 2016. The state Department of Fish and Wildlife killed six adults and a pup in the pack last summer after the wolves killed cattle grazing on public land in the Colville National Forest. (Courtesy of WSU Wolf/Livestock Conflict Research program) </div>
 </div>
 ?>
-
-To understand why involves a look at state policy concerning a menagerie of animals: cougars, sheep, cattle and wolves. And one more animal: homo sapiens.
 
 In Washington, it turns out, wolves and livestock are getting along better than the people who manage and study them.
 
@@ -39,6 +47,10 @@ Those legislators in turn were responding to ranchers and local officials seekin
 
 Jesernig, a well-connected former director of the state Department of Agriculture, and former member of the state House and Senate, agreed with Coyne, his partner at the Coyne, Jesernig lobbying firm. “That’s my assessment as well,” Jesernig wrote in an email copied to WSU Director of State Relations Chris Mulick. “ ... We are making the med school not doable.”
 
+<?
+<%= t.include("partials/_ad.html", { type: "square" })%>
+?>
+
 Replied Mulick, “We’re looking a wee bit like Sonny on the causeway here,” referring to a mob hit on a character in the movie “The Godfather.” “We’re getting in our own way on the med school enough as it is.”
 
 A magazine story prepared by a writer for the university’s magazine and news service in advance of the wolf paper was spiked, Wielgus said. Just like a news release subsequently written, but never issued, on new cougar research out of Wielgus’ lab.
@@ -52,10 +64,20 @@ Wielgus answered that the university was afraid of angering Republicans in the L
 In particular, Wielgus had provoked Rep. Joel Kretz, R-Wauconda, a former Mercer Island resident turned cougar hunter, elected to the Legislature to represent the 7th District in Northeastern Washington.
 
 <?
-  <div class="photoContainer">
-  <img src="./assets/Wolfman_Kretz_cougar_head.jpg">
-  <div class="caption"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </div>
-</div>
+  </div>
+  <div class="photoContainer double">
+    <div class="image-container">
+      <img src="./assets/Wolfman_Kretz_cougar_head.jpg">
+    </div>
+    <div class="spacer"></div>
+    <div class="image-container">
+      <img src="./assets/Wolfman_Kretz_rifle.jpg">
+    </div>
+  </div>
+  <div class="caption">
+    Left: Rancher Joel Kretz displays a dead cougar head on a table in his home while talking to a reporter. Kretz said cougars were killing and maiming his livestock and that ranchers like him needed more liberal hunting laws to fight back. Right: Rancher Joel Kretz is photographed in 2001 at his ranch with his rifle. His conflict with Robert Wielgus started with Wielgus' research that helped overturn state policy Kretz supported to up the hunt on cougars. Kretz was elected to the Legislature in 2004.(Kevin German / The Seattle Times)
+  </div>
+  <div class="constrained">
 ?>
 
 Known for carrying the severed heads of cougars to public meetings — even plucking one for effect from his home freezer to sit, defrosting, on a table between himself and this reporter during an interview at his ranch — Kretz had butted heads with Wielgus from his first cougar papers that had thwarted Kretz’s efforts to increase cougar hunting in Northeastern Washington.
@@ -108,7 +130,13 @@ Wielgus says today that he could have been more diplomatic; his public remarks a
 
 Wolves are returning to the state on their own from Idaho and Canada, and have surged into Northeastern Washington, where most of the state’s 20 packs live. Diamond M operators had been warning the department about the Profanity pack since 2014, after three confirmed kills of its cattle by the pack. But what Diamond M ranchers and the department didn’t know as the ranchers loaded up their cattle for turnout in 2016 was the pack had moved much closer to the Diamond M’s operations on public grazing lands in the Colville National Forest.
 
-Burned out by the Stickpin fire in 2015, the wolves had moved their den from the previous year to within 5 miles of the Diamond M’s usual turnout site for the C.C. Mountain grazing allotment, and a quarter-mile from the salt lick put out in the same spot every year to draw cows up from lowland pastures to the mountain.
+<?
+<div class="photoContainer side">
+  <img src="http://placekitten.com/400/150">
+</div>
+?>
+
+Burned out by the Stickpin fire in 2015, the wolves had moved their den from the previous year to within 5 miles of the Diamond M’s usual turnout site for the CC Mountain grazing allotment, and a quarter-mile from the salt lick put out in the same spot every year to draw cows up from lowland pastures to the mountain.
 
 <?<%= markdown.mountain %>?>
 
@@ -121,7 +149,7 @@ The news release disavowing his statements was never shown to him, Wielgus said,
 While he has since attained tenure, Wielgus said he no longer wants to work at the university. “They called me a liar and ruined my career.”
 
 <?
-  <div class="photoContainer">
+  <div class="photoContainer antenna">
   <img src="./assets/wolfman_03_antenna.jpg">
   <div class="caption"> Robert Wielgus gets ready to listen for the radio collar on the sole surviving adult of the Profanity Peak pack, mostly killed off by the Washington Department of Fish and Wildlife last summer for killing ranchers’ cattle. (Steve Ringman / The Seattle Times) </div>
 </div>
