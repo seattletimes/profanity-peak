@@ -347,8 +347,6 @@ bitmap.onload = function(e) {
     if (!locations[cat]) locations[cat] = [];
     locations[cat].push(dx * HEIGHTMAP_SIZE / 2, dy, dz * HEIGHTMAP_SIZE / 2);
   });
-
-  console.log(locations);
   
   requestAnimationFrame(render);
   director.action(sceneState);
