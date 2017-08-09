@@ -8,19 +8,10 @@ A Harley-riding, self-described adrenaline junkie at home in black motorcycle le
 Wielgus now finds himself crosswise with ranchers, lawmakers and WSU administrators — and their lobbyists. He’s lost grant funding and been shut out of his summer research, forbidden from talking to media in his professional role and investigated — and cleared — for scientific misconduct.
 
 <?
-<aside class="sidebar">
-  <h3>Previous coverage </h3>
-  <ul>
-    <li><a href="http://www.seattletimes.com/seattle-news/environment/with-their-cattle-grazing-in-washingtons-wolf-country-ranchers-work-and-worry/">With cattle in Washington's wolf country, ranchers work and worry</a></li>
-
-    <li><a href="http://www.seattletimes.com/seattle-news/environment/washington-state-to-kill-more-wolves-to-protect-livestock/">Washington state to kill more wolves to protect livestock</a></li>
-
-    <li><a href="http://www.seattletimes.com/seattle-news/northwest/washington-state-wolf-population-growing/">Making a comeback: Washington's endangered wolf population in 'wave of recovery'</a></li>
-
-    <li><a href="http://www.seattletimes.com/seattle-news/northwest/colville-tribes-to-open-hunt-on-wolves-near-canadian-border/">Colville tribes to open hunt on wolves near Canadian border</a></li>
-
-  </ul>
-</aside>
+<div class="photoContainer side">
+  <img src="./assets/wolfman_2_Profanity_Peak_Pack.jpg">
+  <div class="caption"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non lacus faucibus, facilisis quam et, posuere velit. </div>
+</div>
 ?>
 
 To understand why involves a look at state policy concerning a menagerie of animals: cougars, sheep, cattle and wolves. And one more animal: homo sapiens.
@@ -35,10 +26,11 @@ That was not long after Wielgus published a peer-reviewed paper that just as pro
 
 His wolf study [made national news](https://www.nytimes.com/2014/12/04/us/washington-state-study-faults-efforts-at-wolf-management.html) with its finding that culling the predators can lead to more livestock kills, not fewer, because it destablizes pack dynamics.
 
-<div class="photoContainer">
-  <img src="./assets/wolfman_2_Profanity_Peak_Pack.jpg">
-  <div class="caption"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non lacus faucibus, facilisis quam et, posuere velit. </div>
-</div>
+<?
+  <div class="video-container">
+    <iframe src='//players.brightcove.net/1509317113/3a88c7ac-7308-40e7-8334-1cfe33120b22_default/index.html?videoId=5507983137001' allowfullscreen frameborder=0></iframe>
+  </div>
+?>
 
 Normally for a university, national press for one of its researchers would be a point of pride. But the buzz over the paper alarmed lobbyists for WSU, hearing threats from state lawmakers that it was putting money for a new medical school and other pet projects in jeopardy.
 
@@ -52,9 +44,9 @@ Replied Mulick, “...we’re looking a wee bit like Sonny on the causeway here,
 
 <?
 <aside class="sidebar">
+  <h3>Interactive</h3>
   <img src="http://placekitten.com/240/200">
-  <h3>What really happened to the Profanity Peak pack?</h3>
-  <p> TKTKTKTK </p>
+  <p>What really happened to the Profanity Peak pack? Explore an interactive map.</p>
 </aside>
 ?>
 
@@ -112,6 +104,12 @@ Wielgus says today that he could have been more diplomatic; his public remarks i
 
 The ranchers had turned out their cows and placed a salt lick for them in the same locations used for decades. But that year, burned out by the Stickpin fire, the wolves had moved their den to within five miles of the turnout site and a quarter-mile from the salt lick, in a forested, off-road location.
 
+<?
+    <div class="video-container side">
+    <iframe src='//players.brightcove.net/1509317113/3a88c7ac-7308-40e7-8334-1cfe33120b22_default/index.html?videoId=5507983137001' allowfullscreen frameborder=0></iframe>
+  </div>
+?>
+
 The WDFW knew about the den by the end of that June, but gave Diamond M operators no information about the Profanity Peak pack’s movements or den site. Wolves travel a territory of more than 350 miles, and the cows, following their usual grazing paths through pastures of the alottment into the mountains, soon dispersed from the drop-off site into the pack’s core activity area. By July 8, the pack killed its first calf — and kept at it, even after the WDFW responded and began killing the pack.
 
 The WDFW carried on most of the summer and into the fall killing wolves, eventually taking the lives of six adults and a pup in the pack. All told, the department spent $134,999 on the operation.
@@ -122,6 +120,14 @@ The news release disavowing his statements was never shown to him, Wielgus said,
 
 While he has since attained tenure, Wielgus said he no longer wants to work at the university. “They called me a liar and ruined my career.”
 
+<?
+  <div class="photoContainer">
+  <img src="./assets/wolfman_03_antenna.jpg">
+  <div class="caption"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non lacus faucibus, facilisis quam et, posuere velit. </div>
+</div>
+?>
+
+
 ## break
 
 Wielgus’ conflicts with the university would continue. In March, he received a second “letter of concern” from Mittelhammer, after he emailed a news release reporting the latest findings from his [Large Carnivore Lab ](https://environment.wsu.edu/people/)to the state’s wolf advisory committee as it formulated wolf policy for 2017.
@@ -129,6 +135,8 @@ Wielgus’ conflicts with the university would continue. In March, he received a
 Wolf kills of livestock were exceedingly rare, Wielgus reported, occurring in fewer than 1 percent of the livestock tracked by his lab. Only in the case of the Profanity Peak Pack, where cattle and a salt block to attract them were milling around the wolves’ activity area, had there been multiple calf kills, more than anywhere else surveyed, Wielgus reported.
 
 Wielgus had sent the release to WSU communications staff and administrators for pre-approval, putting it out as his personal opinion and not on behalf of the university, as they requested. But after sending it to members of the press and advisory committee, he got further instruction from Mittelhammer that it should be sent from his personal email, not from his WSU account, emails between the two show.
+
+<? <%= t.include("./previously.html")%> ?>
 
 When Wielgus asked to address the Wolf Advisory Group, Tom Davis of the Washington Farm Bureau and a member of the group, complained to Mulick, insisting he shut Wielgus down. “His tactics and antics are well known,” said Davis, who vowed that if Wielgus was allowed to address the group, he would not participate.
 
