@@ -1,6 +1,8 @@
 @import "seattletimes";
 @import "mountain";
 
+@green: #406231;
+
 body {
   p {
     @media @mobile {
@@ -99,9 +101,17 @@ body {
 
     aside.sidebar {
       float: right;
-      max-width: 200px;
+      max-width: 250px;
       margin: 0px 0px 32px 16px;
+      padding-left: 20px;
       font-family: @df-sans;
+      // border-left: 10px solid @green;
+
+      &.previousCoverage {
+        @media @mobile {
+          padding-bottom: 1px;
+        }
+      }
 
       h3 {
         margin: 10px 0 15px 0;
@@ -109,6 +119,13 @@ body {
 
         &.previously {
           padding: 0px;
+          margin-top: 0px;
+          background-color: @green;
+          padding: 10px;
+          color: white;
+          letter-spacing: .6px;
+          text-transform: uppercase;
+          font-size: 20px;
         }
       }
 
@@ -149,7 +166,7 @@ body {
         border-bottom: .5px solid;
         border-color: @df-middle-gray;
         margin-bottom: 10px;
-        padding-bottom: 5px;
+        padding-bottom: 10px;
 
         a {
           color: black;
@@ -270,17 +287,52 @@ body {
     }
 
     & > p {
-      max-width: 600px;
+      max-width: 550px;
     }
   }
 }
 
-.contact {
-  font-family: @df-sans;
-  font-size: 16px;
+.creditsBox {
+  background-color: @df-light-gray;
+  padding: 20px;
+
+  .creditsContainer {
+    .display-flex();
+    .flex-wrap(wrap);
+
+    .credits {
+      .flex(0 0 50%);
+      font-family: @df-sans;
+      font-size: 18px;
+      padding-right: 24px;
+
+      @media @mobile {
+        .flex(0 0 100%);
+        padding-right: 0px;
+        font-size: 16px;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0px;
+
+        li {
+          padding-bottom: 5px;
+        }
+      }
+    }
+
+    .subscribeContainer {
+      .flex(0 0 50%);
+      background-color: @df-off-white;
+      height: 100%;
+      padding: 25px;
+
+      @media @mobile {
+        .flex(0 0 100%);
+      }
+    }
+
+  }
 }
 
-.credits {
-  font-family: @df-sans;
-  font-size: 16px;
-}
