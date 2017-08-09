@@ -24,10 +24,15 @@
             <div class="staff">Seattle Times environment reporter</div>
           </div>
         <%= markdown.story %>
-        <%= t.include("_credits.html") %>
         </div>
       </section>
     </main>
+
+    <footer class="comments constrained">
+      <%= t.include("partials/_comments.html", { article: "designer-app-1502320605454" }) %>
+    </footer>
+
+    <%= t.include("_credits.html") %>
 
     <%= t.include("partials/_navBottom.html") %>
 
