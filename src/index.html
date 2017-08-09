@@ -8,6 +8,8 @@
 
     <%= t.include("partials/_nav.html") %>
 
+    <%= t.include("partials/_ad.html", { type: "banner" }) %>
+
     <header class="splash">
       <img src="./assets/wolfman_01_lede.jpg">
       <div class="caption"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non lacus faucibus, facilisis quam et, posuere velit. </div>
@@ -16,12 +18,19 @@
     <main class="content">
       <section class="whiteout">
         <div class="constrained">
-          <h1>A war of words about wolves</h1>
+          <h1 class="headline">A war of words about wolves</h1>
           <h2 class="deck">Outspoken WSU wolf researcher says university, lawmakers silenced and punished him</h2>
           <div class="byline">By Lynda V. Mapes
             <div class="staff">Seattle Times environment reporter</div>
           </div>
         <%= markdown.story %>
+
+        <div class="contact">Lynda V. Mapes: 206-464-2515 or lmapes@seattletimes.com</div>
+        
+        <div class="credits">
+            <b>Credit:</b> Names go here
+        </div>
+
         </div>
       </section>
     </main>
