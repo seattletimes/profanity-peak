@@ -116,7 +116,7 @@ While he has since attained tenure, Wielgus said he no longer wants to work at t
 <?
   <div class="photoContainer">
   <img src="./assets/wolfman_03_antenna.jpg">
-  <div class="caption"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non lacus faucibus, facilisis quam et, posuere velit. </div>
+  <div class="caption"> Robert Wielgus gets ready to listen for the radio collar on the sole surviving adult of the Profanity Peak pack, mostly killed off by the Washington Department of Fish and Wildlife last summer for killing ranchers’ cattle. (Steve Ringman / The Seattle Times) </div>
 </div>
 ?>
 
