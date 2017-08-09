@@ -7,6 +7,10 @@
 ?>
 
 <h2>Where cattle and the Profanity Peak pack clashed</h2>
+
+
+In 2016 ranchers turned out more than 8,600 cows and calves on 583,315 acres of the Colville National Forest. The forest is home to many of Washington’s wolf packs, yet overall, there was little conflict between cattle and wolves — except with one pack: the Profanity Peak pack. Those wolves killed five calves and a cow before the pack was killed off by the state to protect ranchers’ cattle. One ranch in particular — the Diamond M — suffered nearly all the losses after its cows and calves concentrated near the pack’s den and a salt lick. Scroll down to see how it happened. 
+
 <div class="controls">
   Running slow? Enable low detail mode:
   <div class="control-row">
@@ -20,7 +24,7 @@
     <div class="chunk">
 ?>
 
-State biologists collared wolves in the Profanity Peak pack on June 9 and 12, 2016. The Washington Department of Fish and Wildlife knew 11 ranchers’ grazing allotments overlapped the pack’s territory &mdash; not unusual or problematic in Washington, where wolves typically share the landscape with livestock without incident.
+State biologists collared wolves in the Profanity Peak pack on June 9 and 12, 2016. The Washington Department of Fish and Wildlife knew 11 grazing allotments overlapped the pack’s territory &mdash; not unusual or problematic in Washington, where wolves typically share the landscape with livestock without incident.
 
 <?
     </div>
@@ -29,7 +33,7 @@ State biologists collared wolves in the Profanity Peak pack on June 9 and 12, 20
 
 *Shown in orange: Activity of the Profanity Peak wolf pack taken from GPS collars in June 2016*
 
-The McIrvin family and Diamond M Ranch have held their grazing permits in the Colville National Forest for 73 years. But what the ranchers and department did not know was the Profanity Peak pack, burned out of its territory in the 2015 Stickpin Fire, had moved its den in 2016 into the heart of one the Diamond M allotments. 
+The McIrvin family and Diamond M Ranch have held their grazing permits in the Colville National Forest for 73 years. But what the ranchers and department did not know was the Profanity Peak pack, burned out of its territory in the 2015 Stickpin Fire, had moved its den in 2016 into the heart of one of the Diamond M allotments. 
 
 <?
     </div>
@@ -38,7 +42,9 @@ The McIrvin family and Diamond M Ranch have held their grazing permits in the Co
 
 <div class="stage" data-stage="turnout"></div>
 
-By the end of June, the department, using collar data, knew where the den site was: about 5 miles from where the Diamond M had turned out 198 cows and 198 calves on June 9. The ranchers figured out the den site location on their own at the same time, because of all the wolf howling, tracks and scat they noticed while checking on their cattle. They also were informed of the location by the department.
+By the end of June, the department, using collar data, knew where the den site was: about 5 miles from where the Diamond M had turned out its cattle June 9, and only a quarter-mile from the salt lick placed to draw them to higher ground on C.C. Mountain.
+
+The ranchers figured out the den site on their own at the same time as the department, because of all the wolf howling, tracks and scat they noticed while checking on their cattle. They also were informed of the den location by the department. 
 
 *<span class="placeholder" style="background: purple"></span> Cattle turnout point*
 
@@ -55,22 +61,22 @@ By the end of June, the department, using collar data, knew where the den site w
 
 *<span class="placeholder" style="background: red"></span> Confirmed cattle kill locations*
 
-Wolves typically range over an average territory of 349 square miles, and the Diamond M cows were soon in the heart of the Profanity Peak Pack’s core activity area.
+Wolves range over an average territory of 349 square miles, and the Diamond M cows were soon in the heart of the Profanity Peak pack’s core activity area.
 
-Before long, the wolves were killing calves anywhere from 1 to more than 10 miles from the initial turnout location and den site.
+Before long, the wolves were killing calves anywhere from 1 mile to more than 10 miles from the initial turnout location and den site.
 
 <?
     </div>
     <div class="chunk stage" data-stage="salt">
 ?>
 
-The department didn’t urge Diamond M operators to increase human presence with their cattle with range riders until after the first calf was killed July 8. While the department initially assured the public that the Diamond M was following its recommended protocol of turning out calves at least 200 pounds or larger, it later revealed that some animals were smaller.
+The department didn’t urge Diamond M operators to get more people out watching over their cattle until after the first calf was killed July 8. While the department initially assured the public that the Diamond M was following its recommended protocol of turning out calves at least 200 pounds or larger, it later revealed that some animals were smaller, so more vulnerable.
 
 *<span class="placeholder" style="background: pink"></span> Diamond M salt lick*
 
 *<span class="placeholder" style="background: yellow"></span> Profanity Peak pack den site*
 
-A range rider for the Diamond M moved the salt block Aug.  8, after being asked to by the department. But it just made the problem of cows hanging around the wolves’ territory worse, as cows milled around, looking for the salt that was supposed to be there.
+A range rider for the Diamond M moved the salt block Aug.  8, after being asked to by the department. But it just made the problem of cows hanging around the wolves’ core activity area worse. Cows milled around, looking for the salt that was supposed to be there and licking and pawing salt still in the ground.
 
 <?
     </div>
