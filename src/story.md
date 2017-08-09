@@ -51,6 +51,13 @@ Wielgus answered that the university was afraid of angering Republicans in the L
 
 In particular, Wielgus had provoked Rep. Joel Kretz, R-Wauconda, a former Mercer Island resident turned cougar hunter, elected to the Legislature to represent the 7th District in Northeastern Washington.
 
+<?
+  <div class="photoContainer">
+  <img src="./assets/Wolfman_Kretz_cougar_head.jpg">
+  <div class="caption"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </div>
+</div>
+?>
+
 Known for carrying the severed heads of cougars to public meetings — even plucking one for effect from his home freezer to sit, defrosting, on a table between himself and this reporter during an interview at his ranch — Kretz had butted heads with Wielgus from his first cougar papers that had thwarted Kretz’s efforts to increase cougar hunting in Northeastern Washington.
 
 He attacked Wielgus’ wolf research, questioning its scientific validity to WSU officials, and opposed further funding for Wielgus.
