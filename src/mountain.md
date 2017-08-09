@@ -6,7 +6,7 @@
     <div class="chunk stage" data-stage="intro">
 ?>
 
-<h2>What really happened to the Profanity Peak pack?</h2>
+<h2>What happened when the wolves and cattle arrived</h2>
 <div class="controls">
   Running slow? Enable low detail mode:
   <div class="control-row">
