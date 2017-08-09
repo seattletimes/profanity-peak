@@ -156,6 +156,7 @@ var container = $.one("section.mountain");
 
 $.one("input#low-detail").addEventListener("change", function() {
   downscaling = this.checked ? .5 : 1;
+  render();
 });
 
 var pending = false;

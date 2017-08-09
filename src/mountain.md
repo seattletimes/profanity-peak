@@ -6,7 +6,7 @@
     <div class="chunk stage" data-stage="intro">
 ?>
 
-<h2>What really happened to the Profanity Peak pack?</h2>
+<h2>Where cattle and the Profanity Peak pack clashed</h2>
 <div class="controls">
   Running slow? Enable low detail mode:
   <div class="control-row">
@@ -55,9 +55,9 @@ By the end of June, the department, using collar data, knew where the den site w
 
 *<span class="placeholder" style="background: red"></span> Confirmed cattle kill locations*
 
-Before long, the wolves were killing calves anywhere from 1 to more than 10 miles from the initial turnout location and den site.
-
 Wolves typically range over an average territory of 349 square miles, and the Diamond M cows were soon in the heart of the Profanity Peak Pack’s core activity area.
+
+Before long, the wolves were killing calves anywhere from 1 to more than 10 miles from the initial turnout location and den site.
 
 <?
     </div>
