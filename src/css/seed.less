@@ -1,6 +1,14 @@
 @import "seattletimes";
 @import "mountain";
 
+body {
+  p {
+    @media @mobile {
+      font-size: 16px;
+    }
+  }
+}
+
 .splash {
   background-color: white;
 
@@ -14,11 +22,16 @@
     max-width: 1200px;
     margin: auto;
     font-style: italic;
-    font-size: 15px;
+    font-size: 14px;
     font-family: @df-serif;
     color: @df-middle-gray;
-
     padding-top: 10px;
+
+    @media @mobile {
+      font-size: 15px;
+      padding-top: 8px;
+      padding-left: 3px;
+    }
   }
 }
 
@@ -30,13 +43,51 @@
     margin: auto;
     padding: 32px 16px;
 
+    @media @mobile {
+      padding-top: 20px;
+    }
+
     h1 {
-      margin: 0;
-      font-size: 60px;
+
+      &.headline {
+        margin: 0;
+        font-size: 80px;
+        padding-bottom: 20px;
+        text-transform: uppercase;
+        // text-align: center;
+        padding-top: 50px;
+
+        @media @tablet {
+          font-size: 70px;
+          padding: 10px;
+        }
+
+        @media @mobile {
+          font-size: 36px;
+          padding-left: 0px;
+          padding-right: 0px;
+
+        }
+      }
     }
 
     h2 {
       margin: 0;
+
+      &.deck {
+        font-weight: bold;
+        margin-bottom: 80px;
+        width: 700px;
+
+        @media @tablet {
+          margin-bottom: 0px;
+        }
+
+        @media @mobile {
+          font-size: 16px;
+          margin: 0px;padding: 0px;
+        }
+      }
     }
 
     h3 {
@@ -52,6 +103,10 @@
       h3 {
         margin: 10px 0 15px 0;
         font-size: 22px;
+
+        &.previously {
+          padding: 0px;
+        }
       }
 
       p {
@@ -63,7 +118,7 @@
         max-width: 100%;
         width: 100%;
         margin: 0px;
-        padding: 20px 0px;
+        padding: 15px 0px;
       }
 
 
@@ -130,6 +185,10 @@
         width: 400px;
         float: right;
         margin: 20px 0 20px 20px;
+
+        @media @mobile {
+          width: 100%;
+        }
       }
     }
 
@@ -141,6 +200,10 @@
         width: 400px;
         float: right;
         margin: 20px 0 20px 20px;
+
+        @media @mobile {
+          width: 100%;
+        }
       }
 
       .caption {
@@ -148,6 +211,10 @@
         font-size: 15px;
         font-family: @df-serif;
         color: @df-middle-gray;
+
+        @media @mobile {
+          font-size: 14px;
+        }
       }
 
       &.pack {
@@ -163,6 +230,14 @@
       max-width: 475px;
       float: right;
       padding-left: 40px;
+
+      @media @mobile {
+        border-bottom: .5px solid;
+        border-top: .5px solid;
+        border-color: @df-middle-gray;
+        padding: 10px 0 10px 0;
+        margin-bottom: 30px;
+      }
 
       h1 {
         font-size: 22px;
@@ -195,4 +270,14 @@
       max-width: 600px;
     }
   }
+}
+
+.contact {
+  font-family: @df-sans;
+  font-size: 16px;
+}
+
+.credits {
+  font-family: @df-sans;
+  font-size: 16px;
 }

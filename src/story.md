@@ -27,7 +27,7 @@ His wolf study [made national news](https://www.nytimes.com/2014/12/04/us/washin
 
 <?
   <div class="video-container">
-    <iframe src='//players.brightcove.net/1509317113/3a88c7ac-7308-40e7-8334-1cfe33120b22_default/index.html?videoId=5507983137001' allowfullscreen frameborder=0></iframe>
+    <iframe src='//players.brightcove.net/1509317113/3a88c7ac-7308-40e7-8334-1cfe33120b22_default/index.html?videoId=5536221060001' allowfullscreen frameborder=0></iframe>
   </div>
 ?>
 
@@ -40,14 +40,6 @@ Those legislators in turn were responding to ranchers and local officials seekin
 Jesernig, a well-connected former director of the state Department of Agriculture, and former member of the state House and Senate, agreed with Coyne, his partner at the Coyne, Jesernig lobbying firm. “That’s my assessment as well,” Jesernig wrote in an email copied to WSU Director of State Relations Chris Mulick. “ ... We are making the med school not doable.”
 
 Replied Mulick, “We’re looking a wee bit like Sonny on the causeway here,” referring to a mob hit on a character in the movie “The Godfather.” “We’re getting in our own way on the med school enough as it is.”
-
-<?
-<aside class="sidebar">
-  <h3>Interactive</h3>
-  <img src="http://placekitten.com/240/200">
-  <p>What really happened to the Profanity Peak pack? Explore an interactive map.</p>
-</aside>
-?>
 
 A magazine story prepared by a writer for the university’s magazine and news service in advance of the wolf paper was spiked, Wielgus said. Just like a news release subsequently written, but never issued, on new cougar research out of Wielgus’ lab.
 
@@ -174,5 +166,3 @@ Scientists who have worked with Wielgus said they are concerned by what they see
 “It’s not that Rob hasn’t stirred up the hornets’ nest — he can test the limits and some people think he is not very diplomatic,” said Gary Koehler, of Wenatchee, who collaborated with Wielgus on bear and cougar research before retiring from the department after 14 years. “But he is a straight shooter.
 
 “Rob is without a doubt one of the top carnivore ecologists in North America. I think Rob has been thrown under the bus.”
-
-Lynda V. Mapes: 206-464-2515 or lmapes@seattletimes.com
