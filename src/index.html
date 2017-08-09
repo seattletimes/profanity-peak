@@ -28,8 +28,10 @@
       </section>
     </main>
 
-    <footer class="comments constrained">
-      <%= t.include("partials/_comments.html", { article: "designer-app-1502320605454" }) %>
+    <footer class="comments">
+      <div class="constrained">
+        <%= t.include("partials/_comments.html", { article: "designer-app-1502320605454" }) %>
+      </div>
     </footer>
 
     <%= t.include("_credits.html") %>

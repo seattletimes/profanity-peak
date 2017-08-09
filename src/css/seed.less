@@ -65,27 +65,28 @@ body {
       width: 100%;
     }
   }
-    .caption {
-      font-style: italic;
-      font-size: 15px;
-      font-family: @df-serif;
-      color: @df-middle-gray;
-      max-width: 1205px;
-      margin: auto;
-      padding-top: 10px;
-      // padding-left: 16px;
-      // padding-right: 16px;
 
-      @media @mobile {
-        font-size: 14px;
-        width: 100%;
-      }
+  .caption {
+    font-style: italic;
+    font-size: 15px;
+    font-family: @df-serif;
+    color: @df-middle-gray;
+    max-width: 1205px;
+    margin: auto;
+    padding-top: 10px;
+    padding-left: 16px;
+    padding-right: 16px;
 
-      @media @tablet {
-        width: 100%;
-        margin-left: 2px;
-      }
+    @media @mobile {
+      font-size: 14px;
+      width: 100%;
     }
+
+    @media @tablet {
+      width: 100%;
+      margin-left: 2px;
+    }
+  }
 
   .constrained {
     max-width: 850px;
@@ -363,9 +364,13 @@ body {
 }
 
 .comments {
-  max-width: 700px;
   padding: 16px;
-  margin: auto;
+  background: white;
+
+  .constrained {
+    margin: auto;
+    max-width: 700px;
+  }
 }
 
 .creditsBox {
