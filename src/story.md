@@ -108,7 +108,7 @@ Wielgus says today that he could have been more diplomatic; his public remarks a
 
 Wolves are returning to the state on their own from Idaho and Canada, and have surged into Northeastern Washington, where most of the state’s 20 packs live. Diamond M operators had been warning the department about the Profanity pack since 2014, after three confirmed kills of its cattle by the pack. But what Diamond M ranchers and the department didn’t know as the ranchers loaded up their cattle for turnout in 2016 was the pack had moved much closer to the Diamond M’s operations on public grazing lands in the Colville National Forest.
 
-Burned out by the Stickpin fire in 2015, the wolves had moved their den from the previous year to within 5 miles of the Diamond M’s usual turnout site for the CC Mountain grazing allotment, and a quarter-mile from the salt lick put out in the same spot every year to draw cows up from lowland pastures to the mountain.
+Burned out by the Stickpin fire in 2015, the wolves had moved their den from the previous year to within 5 miles of the Diamond M’s usual turnout site for the C.C. Mountain grazing allotment, and a quarter-mile from the salt lick put out in the same spot every year to draw cows up from lowland pastures to the mountain.
 
 <?<%= markdown.mountain %>?>
 
