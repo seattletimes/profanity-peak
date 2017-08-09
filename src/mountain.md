@@ -38,7 +38,9 @@ The McIrvin family and Diamond M Ranch have held their grazing permits in the Co
 
 <div class="stage" data-stage="turnout"></div>
 
-By the end of June, the department, using collar data, knew where the den site was: about 5 miles from where the Diamond M had turned out 198 cows and 198 calves June 9. The ranchers figured out the den site location on their own at the same time as the department, because of all the wolf howling, tracks and scat they noticed while checking on their cattle. They also were informed of the location by the department.
+By the end of June, the department, using collar data, knew where the den site was: about 5 miles from where the Diamond M had turned out its cattle June 9, and only a quarter-mile from the salt lick placed to draw them to higher ground on C.C. Mountain.
+
+The ranchers figured out the den site on their own at the same time as the department, because of all the wolf howling, tracks and scat they noticed while checking on their cattle. They also were informed of the den location by the department. 
 
 *<span class="placeholder" style="background: purple"></span> Cattle turnout point*
 
