@@ -20,7 +20,7 @@
     <div class="chunk">
 ?>
 
-State biologists collared wolves in the Profanity Peak pack on June 9 and 12, 2016. The Washington Department of Fish and Wildlife knew 11 ranchers’ grazing allotments overlapped the pack’s territory &mdash; not unusual or problematic in Washington, where wolves typically share the landscape with livestock without incident.
+State biologists collared wolves in the Profanity Peak pack on June 9 and 12, 2016. The Washington Department of Fish and Wildlife knew 11 grazing allotments overlapped the pack’s territory &mdash; not unusual or problematic in Washington, where wolves typically share the landscape with livestock without incident.
 
 <?
     </div>
