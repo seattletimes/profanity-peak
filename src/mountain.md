@@ -78,7 +78,7 @@ The department didn’t urge Diamond M operators to get more people out watching
 
 *<span class="placeholder" style="background: yellow"></span> Profanity Peak pack den site*
 
-A range rider for the Diamond M moved the salt block Aug.  8, after being asked to by the department. But it just made the problem of cows hanging around the wolves’ core activity area worse. Cows milled around, looking for the salt that was supposed to be there and licking and pawing salt still in the ground.
+A range rider for the Diamond M moved the salt block Aug.  8, after being asked to by the department. But that just made the problem of cows hanging around the wolves’ core activity area worse. Cows milled around, looking for the salt that was supposed to be there and licking and pawing salt still in the ground.
 
 <?
     </div>
