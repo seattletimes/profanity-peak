@@ -282,7 +282,7 @@ body {
       .credit {
         text-align: right;
         font-size: 15px;
-        
+
       }
     }
 
@@ -296,6 +296,9 @@ body {
   background-color: @df-light-gray;
   padding: 20px;
 
+  @media @mobile {
+    padding: 10px;
+  }
   .creditsContainer {
     .display-flex();
     .flex-wrap(wrap);
@@ -327,12 +330,13 @@ body {
       background-color: @df-off-white;
       height: 100%;
       padding: 25px;
+      font-family: @df-sans;
 
       @media @mobile {
         .flex(0 0 100%);
+        padding: 20px;
       }
     }
 
   }
 }
-
