@@ -79,7 +79,7 @@ Jesernig, in an interview, recalled well the trouble wolves caused as he worked 
 
 “It’s not a great secret; it happens to any lobbyist, you have a bill you work and all of a sudden you are in trouble with leadership, same thing here,” Jerserig said. “At the end of the day the good thing about the legislative process is mostly the merits of the issue will win out on the thing you are working on, and that is what happened on the medical school.”
 
-## Outrage erupts
+### Outrage erupts
 
 Already targeted for his wolf research, Wielgus poured gas on the fire last summer.
 
@@ -87,7 +87,11 @@ As the Profanity Peak pack started killing cows and the state launched a trapper
 
 The implication that the rancher — whose livestock losses in 2012 also led to the state killing [the Wedge pack](http://www.seattletimes.com/seattle-news/state-learns-sad-lesson-with-wedge-pack-wolf-hunt/) — purposely put his animals in harm’s way to provoke the state’s ensuing kill of the Profanity Peak pack ignited a firestorm.
 
-<?<%= markdown.mountain %>?>
+<?
+    <div class="video-container side">
+    <iframe src='//players.brightcove.net/1509317113/3a88c7ac-7308-40e7-8334-1cfe33120b22_default/index.html?videoId=5507983137001' allowfullscreen frameborder=0></iframe>
+  </div>
+?>
 
 Thousands of angry emails and phone calls from wolf advocates poured into the offices of the WDFW and the Colville National Forest, [home to many ranchers’ grazing allotments](http://www.seattletimes.com/seattle-news/environment/with-their-cattle-grazing-in-washingtons-wolf-country-ranchers-work-and-worry/). Donny Martorello, the department’s wolf-policy lead, hid his wife in a motel. McIrvin’s family unplugged the phone at the ranch to escape death threats.
 
@@ -101,21 +105,13 @@ In a letter of concern written into his personnel file, Wielgus was instructed b
 
 Wielgus says today that he could have been more diplomatic; his public remarks at the time included saying “go ahead and quote me: ‘Wherever McIrvin grazes ... dead wolves follow.’ Quote me. He’ll be proud of it!”
 
-## Natural migration
+### Natural migration
 
 Wolves are returning to the state on their own from Idaho and Canada, and have surged into Northeastern Washington, where most of the state’s 20 packs live. Diamond M operators had been warning the department about the Profanity pack since 2014, after three confirmed kills of its cattle by the pack. But what Diamond M ranchers and the department didn’t know as the ranchers loaded up their cattle for turnout in 2016 was the pack had moved much closer to the Diamond M’s operations on public grazing lands in the Colville National Forest.
 
 Burned out by the Stickpin fire in 2015, the wolves had moved their den from the previous year to within 5 miles of the Diamond M’s usual turnout site for the CC Mountain grazing allotment, and a quarter-mile from the salt lick put out in the same spot every year to draw cows up from lowland pastures to the mountain.
 
-The department got radio collars on two members of the pack the second week of June, the same week the Diamond M turned out, and confirmed the den site by the end of the month.
-
-Diamond M producers discovered the den site on their own at the same time, because of abundant wolf tracks, scat and howling in the area. They were also advised of the den site by the department.
-
-The WDFW discovered the den site by collar data, which it does not share with the Diamond M because the ranch chooses not to be a participant in the department’s sensitive data-sharing program. The ranch also doesn’t accept financial compensation for its cattle kills from the state either, on principle, because it doesn’t agree with the WDFW’s wolf-management strategies.
-
-Wolves travel a territory of 349 square miles on average, and the Diamond M cows, following their usual paths through pastures of the grazing allotment into the mountains, had soon dispersed from the drop-off site and overlapped with the pack’s core activity area. By July 8, the pack killed its first calf — and kept at it, even after the WDFW responded and began killing the pack.
-
-A range rider for the Diamond M moved the salt block Aug. 8, after being asked to by the department. But it just made the problem of cows hanging around the wolves’ territory worse, as cows milled around, looking for the salt that was supposed to be there.
+<?<%= markdown.mountain %>?>
 
 The WDFW carried on most of the summer and into the fall killing wolves, eventually taking the lives of six adults and a pup in the pack. The department confirmed the pack killed five Diamond M calves and one cow from another ranch.
 
@@ -126,19 +122,13 @@ The news release disavowing his statements was never shown to him, Wielgus said,
 While he has since attained tenure, Wielgus said he no longer wants to work at the university. “They called me a liar and ruined my career.”
 
 <?
-    <div class="video-container side">
-    <iframe src='//players.brightcove.net/1509317113/3a88c7ac-7308-40e7-8334-1cfe33120b22_default/index.html?videoId=5507983137001' allowfullscreen frameborder=0></iframe>
-  </div>
-?>
-
-<?
   <div class="photoContainer">
   <img src="./assets/wolfman_03_antenna.jpg">
   <div class="caption"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non lacus faucibus, facilisis quam et, posuere velit. </div>
 </div>
 ?>
 
-## Confusing message
+### Confusing message
 
 Wielgus’ conflicts with the university would continue, after he emailed a news release reporting the latest findings from his lab to the state’s Wolf Advisory Group (WAG) and others as the group debated wolf policy for 2017.
 
@@ -160,7 +150,7 @@ By May, Schulz informed Mittelhammer he was concerned WSU might be branded with 
 
 In other emails, the university president and Mittelhammer agreed they needed to address the school’s relationship with ranchers in future faculty hires. “I feel that they need an internal champion or person that they can work with,” Schulz wrote.
 
-## “No evidence of misconduct”
+### “No evidence of misconduct”
 
 By then, WSU had cleared Wielgus of any scientific wrongdoing. On May 29, Christopher Keane, the vice president for research at WSU, wrote Kretz and Senate Majority Leader Mark Schoesler, R-Ritzville, thanking them for meeting with him in Olympia to express concern about Wielgus’ research.
 

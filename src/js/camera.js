@@ -51,6 +51,7 @@ Camera.prototype = {
   configureFOV: function() {
     var canvas = this.canvas;
     var fov = 60 + (1 - canvas.width / canvas.height) * 40;
+    if (fov < 45) fov = 45;
     mat4.perspective(this.perspective, fov * Math.PI / 180, canvas.width / canvas.height, .1, 300);
   }
 };
