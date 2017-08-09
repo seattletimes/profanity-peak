@@ -153,7 +153,7 @@ But for faculty at WSU, the message nonetheless was clear, said Donna Potts, pre
 <?
 <div class="photoContainer">
   <img src="./assets/wolfman_ender.jpg">
-  <div class="caption"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non lacus faucibus, facilisis quam et, posuere velit. </div>
+  <div class="caption"> Robert Wielgus relaxes at his wolf camp, used when trapping and collaring wolves for his work studying the interactions of cattle and wolves. His studies have found most wolves don’t attack livestock and that killing wolves to protect cattle and sheep can be counterproductive, leading to more mayhem by socially destabilized wolf packs. (Steve Ringman / The Seattle Times) </div>
 </div>
 ?>
 
