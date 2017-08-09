@@ -7,6 +7,10 @@
 ?>
 
 <h2>Where cattle and the Profanity Peak pack clashed</h2>
+
+
+In 2016 ranchers turned out more than 8,600 cows and calves on 583,315 acres of the Colville National Forest. The forest is home to many of Washington’s wolf packs, yet overall, there was little conflict between cattle and wolves — except with one pack: the Profanity Peak pack. Those wolves killed five calves and a cow before the pack was killed off by the state to protect ranchers’ cattle. One ranch in particular — the Diamond M — suffered nearly all the losses after its cows and calves concentrated near the pack’s den and a salt lick. Scroll down to see how it happened. 
+
 <div class="controls">
   Running slow? Enable low detail mode:
   <div class="control-row">
