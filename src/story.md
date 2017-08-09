@@ -9,7 +9,7 @@ Wielgus now finds himself crosswise with ranchers, lawmakers and WSU administrat
 <?
 <div class="photoContainer side">
   <img src="./assets/wolfman_2_Profanity_Peak_Pack.jpg">
-  <div class="caption"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non lacus faucibus, facilisis quam et, posuere velit. </div>
+  <div class="caption"> A motion-triggered wildlife camera near the den and rendezvous site of the Profanity Peak pack captures pack members on camera July 30, 2016. The state Department of Fish and Wildlife killed six adults and a pup in the pack last summer after the wolves killed cattle grazing on public land in the Colville National Forest. (Courtesy of WSU Wolf/Livestock Conflict Research program) </div>
 </div>
 ?>
 
