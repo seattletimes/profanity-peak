@@ -130,7 +130,7 @@ Wielgus had sent the release to WSU communications staff and administrators and 
 
 <? <%= t.include("./previously.html")%> ?>
 
-In an email to Mulick, the WSU state relations director, Tom Davis of the Washington Farm Bureau objected that Wielgus was sending out a press release about his publicly funded research findings but labeling them his personal opinion. He also said he wouldn’t attend the meeting if Wielgus was allowed to speak.
+In an email to Mulick, the WSU state relations director, Tom Davis, of the Washington Farm Bureau and a WAG member, objected that Wielgus was sending out a press release about his publicly funded research findings but labeling them his personal opinion. He also said he wouldn’t attend the meeting if Wielgus was allowed to speak.
 
 Mittelhammer went into response mode, personally meeting with Kretz and other lawmakers, then attending the advisory group meeting with several WSU officials. He followed up with a letter to lawmakers on April 12 reassuring them “while an irritant, the deliberations of the WAG were fortunately not significantly affected by Dr. Wielgus’ attempt to influence the group’s deliberations through the dissemination of his so-called “press release” document.
 
