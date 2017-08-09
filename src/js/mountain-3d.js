@@ -264,12 +264,6 @@ var render = function(time) {
 
 };
 
-var fpsCounter = document.createElement("div");
-document.body.appendChild(fpsCounter);
-fpsCounter.style.position = "fixed";
-fpsCounter.style.top = 0;
-fpsCounter.style.right = 0;
-
 var drawModel = function(mesh) {
 
   for (var k in mesh.attributes) {
