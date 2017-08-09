@@ -62,7 +62,7 @@ But he wasn’t.
 Knocked off the grant, Wielgus lost his summer salary for two years — during the peak season for wolf research — and his travel budget.
 
 <?
-<%= t.include("graphic.html") %>
+<%= t.include("_graphic.html") %>
 ?>
 
 In the end, [money got tucked in for the medical school](https://spokane.wsu.edu/extra/2015/06/30/we-did-it-wsu-medical-school-funding-approved/), in the same budget that sidestepped the funding for Wielgus. The school will begin its first classes this fall.
@@ -128,7 +128,7 @@ Wolf kills of livestock were exceedingly rare, [Wielgus reported](https://inthes
 
 Wielgus had sent the release to WSU communications staff and administrators and received preapproval by Mittelhammer before putting it out as his personal opinion and not on behalf of the university, as they requested. But that strategy, intended to create distance between Wielgus and WSU, just created confusion.
 
-<? <%= t.include("./previously.html")%> ?>
+<? <%= t.include("_previously.html")%> ?>
 
 In an email to Mulick, the WSU state relations director, Tom Davis, of the Washington Farm Bureau and a WAG member, objected that Wielgus was sending out a press release about his publicly funded research findings but labeling them his personal opinion. He also said he wouldn’t attend the meeting if Wielgus was allowed to speak.
 
