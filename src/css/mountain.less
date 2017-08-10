@@ -68,11 +68,22 @@ section.mountain {
       margin-bottom: 100vh;
     }
 
-    .placeholder {
-      width: 16px;
-      height: 16px;
-      border-radius: 100%;
-      display: inline-block;
+    ul {
+      list-style-type: none;
+      margin: 16px 0 16px 0;
+      padding: 0;
+      text-style: italic;
+      font-family: @df-sans;
+    }
+
+    .icon {
+      width: 32px;
+      vertical-align: middle;
+      margin-right: 8px;
+
+      @media @mobile {
+        width: 48px;
+      }
     }
   }
 

@@ -21,10 +21,10 @@ void main() {
   vec2 coord = (gl_PointCoord.xy - 0.5) * 2.0;
   float r = distance(coord, vec2(0.0));
   float circle = smoothstep(0.9, 0.8, r);
-  if (circle == 0.0) discard;
-  vec3 color = texture2D(u_sampler, gl_PointCoord.xy).rgb;
+  vec4 color = texture2D(u_sampler, gl_PointCoord.xy);
+  if (color.a == 0.0) discard;
   float fog = 1.0 - smoothstep(u_fog_distance, u_fog_distance + u_fog_depth, v_screenspace.z);
-  vec3 fogged = mix(vec3(1.0), color, fog);
-  gl_FragColor = vec4(fogged, u_alpha);
+  vec4 fogged = mix(vec4(1.0), color, fog);
+  gl_FragColor = vec4(fogged.rgb, u_alpha * fogged.a);
 
 }

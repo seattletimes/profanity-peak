@@ -47,11 +47,9 @@ By the end of June, the department, using collar data, knew where the den site w
 
 The ranchers figured out the den site on their own at the same time as the department, because of all the wolf howling, tracks and scat they noticed while checking on their cattle. They also were informed of the den location by the department. 
 
-*<span class="placeholder" style="background: purple"></span> Cattle turnout point*
-
-*<span class="placeholder" style="background: pink"></span> Diamond M salt lick*
-
-*<span class="placeholder" style="background: yellow"></span> Profanity Peak pack den site*
+* <img class="icon" src="./assets/icons/turnout.png"> Cattle turnout point
+* <img class="icon" src="./assets/icons/salt.png"> Diamond M salt lick
+* <img class="icon" src="./assets/icons/wolves.png"> Profanity Peak pack den site
 
 <?
     </div>
@@ -60,11 +58,13 @@ The ranchers figured out the den site on their own at the same time as the depar
 
 <div class="stage" data-stage="kills"></div>
 
-*<span class="placeholder" style="background: red"></span> Confirmed cattle kill locations*
-
 Wolves range over an average territory of 349 square miles, and the Diamond M cows were soon in the heart of the Profanity Peak pack’s core activity area.
 
 Before long, the wolves were killing calves anywhere from 1 mile to more than 10 miles from the initial turnout location and den site.
+
+* <img class="icon" src="./assets/icons/skull.png"> Confirmed kill
+* <img class="icon" src="./assets/icons/blue-skull.png"> Probably kill
+* <img class="icon" src="./assets/icons/injured.png"> Confirmed injury
 
 <?
     </div>
@@ -73,11 +73,10 @@ Before long, the wolves were killing calves anywhere from 1 mile to more than 10
 
 The department didn’t urge Diamond M operators to get more people out watching over their cattle until after the first calf was killed July 8. While the department initially assured the public that the Diamond M was following its recommended protocol of turning out calves at least 200 pounds or larger, it later revealed that some animals were smaller, so more vulnerable.
 
-*<span class="placeholder" style="background: pink"></span> Diamond M salt lick*
-
-*<span class="placeholder" style="background: yellow"></span> Profanity Peak pack den site*
-
 A range rider for the Diamond M moved the salt block Aug. 8 after being asked to by the department. But that just made the problem of cows hanging around the wolves’ core activity area worse. Cows milled around, looking for the salt that was supposed to be there and licking and pawing salt still in the ground.
+
+* <img class="icon" src="./assets/icons/salt.png"> Diamond M salt lick
+* <img class="icon" src="./assets/icons/wolves.png"> Profanity Peak pack den site
 
 <?
     </div>

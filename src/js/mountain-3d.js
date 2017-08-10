@@ -128,11 +128,13 @@ var landscape = new ElementMesh(gl);
 var kills = [];
 var meshes = [landscape];
 var textures = {
-  grumpy: loadTexture(gl, "./assets/grump.jpg"),
-  red: loadTexture(gl, "./assets/placeholders/red.png"),
   yellow: loadTexture(gl, "./assets/placeholders/yellow.png"),
   purple: loadTexture(gl, "./assets/placeholders/purple.png"),
-  pink: loadTexture(gl, "./assets/placeholders/pink.png")
+  salt: loadTexture(gl, "./assets/icons/salt.png"),
+  skull: loadTexture(gl, "./assets/icons/skull.png"),
+  skullPaw: loadTexture(gl, "./assets/icons/skull-paw.png"),
+  blueSkull: loadTexture(gl, "./assets/icons/blue-skull.png"),
+  injured: loadTexture(gl, "./assets/icons/injured.png")
 };
 
 camera.target = [landscape.position.x, landscape.position.y + 10, landscape.position.z];
@@ -239,20 +241,20 @@ var render = function(time) {
 
   if (sceneState.salt) {
     gl.uniform1f(pointProgram.uniforms.u_alpha, sceneState.salt);
-    textures.pink.activate(pointProgram);
+    textures.salt.activate(pointProgram);
     drawPoints(locations.salt);
   }
   
   if (sceneState.kills) {
     gl.uniform1f(pointProgram.uniforms.u_alpha, sceneState.kills);
     // killed, definitely wolf
-    textures.red.activate(pointProgram);
+    textures.skull.activate(pointProgram);
     drawPoints(locations.wolfKills);
     // killed, unconfirmed animal
-    textures.red.activate(pointProgram);
+    textures.blueSkull.activate(pointProgram);
     drawPoints(locations.unconfirmedKills);
     // attacked, definitely wolf
-    textures.red.activate(pointProgram);
+    textures.injured.activate(pointProgram);
     drawPoints(locations.wolfAttacks);
     // attacked, unconfirmed animal
     // NOTE: doesn't exist?
