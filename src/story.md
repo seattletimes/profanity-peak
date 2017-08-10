@@ -195,15 +195,15 @@ Mittelhammer went into response mode, personally meeting with Kretz and other la
 
 He assured the lawmakers he had sent Wielgus a second “memo of concern,” and promised to follow up with investigations of whether Wielgus had broken state law by illegal lobbying and sending the press release on his state email account. He also promised an internal review of Wielgus’ 2014 wolf paper.
 
-By May, Schulz informed Mittelhammer he was concerned WSU might be branded with an “anti-ranching sentiment.”
+By May, WSU President Kirk Schulz informed Mittelhammer he was concerned WSU might be branded with an “anti-ranching sentiment.”
 
 In other emails, the university president and Mittelhammer agreed they needed to address the school’s relationship with ranchers in future faculty hires. “I feel that they need an internal champion or person that they can work with,” Schulz wrote.
 
-### “No evidence of misconduct”
+### “No evidence of research misconduct”
 
 By then, WSU had cleared Wielgus of any scientific wrongdoing. On May 29, Christopher Keane, the vice president for research at WSU, wrote Kretz and Senate Majority Leader Mark Schoesler, R-Ritzville, thanking them for meeting with him in Olympia to express concern about Wielgus’ research.
 
-However, the result of the subsequent independent review completed by a WSU statistician was clear: “There is no evidence of misconduct in this matter,” Keane wrote.
+However, the result of the subsequent independent review completed by a WSU statistician was clear: “There is no evidence of research misconduct in this matter,” Keane wrote.
 
 But for faculty at WSU, the message nonetheless was clear, said Donna Potts, president of the local chapter of the American Association of University Professors (AAUP), the nation’s oldest and largest advocacy group for academic freedom. “It was very disturbing; I had never seen anything like it,” Potts, a member of the English department, said of WSU’s treatment of a senior faculty member.
 
