@@ -1,5 +1,5 @@
 <?
-<aside class="sidebar teaser">
+<aside class="sidebar teaser desktop-only">
   <h3>Interactive</h3>
   <img src="http://placekitten.com/240/150">
   <p>What really happened to the Profanity Peak pack? Explore an interactive map.</p>
@@ -11,6 +11,14 @@ By a slow slide of river deep in Washington’s wolf country, Robert Wielgus lau
 “I would rather face charging grizzly bears trying to kill me than politicians and university administrators, because it is over quickly,” said Wielgus, director of the Large Carnivore Conservation Lab at Washington State University.
 
 A Harley-riding, self-described adrenaline junkie at home in black motorcycle leathers with a Stetson and a .357 in the pickup, Wielgus, 60, is no tweed-jacket academic. For decades he has traveled North America wrangling bears, cougars and wolves to collar and study their behavior, including collaborations with the Washington Department of Fish and Wildlife (WDFW).
+
+<?
+<aside class="sidebar teaser mobile-only">
+  <h3>Interactive</h3>
+  <img src="http://placekitten.com/240/150">
+  <p>What really happened to the Profanity Peak pack? Explore an interactive map.</p>
+</aside>
+?>
 
 Wielgus now finds himself crosswise with ranchers, lawmakers and WSU administrators — and their lobbyists. He’s lost grant funding for his summer research, has been forbidden from talking to media in his professional role and has been reviewed — and cleared — for scientific misconduct.
 
@@ -131,12 +139,18 @@ Wielgus says today that he could have been more diplomatic; his public remarks a
 Wolves are returning to the state on their own from Idaho and Canada, and have surged into Northeastern Washington, where most of the state’s 20 packs live. Diamond M operators had been warning the department about the Profanity pack since 2014, after three confirmed kills of its cattle by the pack. But what Diamond M ranchers and the department didn’t know as the ranchers loaded up their cattle for turnout in 2016 was the pack had moved much closer to the Diamond M’s operations on public grazing lands in the Colville National Forest.
 
 <?
-<div class="photoContainer side">
+<div class="photoContainer side desktop-only">
   <img src="http://placekitten.com/400/150">
 </div>
 ?>
 
 Burned out by the Stickpin fire in 2015, the wolves had moved their den from the previous year to within 5 miles of the Diamond M’s usual turnout site for the CC Mountain grazing allotment, and a quarter-mile from the salt lick put out in the same spot every year to draw cows up from lowland pastures to the mountain.
+
+<?
+<div class="photoContainer side mobile-only">
+  <img src="http://placekitten.com/400/150">
+</div>
+?>
 
 <?<%= markdown.mountain %>?>
 

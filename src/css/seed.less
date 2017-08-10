@@ -77,14 +77,15 @@ body {
     padding-left: 16px;
     padding-right: 16px;
 
-    @media @mobile {
-      font-size: 14px;
-      width: 100%;
-    }
+      @media @mobile {
+        font-size: 14px;
+        width: 100%;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
 
     @media @tablet {
       width: 100%;
-      margin-left: 2px;
     }
   }
 
@@ -108,7 +109,7 @@ body {
         padding-top: 40px;
 
         @media @tablet {
-          font-size: 70px;
+          font-size: 65px;
           padding: 10px;
         }
 
@@ -161,8 +162,8 @@ body {
       // border-left: 10px solid @green;
 
       &.teaser {
-        @media @mobile {
-          display: none;
+        h3 {
+          padding-top: 0;
         }
       }
 
@@ -423,5 +424,21 @@ body {
       }
     }
 
+  }
+}
+
+.desktop-only {
+  display: block;
+
+  @media @mobile {
+    display: none;
+  }
+}
+
+.mobile-only {
+  display: none;
+
+  @media @mobile {
+    display: block;
   }
 }
