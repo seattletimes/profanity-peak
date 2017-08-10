@@ -21,5 +21,5 @@ void main() {
   v_normal = normalize(a_normal);
   v_screenspace = u_perspective * u_camera * u_position * vec4(a_position, 1.0);
   gl_Position = v_screenspace;
-  gl_PointSize = min((u_resolution.x / 100.0) / (v_screenspace.z / 100.0), u_resolution.x / 4.0);
+  gl_PointSize = min((u_resolution.x / 100.0) / (v_screenspace.z / 100.0), u_resolution.x / 6.0);
 }

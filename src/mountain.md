@@ -1,6 +1,6 @@
 <?
 </div></section>
-<section class="mountain">
+<section class="mountain" id="landscape">
   <canvas class="mountain-gl"></canvas>
   <div class="constrained">
     <div class="chunk stage" data-stage="intro">
@@ -32,9 +32,9 @@ State biologists collared wolves in the Profanity Peak pack on June 9 and 12, 20
     <div class="chunk stage" data-stage="heatmap">
 ?>
 
-*Shown in orange: Activity of the Profanity Peak wolf pack taken from GPS collars in June 2016*
-
 The McIrvin family and Diamond M Ranch have held their grazing permits in the Colville National Forest for 73 years. But what the ranchers and department did not know was the Profanity Peak pack, burned out of its territory in the 2015 Stickpin Fire, had moved its den in 2016 into the heart of one of the Diamond M allotments. 
+
+*Shown in orange: Activity of the Profanity Peak wolf pack taken from GPS collars in June 2016*
 
 <?
     </div>

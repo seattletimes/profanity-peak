@@ -128,13 +128,13 @@ var landscape = new ElementMesh(gl);
 var kills = [];
 var meshes = [landscape];
 var textures = {
-  yellow: loadTexture(gl, "./assets/placeholders/yellow.png"),
-  purple: loadTexture(gl, "./assets/placeholders/purple.png"),
   salt: loadTexture(gl, "./assets/icons/salt.png"),
   skull: loadTexture(gl, "./assets/icons/skull.png"),
   skullPaw: loadTexture(gl, "./assets/icons/skull-paw.png"),
   blueSkull: loadTexture(gl, "./assets/icons/blue-skull.png"),
-  injured: loadTexture(gl, "./assets/icons/injured.png")
+  injured: loadTexture(gl, "./assets/icons/injured.png"),
+  wolves: loadTexture(gl, "./assets/icons/wolves.png"),
+  turnout: loadTexture(gl, "./assets/icons/turnout.png")
 };
 
 camera.target = [landscape.position.x, landscape.position.y + 10, landscape.position.z];
@@ -229,13 +229,13 @@ var render = function(time) {
   //various map POI
   if (sceneState.turnout) {
     gl.uniform1f(pointProgram.uniforms.u_alpha, sceneState.turnout);
-    textures.purple.activate(pointProgram);
+    textures.turnout.activate(pointProgram);
     drawPoints(locations.unloading);
   }
 
   if (sceneState.den) {
     gl.uniform1f(pointProgram.uniforms.u_alpha, sceneState.den);
-    textures.yellow.activate(pointProgram);
+    textures.wolves.activate(pointProgram);
     drawPoints(locations.den);
   }
 

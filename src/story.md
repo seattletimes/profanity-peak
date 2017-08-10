@@ -1,8 +1,10 @@
 <?
 <aside class="sidebar teaser desktop-only">
   <h3>Interactive</h3>
-  <img src="http://placekitten.com/240/150">
-  <p>What really happened to the Profanity Peak pack? Explore an interactive map.</p>
+  <a href="#landscape">
+    <img src="./assets/interactive-teaser.jpg">
+    <p>What really happened to the Profanity Peak pack? Explore an interactive map.</p>
+  </a>
 </aside>
 ?>
 
@@ -15,8 +17,10 @@ A Harley-riding, self-described adrenaline junkie at home in black motorcycle le
 <?
 <aside class="sidebar teaser mobile-only">
   <h3>Interactive</h3>
-  <img src="http://placekitten.com/240/150">
-  <p>What really happened to the Profanity Peak pack? Explore an interactive map.</p>
+  <a href="#landscape">
+    <img src="./assets/interactive-teaser.jpg">
+    <p>What really happened to the Profanity Peak pack? Explore an interactive map.</p>
+  </a>
 </aside>
 ?>
 
