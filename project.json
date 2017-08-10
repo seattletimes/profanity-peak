@@ -11,10 +11,10 @@
   },
   "title": "Outspoken WSU wolf researcher says university, lawmakers silenced and punished him",
   "description": "A WSU researcher ignited controversy when he claimed a Washington rancher chose to put his cattle near a wolf den.",
-  "url": "",
+  "url": "http://projects.seattletimes.com/2017/wsu-wolf-researcher-wielgus/",
   "image": "assets/wolfman_01_lede.jpg",
   "sheets": ["1aqH9JF43oe4M08DKsei7bB6jTsUJQHgw_0Q-Zk_KRk8"],
   "standout": false,
-  "embedded": true,
-  "production": false
+  "embedded": false,
+  "production": true
 }

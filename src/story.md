@@ -140,7 +140,7 @@ Wolves are returning to the state on their own from Idaho and Canada, and have s
 
 <?
 <div class="photoContainer side desktop-only">
-  <img src="http://placekitten.com/400/150">
+  <img src="./assets/WEB-profanity-peak-map.jpg">
 </div>
 ?>
 
@@ -148,7 +148,7 @@ Burned out by the Stickpin fire in 2015, the wolves had moved their den from the
 
 <?
 <div class="photoContainer side mobile-only">
-  <img src="http://placekitten.com/400/150">
+  <img src="./assets/WEB-profanity-peak-map.jpg">
 </div>
 ?>
 
