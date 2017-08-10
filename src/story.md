@@ -31,13 +31,13 @@ To understand why involves a look at state policy concerning a menagerie of anim
 <?
 <div class="photoContainer side">
   <img src="./assets/wolfman_2_Profanity_Peak_Pack.jpg">
-  <div class="caption"> A motion-triggered wildlife camera near the den and rendezvous site of the Profanity Peak wolf pack captures members on camera July 30, 2016. The state Department of Fish and Wildlife killed six adults and a pup in the pack last summer after the wolves killed cattle grazing on public land in the Colville National Forest. (Courtesy of WSU Wolf/Livestock Conflict Research program) </div>
+  <div class="caption">A motion-triggered wildlife camera captures an image of members of the Profanity Peak pack July 30, 2016. The state Department of Fish and Wildlife killed six adults and a pup in the pack last summer. (Courtesy of WSU Wolf/Livestock Conflict Research program) </div>
 </div>
 ?>
 
 In Washington, it turns out, wolves and livestock are getting along better than the people who manage and study them.
 
-Public Employees for Environmental Responsibility (PEER), a national nonprofit specializing in government scientist whistleblower protection, in April [filed a 12-page complaint](https://www.peer.org/news/press-clips/researcher-files-complaint-against-wsu.html)against WSU officials, alleging the university punished and silenced Wielgus to placate ranchers and state legislators who objected to his research. WSU officials declined to comment for this story, citing possible litigation.
+Public Employees for Environmental Responsibility (PEER), a national nonprofit specializing in government scientist whistleblower protection, in April [filed a 12-page complaint](https://www.peer.org/news/press-clips/researcher-files-complaint-against-wsu.html) against WSU officials, alleging the university punished and silenced Wielgus to placate ranchers and state legislators who objected to his research. WSU officials declined to comment for this story, citing possible litigation.
 
 The conflict started back in 2002, when Wielgus began publishing a series of influential papers that called into [question the practice of hunting cougars to reduce livestock losses.](http://www.seattletimes.com/seattle-news/is-cougar-hunting-breeding-chaos/) His research led to a reversal by Gov. Jay Inslee in October 2015 of Fish and Wildlife Commission [policy that would have allowed more hunting](http://www.seattletimes.com/seattle-news/environment/as-wolves-settle-in-the-states-cougars-to-pay-price/).
 
@@ -87,7 +87,7 @@ In particular, Wielgus had provoked Rep. Joel Kretz, R-Wauconda, a former Mercer
     </div>
   </div>
   <div class="caption">
-    Left: Rancher Joel Kretz displays a dead cougar head on a table in his home while talking to a reporter. Kretz said cougars were killing and maiming his livestock and that ranchers like him needed more liberal hunting laws to fight back. Right: Rancher Joel Kretz is photographed in 2001 at his ranch with his rifle. His conflict with Robert Wielgus started with Wielgus' research that helped overturn state policy Kretz supported to up the hunt on cougars. Kretz was elected to the Legislature in 2004.(Kevin German / The Seattle Times)
+    Rancher Joel Kretz, photographed at his ranch in 2001, displays a dead cougar head on a table while talking to a reporter. Kretz, also shown with his rifle, said cougars were hurting his livestock and that ranchers needed more liberal hunting laws to fight back. He was elected to the Legislature in 2004.(Kevin German / The Seattle Times)
   </div>
   <div class="constrained">
 ?>
@@ -100,11 +100,11 @@ Hans Dunshee, a former Snohomish Democrat and top budget writer, confirmed he cu
 
 But he wasn’t.
 
-Knocked off the grant, Wielgus lost his summer salary for two years — during the peak season for wolf research — and his travel budget.
-
 <?
 <%= t.include("_graphic.html") %>
 ?>
+
+Knocked off the grant, Wielgus lost his summer salary for two years — during the peak season for wolf research — and his travel budget.
 
 In the end, [money got tucked in for the medical school](https://spokane.wsu.edu/extra/2015/06/30/we-did-it-wsu-medical-school-funding-approved/), in the same budget that sidestepped the funding for Wielgus. The school will begin its first classes this fall.
 
@@ -120,11 +120,7 @@ As the Profanity Peak pack started killing cows and the state launched a trapper
 
 The implication that the rancher — whose livestock losses in 2012 also led to the state killing [the Wedge pack](http://www.seattletimes.com/seattle-news/state-learns-sad-lesson-with-wedge-pack-wolf-hunt/) — purposely put his animals in harm’s way to provoke the state’s ensuing kill of the Profanity Peak pack ignited a firestorm.
 
-<?
-    <div class="video-container side">
-    <iframe src='//players.brightcove.net/1509317113/3a88c7ac-7308-40e7-8334-1cfe33120b22_default/index.html?videoId=5507983137001' allowfullscreen frameborder=0></iframe>
-  </div>
-?>
+<? <%= t.include("_previously.html")%> ?>
 
 Thousands of angry emails and phone calls from wolf advocates poured into the offices of the WDFW and the Colville National Forest, [home to many ranchers’ grazing allotments](http://www.seattletimes.com/seattle-news/environment/with-their-cattle-grazing-in-washingtons-wolf-country-ranchers-work-and-worry/). Donny Martorello, the department’s wolf-policy lead, hid his wife in a motel. McIrvin’s family unplugged the phone at the ranch to escape death threats.
 
@@ -181,7 +177,9 @@ Wolf kills of livestock were exceedingly rare, [Wielgus reported](https://inthes
 
 Wielgus had sent the release to WSU communications staff and administrators and received preapproval by Mittelhammer before putting it out as his personal opinion and not on behalf of the university, as they requested. But that strategy, intended to create distance between Wielgus and WSU, just created confusion.
 
-<? <%= t.include("_previously.html")%> ?>
+<?
+<%= t.include("partials/_ad.html", { type: "square" })%>
+?>
 
 In an email to Mulick, the WSU state relations director, Tom Davis, of the Washington Farm Bureau and a WAG member, objected that Wielgus was sending out a press release about his publicly funded research findings but labeling them his personal opinion. He also said he wouldn’t attend the meeting if Wielgus was allowed to speak.
 

@@ -63,7 +63,7 @@ Wolves range over an average territory of 349 square miles, and the Diamond M co
 Before long, the wolves were killing calves anywhere from 1 mile to more than 10 miles from the initial turnout location and den site.
 
 * <img class="icon" src="./assets/icons/skull.png"> Confirmed kill
-* <img class="icon" src="./assets/icons/blue-skull.png"> Probably kill
+* <img class="icon" src="./assets/icons/blue-skull.png"> Probable kill
 * <img class="icon" src="./assets/icons/injured.png"> Confirmed injury
 
 <?

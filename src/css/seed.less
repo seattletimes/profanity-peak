@@ -14,6 +14,51 @@ body {
 .splash {
   background-color: white;
 
+h1 {
+
+      &.headline {
+        margin: 0;
+        font-size: 80px;
+        padding-top: 20px;
+        text-align: center;
+
+        @media @tablet {
+          font-size: 65px;
+          padding: 10px;
+        }
+
+        @media @mobile {
+          font-size: 35px;
+          padding-left: 0px;
+          padding-right: 0px;
+
+        }
+      }
+    }
+
+    h2 {
+      margin: 0;
+
+      &.deck {
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 20px;
+        text-align: center;
+
+        @media @tablet {
+          margin-bottom: 0px;
+          width: 100%;
+        }
+
+        @media @mobile {
+          font-size: 16px;
+          margin: 0px;
+          width: 100%;
+          padding: 0px;
+        }
+      }
+    }
+
   img {
     display:  block;
     width: 1200px;
@@ -28,11 +73,16 @@ body {
     font-family: @df-serif;
     color: @df-middle-gray;
     padding-top: 10px;
-    padding-left: 16px;
-    padding-right: 16px;
+
+    @media @tablet {
+      padding-left: 16px;
+      padding-right: 16px;     
+    }
 
     @media @mobile {
       font-size: 15px;
+      padding-left: 16px;
+      padding-right: 16px;
     }
   }
 }
@@ -98,15 +148,23 @@ body {
       padding-top: 20px;
     }
 
+    &:first-child > aside.teaser.desktop-only + p:first-letter {
+      float: left;
+      font-size: 450%;
+      margin: -2px 4px -2px;
+      font-weight: bold;
+      line-height: 1;
+    }
+
     h1 {
 
       &.headline {
         margin: 0;
         font-size: 80px;
-        padding-bottom: 20px;
+        // padding-bottom: 20px;
         // text-transform: uppercase;
         // text-align: center;
-        padding-top: 40px;
+        padding-top: 20px;
 
         @media @tablet {
           font-size: 65px;
@@ -128,7 +186,7 @@ body {
       &.deck {
         font-weight: bold;
         font-size: 20px;
-        margin-bottom: 60px;
+        margin-bottom: 40px;
         // margin-right: 10%;
 
         @media @tablet {
@@ -183,6 +241,7 @@ body {
 
         &.previously {
           padding: 0px;
+          padding-top: 5px;
           margin-top: 0px;
           // letter-spacing: .6px;
           text-transform: uppercase;
@@ -302,6 +361,7 @@ body {
         color: @df-middle-gray;
         padding-left: 0px;
         padding-right: 0px;
+        padding-top: 0px;
 
 
         @media @mobile {
