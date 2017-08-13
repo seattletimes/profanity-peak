@@ -47,7 +47,7 @@ His wolf study [made national news](https://www.nytimes.com/2014/12/04/us/washin
 
 <?
   <div class="video-container">
-    <iframe src='//players.brightcove.net/1509317113/3a88c7ac-7308-40e7-8334-1cfe33120b22_default/index.html?videoId=5536221060001' allowfullscreen frameborder=0></iframe>
+    <iframe src='//players.brightcove.net/1509317113/SJYutZObNZ_default/index.html?videoId=5536221060001' allowfullscreen frameborder=0></iframe>
   </div>
 ?>
 
