@@ -39,7 +39,7 @@ void main() {
   float grain = noise(v_screenspace.xy) * 0.2 + 0.9;
 
   // coloring
-  vec3 pixel = mix(valley, peak, smoothstep(.55, .8, v_position.y));
+  vec3 pixel = mix(valley, peak, smoothstep(.45, .75, v_position.y));
   pixel = pixel * shade;
   pixel = pixel * grain;
   // heatmap mix
