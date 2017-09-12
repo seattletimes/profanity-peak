@@ -26,26 +26,27 @@ void main() {
   }
 
   // colors
-  vec3 peak = vec3(81.0, 77.0, 72.0) / 255.0;
-  vec3 valley = vec3(50.0, 68.0, 50.0) / 255.0;
+  vec3 peak = vec3(208.0, 199.0, 168.0) / 255.0;
+  vec3 valley = vec3(70.0, 101.0, 65.0) / 255.0;
   vec3 heat = vec3(0.99, 0.4, 0.1);
 
   // lighting calc
-  float shade = v_position.y;
+  float shade = 1.0 - v_position.y * .2;
   vec3 normal = normalize(v_normal);
   vec3 lightDirection = normalize(u_light_direction);
   float facing = max(dot(normal, lightDirection), 0.0);
-  vec3 diffuse = u_light_color * facing;
-  float grain = noise(v_screenspace.xy) * 0.2 + 0.9;
+  //half lambert!
+  float diffuse = facing * .5 + .5;
+  float grain = noise(v_screenspace.xy) * 0.1 + 0.9;
 
   // coloring
-  vec3 pixel = mix(valley, peak, smoothstep(.45, .75, v_position.y));
-  pixel = pixel * shade;
-  pixel = pixel * grain;
+  vec3 pixel = mix(valley, peak, smoothstep(.34, .75, v_position.y));
+  // pixel = pixel * shade;
   // heatmap mix
   pixel = mix(pixel, heat, v_color * u_false_color);
+  pixel = pixel * grain;
   // apply lighting
-  pixel = clamp(pixel + diffuse * u_light_intensity, 0.0, 1.0);
+  pixel = pixel * diffuse * u_light_color;
   // add fog
   pixel = mix(pixel, vec3(1.0), smoothstep(u_fog_distance, u_fog_distance + u_fog_depth, v_screenspace.z));
   gl_FragColor = vec4(pixel, 1.0);

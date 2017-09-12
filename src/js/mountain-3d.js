@@ -92,8 +92,8 @@ var polyProgram = configProgram(gl, {
 
 gl.useProgram(polyProgram);
 polyProgram.setUniforms({
-  u_light_direction: [.3, .3, .7],
-  u_light_color: [0.5, 0.5, 0.5],
+  u_light_direction: [.6, .3, .6],
+  u_light_color: [1.0, 1.0, 1.0],
   u_light_intensity: .7
 });
 
